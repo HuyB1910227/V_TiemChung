@@ -18,10 +18,10 @@
                         <a href="/V_TiemChung/backend/quanlycosotiem/index.php" class="nav-link">Danh sách điểm tiêm</a>
                     </li>
                     <li>
-                        <a href="" class="/V_TiemChung/backend/quanlycosotiem/index.php">Danh sách vaccin</a>
+                        <a href="/V_TiemChung/backend/quanlyvaccin/index.php" class="nav-link">Danh sách vaccin</a>
                     </li>
                     <li>
-                        <a href="" class="nav-link">Danh sách lịch sử tiêm</a>
+                        <a href="/V_TiemChung/backend/quanlylichsutiem/index.php" class="nav-link">Danh sách lịch sử tiêm</a>
                     </li>
                 </ul>
             </li>
@@ -29,10 +29,10 @@
                 <span>Quản lý đối tượng</span>
                 <ul class="list-unstyled">
                     <li class="nav-item">
-                        <a href="" class="nav-link">Danh sách tài khoản</a>
+                        <a href="/V_TiemChung/backend/quanlytaikhoan/index.php" class="nav-link">Danh sách tài khoản</a>
                     </li>
                     <li>
-                        <a href="" class="nav-link">Danh sách thông tin cá nhân</a>
+                        <a href="/V_TiemChung/backend/quanlynguoidung/index.php" class="nav-link">Danh sách người dùng</a>
                     </li>
                     
                 </ul>

@@ -15,9 +15,10 @@
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
                 <h3 class="text-info">Danh sách đăng ký tiêm vaccin</h3>
-                <div class="bg-white justify-content-sm-between p-2">
-                    <p>Tổng số lượng: 1</p>
-                    <div>
+                
+                <div class="bg-white p-2">
+                    <p class="float-left">Tổng số lượng: 1</p>
+                    <div class="float-right">
                         <button class="btn btn-warning text-white"><i class="fa-solid fa-ban"></i> Từ chối</button>
                         <button class="btn btn-primary"><i class="fa-solid fa-check"></i> Duyệt</button>
                     </div>

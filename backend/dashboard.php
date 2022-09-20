@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['btnDangNhap'])){
+        header('Location:dangnhap.php');
+    }
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +19,11 @@
 </head>
 
 <body>
+    <?php 
+
+    ?>
     <?php include_once __DIR__ . '/layouts/partials/header.php'; ?>
+    
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/layouts/partials/sidebar.php'; ?>

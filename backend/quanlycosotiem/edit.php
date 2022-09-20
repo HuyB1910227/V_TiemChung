@@ -9,11 +9,11 @@
 <?php 
 if(isset($_GET['cs_id'])!=null){
     $cs_id = $_GET['cs_id'];
-    var_dump($cs_id);
+    // var_dump($cs_id);
     include_once(__DIR__ . '/../../dbconnect.php');
     $sqlSelect = "SELECT * FROM co_so_tiem_chung WHERE cs_id = $cs_id";
     $data = mysqli_fetch_array(mysqli_query($conn, $sqlSelect), MYSQLI_ASSOC);
-    var_dump($data);
+    // var_dump($data);
 }
 
 ?>
@@ -40,12 +40,13 @@ if(isset($_GET['cs_id'])!=null){
                     <label for="txtDiaChi">Địa chỉ: </label>
                     <input type="text" name="txtDiaChi" id="txtDiaChi" required value="<?= $data['cs_diachi']?>"><br>
                     <select name="slTrangThai" id="slTrangThai">
-                        
+                        <?php if ($data['cs_trangthai'] == 0):?>
                             <option value="0" selected>Không hoạt động</option>
-                        
                             <option value="1" >Hoạt động</option>
-                        
-                        
+                        <?php else:?>
+                            <option value="0">Không hoạt động</option>
+                            <option value="1" selected>Hoạt động</option>
+                        <?php endif;?>
                         
                     </select>
                     <button name="btnSave" id="btnSave">Sửa</button>
@@ -56,7 +57,7 @@ if(isset($_GET['cs_id'])!=null){
     <?php
                 
                 if(isset($_POST['btnSave'])){
-                    var_dump($cs_id);
+                    
                     include_once(__DIR__ . '/../../dbconnect.php');
                     $maCoSo = $_POST['txtMaCoSo'];
                     $tenCoSo = $_POST['txtTenCoSo'];
@@ -73,6 +74,7 @@ if(isset($_GET['cs_id'])!=null){
 EOF;                
                     mysqli_query($conn, $sqlEdit);
                     echo '<script>location.href="/V_TiemChung/backend/quanlycosotiem/index.php"</script>';
+                    header('location:index.php');
                 }
                 ?>
 

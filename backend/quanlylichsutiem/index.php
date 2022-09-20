@@ -3,7 +3,7 @@
 
 <head>
     <?php include_once __DIR__ . '/../layouts/meta.php'; ?>
-    <title>Quản lý cơ sở tiêm</title>
+    <title>Quản lý lịch sử tiêm chủng</title>
     <?php include_once __DIR__ . '/../layouts/styles.php'; ?>
 </head>
 
@@ -13,7 +13,7 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Danh sách cơ sở tiêm chủng</h3>
+                <h3 class="text-info">Danh sách lịch sử tiêm chủng</h3>
                 <?php 
                  include_once(__DIR__ . '/../../dbconnect.php');
                  $sql = "SELECT cs_id, cs_ten, cs_diachi, cs_phuong,cs_quan, cs_tinh, cs_trangthai FROM co_so_tiem_chung;";
@@ -33,16 +33,16 @@
                 }
                 ?>
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng: <?= count($data);?></p>
+                    <p class="float-left">Tổng số lượng: 1</p>
                     <div class="float-right">
                         <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button>
                         <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a>
                     </div>
                 </div>
                 <div class="mt-2">
-                    <table class="table table-bordered bg-white table-responsive-lg">
+                    <table class="table table-bordered bg-white">
                         <tr class="bg-primary text-center text-light">
-                            <th>Chọn</th>
+                            <!-- <th>Chọn</th> -->
                             <th>STT</th>
                             <th>Tên cơ sở</th>
                             <th>Địa chỉ</th>
@@ -54,9 +54,9 @@
                         </tr>
                         <?php foreach($data as $k => $e):?>
                         <tr>
-                            <td>
+                            <!-- <td>
                                 <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $e['cs_id']?>" >
-                            </td>
+                            </td> -->
                             <td><?= ++$k?></td>
                             <td><?= $e['cs_ten']?></td>
                             <td><?= $e['cs_diachi']?></td>
@@ -104,20 +104,7 @@
                 var url = "delete.php?cs_id=" + cs_id;
                 location.href = url;
             });
-            // $('#btnXoaN').click(function(){
-            //     console.log('hi');
-            //     var a = [1,2,3,4];
-
-            //     var arr= $('.chkChonCoSo').data('cs_id');
-            //     // arr.array.forEach(element => {
-            //     //     console.log(element);
-            //     // });
-            //     if($('.chkChonCoSo').checked){
-            //         console.log('yes');
-            //     }
-            //     console.log(arr);
-            // });
-
+            
 
         });
     </script>

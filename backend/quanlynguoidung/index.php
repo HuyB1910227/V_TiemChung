@@ -3,7 +3,7 @@
 
 <head>
     <?php include_once __DIR__ . '/../layouts/meta.php'; ?>
-    <title>Quản lý cơ sở tiêm</title>
+    <title>Quản lý người dùng</title>
     <?php include_once __DIR__ . '/../layouts/styles.php'; ?>
 </head>
 
@@ -13,68 +13,80 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Danh sách cơ sở tiêm chủng</h3>
+                <h3 class="text-info">Danh sách thông tin cá nhân</h3>
                 <?php 
                  include_once(__DIR__ . '/../../dbconnect.php');
-                 $sql = "SELECT cs_id, cs_ten, cs_diachi, cs_phuong,cs_quan, cs_tinh, cs_trangthai FROM co_so_tiem_chung;";
+                 $sql = "SELECT * FROM khach_hang;";
                  $result = mysqli_query($conn, $sql);
 
                 $data = [];
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     $data[] = array(
-                        'cs_id' => $row['cs_id'],
-                        'cs_ten' => $row['cs_ten'],
-                        'cs_diachi' => $row['cs_diachi'],
-                        'cs_phuong' => $row['cs_phuong'],
-                        'cs_quan' => $row['cs_quan'], 
-                        'cs_tinh' => $row['cs_tinh'], 
-                        'cs_trangthai' => $row['cs_trangthai']
+                        'kh_id' => $row['kh_id'],
+                        'kh_hoten' => $row['kh_hoten'],
+                        'kh_cmnd' => $row['kh_cmnd'],
+                        'kh_sodienthoai' => $row['kh_sodienthoai'],
+                        'kh_ngaysinh' => $row['kh_ngaysinh'],
+                        'kh_gioitinh' => $row['kh_gioitinh'],
+                        'kh_diachi' => $row['kh_diachi'],
+                        'kh_phuong' => $row['kh_phuong'],
+                        'kh_quan' => $row['kh_quan'], 
+                        'kh_tinh' => $row['kh_tinh'], 
+                        'kh_solantiem' => $row['kh_solantiem']
                     );
                 }
                 ?>
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng: <?= count($data);?></p>
+                    <p class="float-left">Tổng số lượng: 1</p>
                     <div class="float-right">
-                        <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button>
+                        
                         <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a>
                     </div>
                 </div>
                 <div class="mt-2">
                     <table class="table table-bordered bg-white table-responsive-lg">
                         <tr class="bg-primary text-center text-light">
-                            <th>Chọn</th>
+                            
                             <th>STT</th>
-                            <th>Tên cơ sở</th>
+                            <th>Mã khách hàng</th>
+                            <th>Họ tên</th>
+                            <th>CMND/CCCD</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày sinh</th>
+                            <th>Giới tính</th>
+                            <th>Phường/Xã</th>
+                            <th>Quận/Huyện</th>
+                            <th>Tỉnh/Thành Phố</th>
                             <th>Địa chỉ</th>
-                            <th>Phường / Xã</th>
-                            <th>Quận / Huyện</th>
-                            <th>Thành phố / Tỉnh</th>
-                            <th>Trạng thái</th>
+                            <th>Số lần tiêm</th>
                             <th>Thao tác</th>
                         </tr>
                         <?php foreach($data as $k => $e):?>
                         <tr>
-                            <td>
-                                <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $e['cs_id']?>" >
-                            </td>
+                            
                             <td><?= ++$k?></td>
-                            <td><?= $e['cs_ten']?></td>
-                            <td><?= $e['cs_diachi']?></td>
-                            <td><?= $e['cs_phuong']?></td>
-                            <td><?= $e['cs_quan']?></td>
-                            <td><?= $e['cs_tinh']?></td>
-                            <?php if ($e['cs_trangthai'] == 0):?>
-                                <td><button class="btn btn-warning">Không hoạt động</button></td>
+                            <td><?= $e['kh_id']?></td>
+                            <td><?= $e['kh_hoten']?></td>
+                            <td><?= $e['kh_cmnd']?></td>
+                            <td><?= $e['kh_sodienthoai']?></td>
+                            <td><?= $e['kh_ngaysinh']?></td>
+                            <?php if ($e['kh_gioitinh'] == 0): ?>
+                                <td>Nam</td>
                             <?php else:?>
-                                <td>
-                                <button class="btn btn-success">Hoạt động</button>
-                                </td>
+                                <td>Nữ</td>
                             <?php endif;?>
+
+    
+                            <td><?= $e['kh_phuong']?></td>
+                            <td><?= $e['kh_quan']?></td>
+                            <td><?= $e['kh_tinh']?></td>
+                            <td><?= $e['kh_diachi']?></td>
+                            <td><?= $e['kh_solantiem']?></td>
+                            
                             <td>
-                                <a class="btn btn-warning" href="edit.php?cs_id=<?= $e['cs_id']?>">Sửa</a>
-                                <!-- <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button> -->
-                                <!-- <a href="delete.php?cs_id=">Xóa</a> -->
-                                <button class="btn btn-danger btnDelete" type="button" data-cs_id="<?= $e['cs_id']?>">Xóa</button>
+                                <a class="btn btn-warning" href="edit.php?cs_id=<?= $e['kh_id']?>">Sửa</a>
+                               
+                                <button class="btn btn-danger btnDelete" type="button" data-cs_id="<?= $e['kh_id']?>">Xóa</button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
