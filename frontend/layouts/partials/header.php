@@ -7,11 +7,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Trang chủ<span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/V_TiemChung/frontend/pages/trangchu.php">Trang chủ<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./dangkytiemchung.html">Đăng ký tiêm</a>
+                        <a class="nav-link" href="/V_TiemChung/frontend/pages/dangkytiemchung.php">Đăng ký tiêm</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -19,9 +19,9 @@
                             Quản lý
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="./thongtincanhan.html">Thông tin cá nhân</a>
-                            <a class="dropdown-item" href="./chungnhantiemchung.html">Chứng nhận tiêm</a>
-                            <a class="dropdown-item" href="./lichsutiemchung.html">Lịch sử tiêm chủng</a>
+                            <a class="dropdown-item" href="/V_TiemChung/frontend/pages/thongtincanhan.php">Thông tin cá nhân</a>
+                            <a class="dropdown-item" href="/V_TiemChung/frontend/pages/chungnhantiemchung.php">Chứng nhận tiêm</a>
+                            <a class="dropdown-item" href="/V_TiemChung/frontend/pages/lichsutiemchung.php">Lịch sử tiêm chủng</a>
                         </div>
                     </li>
                     <li class="nav-item">

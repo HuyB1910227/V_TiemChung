@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-6 col-md-4 col-lg-3 my-2">
                                 
-                                    <a href="" class="card text-decoration-none" style="width: 8rem; height: 10rem; background-color: #c44b14;">
+                                    <a href="/V_TiemChung/frontend/pages/dangkytiemchung.php" class="card text-decoration-none" style="width: 8rem; height: 10rem; background-color: #c44b14;">
                                         <img src="/V_TiemChung/assets/frontend/img/172813.png" class="rounded-circle mx-auto mt-4" alt="..." width="70px" height="70px" style="border: 5px solid #ff590c;">
                                         <p class="text-center p-2 text-white font-weight-bold">Đăng ký tiêm</p>
                                     </a>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="col-6 col-md-4 col-lg-3 my-2">
                                 
-                                    <a href="" class="card text-decoration-none" style="width: 8rem; height: 10rem; background-color: #66d3c8;">
+                                    <a href="/V_TiemChung/frontend/pages/lichsutiemchung.php" class="card text-decoration-none" style="width: 8rem; height: 10rem; background-color: #66d3c8;">
                                         <img src="/V_TiemChung/assets/frontend/img/TrangChu/historyV.webp" class="rounded-circle mx-auto mt-4" alt="..." width="70px" height="70px" style="border: 5px solid #a3e7e0;">
                                         <p class="text-center p-2 text-white font-weight-bold">Lịch sử tiêm</p>
                                     </a>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="col-6 col-md-4 col-lg-3 my-2">
                                 
-                                    <a href="" class="card text-decoration-none" style="width: 8rem; height: 10rem; background-color:  #00bd84;">
+                                    <a href="/V_TiemChung/frontend/pages/chungnhantiemchung.php" class="card text-decoration-none" style="width: 8rem; height: 10rem; background-color:  #00bd84;">
                                         <img src="/V_TiemChung/assets/frontend/img/TrangChu/certificateVaccination.jpg" class="rounded-circle mx-auto mt-4" alt="..." width="70px" height="70px" style="border: 5px solid #01d495;">
                                         <p class="text-center p-2 text-white font-weight-bold">Chứng nhận</p>
                                     </a>

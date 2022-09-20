@@ -11,16 +11,16 @@
             <li class="nav-item">
                 <span>Quản lý tiêm</span>
                 <ul class="list-unstyled">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a href="/V_TiemChung/backend/quanlydangkytiem/index.php" class="nav-link">Danh sách đăng ký tiêm</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlycosotiem/index.php" class="nav-link">Danh sách điểm tiêm</a>
-                    </li>
-                    <li>
+                    </li class="nav-item">
+                    <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlyvaccin/index.php" class="nav-link">Danh sách vaccin</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlylichsutiem/index.php" class="nav-link">Danh sách lịch sử tiêm</a>
                     </li>
                 </ul>
@@ -31,7 +31,7 @@
                     <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlytaikhoan/index.php" class="nav-link">Danh sách tài khoản</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlynguoidung/index.php" class="nav-link">Danh sách người dùng</a>
                     </li>
                     
