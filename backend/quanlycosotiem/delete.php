@@ -1,13 +1,17 @@
-<?php $cs_id = $_GET['cs_id'];
-// var_dump($cs_id);
-if(isset($cs_id)){
-    include_once(__DIR__ . '/../../dbconnect.php');
-    $sqlDelete = <<<EOF
-    DELETE FROM co_so_tiem_chung 
-    WHERE cs_id = $cs_id;
-EOF;
-mysqli_query($conn, $sqlDelete);
-// echo '<script>location.href="/V_TiemChung/backend/quanlycosotiem/index.php"</script>';
-header('location:index.php');
+<?php
+
+require_once '../../db_connect.php';
+
+use CT275\Labs\CoSoTiem;
+
+$coso = new CoSoTiem($PDO);
+
+if (isset($_GET['id'])&& ($coso->find($_GET['id'])) !== null) {
+   
+    $coso->delete();
+    header('Location: index.php');
+}
+else {
+    echo "oh no";
 }
 ?>

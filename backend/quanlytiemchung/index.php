@@ -44,18 +44,13 @@
                         <tr class="bg-primary text-center text-light">
                             <!-- <th>Chọn</th> -->
                             <th>STT</th>
-                            <th>Họ tên</th>
-                            <th>CMND/CCCD</th>
-                            <th>Số điện thoại</th>
+                            <th>Mã lịch hẹn</th>
+                            <th>Ngày hẹn tiêm</th>
+                            <th>Cơ sở tiêm</th>
                             <th>Địa chỉ</th>
                             <th>Phường / Xã</th>
                             <th>Quận / Huyện</th>
                             <th>Thành phố / Tỉnh</th>
-                            <th>Ngày tiêm</th>
-                            <th>Lần tiêm</th>
-                            <th>Nhân viên tiêm</th>
-                            <th>Trạng thái sau tiêm</th>
-                            <th>Cơ sở tiêm</th>
                         </tr>
                         
                     </table>

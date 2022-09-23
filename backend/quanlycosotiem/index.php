@@ -1,3 +1,14 @@
+<?php
+
+	require_once '../../db_connect.php';
+	use CT275\Labs\CoSoTiem;
+	$coso = new CoSoTiem($PDO);
+	$mangcoso = $coso->all();
+    //var_dump($mangcoso);
+	
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,29 +25,12 @@
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
                 <h3 class="text-info">Danh sách cơ sở tiêm chủng</h3>
-                <?php 
-                 include_once(__DIR__ . '/../../dbconnect.php');
-                 $sql = "SELECT cs_id, cs_ten, cs_diachi, cs_phuong,cs_quan, cs_tinh, cs_trangthai FROM co_so_tiem_chung;";
-                 $result = mysqli_query($conn, $sql);
-
-                $data = [];
-                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    $data[] = array(
-                        'cs_id' => $row['cs_id'],
-                        'cs_ten' => $row['cs_ten'],
-                        'cs_diachi' => $row['cs_diachi'],
-                        'cs_phuong' => $row['cs_phuong'],
-                        'cs_quan' => $row['cs_quan'], 
-                        'cs_tinh' => $row['cs_tinh'], 
-                        'cs_trangthai' => $row['cs_trangthai']
-                    );
-                }
-                ?>
+                
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng: <?= count($data);?></p>
+                    <p class="float-left">Tổng số lượng: <?= count($mangcoso);?></p>
                     <div class="float-right">
                         <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button>
-                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a>
+                        <a class="btn btn-primary btn-link text-light" href="<?= url('backend/quanlycosotiem/create.php') ?>">Thêm</a>
                     </div>
                 </div>
                 <div class="mt-2">
@@ -52,18 +46,18 @@
                             <th>Trạng thái</th>
                             <th>Thao tác</th>
                         </tr>
-                        <?php foreach($data as $k => $e):?>
+                        <?php foreach($mangcoso as $i => $coso):?>
                         <tr>
                             <td>
-                                <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $e['cs_id']?>" >
+                                <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $coso->layID()?>" >
                             </td>
-                            <td><?= ++$k?></td>
-                            <td><?= $e['cs_ten']?></td>
-                            <td><?= $e['cs_diachi']?></td>
-                            <td><?= $e['cs_phuong']?></td>
-                            <td><?= $e['cs_quan']?></td>
-                            <td><?= $e['cs_tinh']?></td>
-                            <?php if ($e['cs_trangthai'] == 0):?>
+                            <td><?= ++$i?></td>
+                            <td><?= $coso->ten?></td>
+                            <td><?= $coso->diachi?></td>
+                            <td><?= $coso->phuong?></td>
+                            <td><?= $coso->quan?></td>
+                            <td><?= $coso->tinh?></td>
+                            <?php if ($coso->trangthai == 0):?>
                                 <td><button class="btn btn-warning">Không hoạt động</button></td>
                             <?php else:?>
                                 <td>
@@ -71,10 +65,10 @@
                                 </td>
                             <?php endif;?>
                             <td>
-                                <a class="btn btn-warning" href="edit.php?cs_id=<?= $e['cs_id']?>">Sửa</a>
+                                <a class="btn btn-warning" href="edit.php?id=<?= $coso->layID()?>">Sửa</a>
                                 <!-- <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button> -->
                                 <!-- <a href="delete.php?cs_id=">Xóa</a> -->
-                                <button class="btn btn-danger btnDelete" type="button" data-cs_id="<?= $e['cs_id']?>">Xóa</button>
+                                <button class="btn btn-danger btnDelete" type="button" data-cs_id="<?= $coso->layID()?>">Xóa</button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -99,9 +93,11 @@
         $(document).ready(function(){
             
             $('.btnDelete').click(function(){
+                console.log('co click')
                 var cs_id = $(this).data('cs_id');
                 console.log(cs_id);
-                var url = "delete.php?cs_id=" + cs_id;
+                var url = "delete.php?id="+ cs_id;
+                
                 location.href = url;
             });
             // $('#btnXoaN').click(function(){

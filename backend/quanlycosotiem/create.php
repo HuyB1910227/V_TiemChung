@@ -1,3 +1,22 @@
+<?php
+    require_once '../../db_connect.php';
+
+    use CT275\Labs\CoSoTiem;
+
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+       
+        $coso = new CoSoTiem($PDO);
+        $coso->fill($_POST);
+        
+        $coso->save();
+        //var_dump($coso);
+        header('Location: index.php');
+       
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,25 +54,7 @@
             </div>
         </div>
     </div>
-    <?php
-                
-                if(isset($_POST['btnThem'])){
-                    include_once(__DIR__ . '/../../dbconnect.php');
-                    $tenCoSo = $_POST['txtTenCoSo'];
-                    $tinh = $_POST['txtTinh'];
-                    $quan = $_POST['txtQuan'];
-                    $phuong = $_POST['txtPhuong'];
-                    $diaChi = $_POST['txtDiaChi'];
-                    $trangThai = $_POST['slTrangThai'];
-                    // var_dump($trangThai);
-                    $sql_add = <<<EOF
-                    INSERT INTO co_so_tiem_chung ( cs_ten, cs_diachi, cs_phuong,cs_quan, cs_tinh, cs_trangthai)
-                    VALUES ('$tenCoSo', '$diaChi', '$phuong', '$quan', '$tinh',$trangThai);
-EOF;                
-                    mysqli_query($conn, $sql_add);
-                    echo '<script>location.href="/V_TiemChung/backend/quanlycosotiem/index.php"</script>';
-                }
-                ?>
+   
 
 
 

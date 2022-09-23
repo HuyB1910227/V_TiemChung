@@ -20,11 +20,11 @@
                     <p class="float-left">Tổng số lượng: 1</p>
                     <div class="float-right">
                         <button class="btn btn-warning text-white"><i class="fa-solid fa-ban"></i> Từ chối</button>
-                        <button class="btn btn-primary"><i class="fa-solid fa-check"></i> Duyệt</button>
+                        <button class="btn btn-primary"><i class="fa-solid fa-check"></i> Xác nhận</button>
                     </div>
                 </div>
                 <div class="mt-2">
-                    <table class="table table-bordered bg-white">
+                    <table class="table table-bordered bg-white table-responsive">
                         <tr class="bg-primary text-center text-light">
                             <th>Chọn</th>
                             <th>STT</th>
@@ -38,11 +38,13 @@
                             <th>Xã/Phường</th>
                             <th>Địa chỉ</th>
                             <th>Ngày đăng ký</th>
-                            <th>Trạng thái</th>
+                            <th>Lịch tiêm</th>
+                            <th>Cơ sở tiêm</th>
+                            
                             <th>Thao tác</th>
 
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>
                                 <input type="checkbox" name="" id="">
                             </td>
@@ -86,7 +88,7 @@
                                 <button class="btn btn-info"><i class="fa-solid fa-eye"></i></button>
                                 <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </table>
                 </div>
             </div>

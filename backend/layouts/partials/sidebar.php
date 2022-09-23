@@ -23,6 +23,12 @@
                     <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlylichsutiem/index.php" class="nav-link">Danh sách lịch sử tiêm</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/V_TiemChung/backend/quanlylichhentiem/index.php" class="nav-link">Danh sách lịch tiêm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/V_TiemChung/backend/quanlytiemchung/index.php" class="nav-link">Danh sách Tiêm chủng</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">
