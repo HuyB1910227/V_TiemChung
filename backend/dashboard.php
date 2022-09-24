@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['btnDangNhap'])){
-        header('Location:dangnhap.php');
-    }
+    // session_start();
+    // if(!isset($_SESSION['btnDangNhap'])){
+    //     header('Location:dangnhap.php');
+    // }
 
 ?>
 

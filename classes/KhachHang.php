@@ -4,15 +4,17 @@ namespace TC\OBS;
 use LDAP\Result;
 use PDO;
 
-class CoSoTiem{
+class KhachHang{
     private PDO $db;
     private $id = -1;
-    public $ten;
+    public $hoten, $sdt, $ngaysinh, $gioitinh;
+    public $cmnd;
     public $diachi;
     public $phuong;
     public $quan;
     public $tinh;
     public $trangthai;
+    public $solantiem;
     
     public function layId(){
         return $this->id;
@@ -24,27 +26,32 @@ class CoSoTiem{
     //fill data
     protected function fillFromDB(array $row){
 		[
-			'cs_id' => $this->id,
-			'cs_ten' => $this->ten,
-			'cs_diachi' => $this->diachi,
-			'cs_phuong' => $this->phuong,
-			'cs_quan' => $this->quan,
-            'cs_tinh' => $this->tinh,
-			'cs_trangthai' => $this->trangthai
+			'kh_id' => $this->id,
+			'kh_hoten' => $this->hoten,
+            'kh_cmnd' => $this->cmnd,
+            'kh_sodienthoai' => $this->sdt,
+            'kh_ngaysinh' => $this->ngaysinh,
+            'kh_gioitinh' => $this->gioitinh,
+			'kh_diachi' => $this->diachi,
+			'kh_phuong' => $this->phuong,
+			'kh_quan' => $this->quan,
+            'kh_tinh' => $this->tinh,
+            'kh_cmnd' => $this->solantiem
+			
 		] = $row;
 	    return $this;
 	}
     //get data
     public function all(){
-		$ArrayCoSoTiem = [];
-		$stmt = $this->db->prepare('select * from co_so_tiem_chung');
+		$ArrayKhachHang = [];
+		$stmt = $this->db->prepare('select * from khach_hang');
 		$stmt->execute();
 		while ($row = $stmt->fetch()) {
-            $CoSo = new CoSoTiem($this->db);
-            $CoSo->fillFromDB($row);
-            $ArrayCoSoTiem[] = $CoSo;
+            $khachhang = new KhachHang($this->db);
+            $khachhang->fillFromDB($row);
+            $ArrayKhachHang[] = $khachhang;
 		}
-		return $ArrayCoSoTiem;
+		return $ArrayKhachHang;
 	}
     //fill data
     public function fill(array $data)
@@ -77,29 +84,37 @@ class CoSoTiem{
     public function save(){
         $result = false;
         if ($this->id >=0){
-            $sql = $this->db->prepare('update co_so_tiem_chung 
-            set cs_ten = :ten, cs_tinh = :tinh, cs_quan = :quan, cs_phuong = :phuong, cs_diachi = :diachi, cs_trangthai = :trangthai
-            where cs_id = :id');
+            $sql = $this->db->prepare('update khach_hanh
+            set kh_hoten = :ten,kh_cmnd = :cmnd, kh_sodienthoai = :sdt, kh_ngaysinh =:ngaysinh, kh_goitinh = :gioitinh, kh_tinh = :tinh, kh_quan = :quan, kh_phuong = :phuong, kh_diachi = :diachi, kh_solantiem = :solantiem
+            where kh_id = :id');
             $result = $sql->execute([
-                'ten' => $this->ten,
+                'ten' => $this->hoten,
+                'cmnd' => $this->cmnd,
+                'sdt' => $this->sdt,
+                'ngaysinh' => $this->ngaysinh,
+                'gioitinh' => $this->gioitinh,
+                'solantiem' => $this->solantiem,
                 'tinh' => $this->tinh,
                 'quan' => $this->quan,
                 'phuong' => $this->phuong,
                 'diachi' => $this->diachi,
-                'trangthai' => $this->trangthai,
                 'id' => $this->id
             ]);
         } else {
-            $sql = $this->db->prepare('insert into co_so_tiem_chung
-            (cs_ten, cs_tinh, cs_quan, cs_phuong, cs_diachi, cs_trangthai)
-			values (:ten, :tinh, :quan, :phuong, :diachi, :trangthai)');
+            $sql = $this->db->prepare('insert into khach_hang
+            (kh_hoten, kh_cmnd, kh_sodienthoai, kh_ngaysinh, kh_goitinh, kh_tinh,kh_quan, kh_phuong, kh_diachi, kh_solantiem)
+			values (:ten,:cmnd, :sdt, :ngaysinh,:gioitinh,:tinh,:quan, :phuong,:diachi, :solantiem)');
             $result = $sql->execute([
-                'ten' => $this->ten,
+                'ten' => $this->hoten,
+                'cmnd' => $this->cmnd,
+                'sdt' => $this->sdt,
+                'ngaysinh' => $this->ngaysinh,
+                'gioitinh' => $this->gioitinh,
+                'solantiem' => $this->solantiem,
                 'tinh' => $this->tinh,
                 'quan' => $this->quan,
                 'phuong' => $this->phuong,
-                'diachi' => $this->diachi,
-                'trangthai' => $this->trangthai
+                'diachi' => $this->diachi
             ]);
             if($result){
                 $this->id = $this->db->lastInsertId();
@@ -110,7 +125,7 @@ class CoSoTiem{
     //find object
     public function find($id)
 	{
-		$sql = $this->db->prepare('select * from co_so_tiem_chung where cs_id = :id');
+		$sql = $this->db->prepare('select * from khach_hang where kh_id = :id');
 		$sql->execute(['id' => $id]);
 		if ($row = $sql->fetch()) {
 			$this->fillFromDB($row);
@@ -121,7 +136,7 @@ class CoSoTiem{
 
     public function delete()
 	{
-		$sql = $this->db->prepare('delete from co_so_tiem_chung where cs_id = :id');
+		$sql = $this->db->prepare('delete from khach_hang where kh_id = :id');
 		return $sql->execute(['id' => $this->id]);
 	}
 

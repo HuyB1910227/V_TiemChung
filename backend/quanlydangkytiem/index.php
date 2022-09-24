@@ -1,3 +1,17 @@
+<?php
+    require_once '../../db_connect.php';
+
+    use TC\OBS\PhieuDangKy;
+
+    $pdk = new PhieuDangKy($PDO);
+    $arrpdk = $pdk->all();
+
+    use TC\OBS\KhachHang;
+    $nt = new KhachHang($PDO);
+    use TC\OBS\LichHenTiem;
+    $lht = new LichHenTiem($PDO);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +29,7 @@
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
                 <h3 class="text-info">Danh sách đăng ký tiêm vaccin</h3>
-                
+
                 <div class="bg-white p-2">
                     <p class="float-left">Tổng số lượng: 1</p>
                     <div class="float-right">
@@ -40,55 +54,41 @@
                             <th>Ngày đăng ký</th>
                             <th>Lịch tiêm</th>
                             <th>Cơ sở tiêm</th>
-                            
                             <th>Thao tác</th>
 
                         </tr>
-                        <!-- <tr>
-                            <td>
-                                <input type="checkbox" name="" id="">
-                            </td>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                0987654321
-                            </td>
-                            <td>
-                                Nguyễn Văn A
-                            </td>
-                            <td>
-                                18/12/2001
-                            </td>
-                            <td>
-                                Nam
-                            </td>
-                            <td>
-                                0987654321
-                            </td>
-                            <td>
-                                Thành phố Cần Thơ
-                            </td>
-                            <td>
-                                Quận Bình Thủy
-                            </td>
-                            <td>
-                                Phường Long Tuyền
-                            </td>
-                            <td>
-                                332/41
-                            </td>
-                            <td>
-                                21/9/2021
-                            </td>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                <button class="btn btn-info"><i class="fa-solid fa-eye"></i></button>
-                                <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                            </td>
-                        </tr> -->
+                        <?php foreach($arrpdk as $i => $pdk):?>
+                            <?php 
+                                $nt = $pdk->findUser();
+                                $lht = $pdk->findVaccinationSchedule();
+                            ?>
+                            <tr>
+                                <td></td>
+                                <td><?= ++$i ?></td>
+                                <td><?= $pdk->getId()?></td>
+                                <td><?= $nt->sdt?></td>
+                                <td><?= $nt->hoten?></td>
+                                <td><?= $nt->ngaysinh?></td>
+                                <td><?php 
+                                        if($nt->gioitinh == 0){
+                                            echo "Nam";
+                                        } else if($nt->gioitinh == 1){
+                                            echo "Nữ";
+                                        } else {
+                                            echo "Khác";
+                                        }
+                                        ?>
+                                </td>
+                                <td><?= $nt->tinh?></td>
+                                <td><?= $nt->quan?></td>
+                                <td><?= $nt->phuong?></td>
+                                <td><?= $nt->diachi?></td>
+                                <td><?= $pdk->ngaydangky?></td>
+                                <td><?= $lht->ngaytiem?></td>
+                                <td><?php echo $lht->findLocation()->ten?></td>
+                                <td></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </table>
                 </div>
             </div>

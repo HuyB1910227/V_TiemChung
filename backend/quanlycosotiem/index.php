@@ -1,7 +1,7 @@
 <?php
 
 	require_once '../../db_connect.php';
-	use CT275\Labs\CoSoTiem;
+	use TC\OBS\CoSoTiem;
 	$coso = new CoSoTiem($PDO);
 	$mangcoso = $coso->all();
     //var_dump($mangcoso);
@@ -65,10 +65,15 @@
                                 </td>
                             <?php endif;?>
                             <td>
-                                <a class="btn btn-warning" href="edit.php?id=<?= $coso->layID()?>">Sửa</a>
+                                <a class="btn btn-warning text-white" href="edit.php?id=<?= $coso->layID()?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <!-- <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button> -->
                                 <!-- <a href="delete.php?cs_id=">Xóa</a> -->
-                                <button class="btn btn-danger btnDelete" type="button" data-cs_id="<?= $coso->layID()?>">Xóa</button>
+                                <!-- <button class="btn btn-danger btnDelete" type="button" data-cs_id="">Xóa</button> -->
+                                <form action="<?=url('backend/quanlycosotiem/delete.php')?>" method="POST" style="display: inline;">
+									<input type="hidden" name="id" value="<?=$coso->layId()?>">
+										<button type="submit" class="btn btn-xs btn-danger" name="delete-contact">
+									<i alt="Delete" class="fa fa-trash"></i></button>
+								</form>
                             </td>
                         </tr>
                         <?php endforeach; ?>

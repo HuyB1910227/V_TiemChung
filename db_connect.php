@@ -4,7 +4,7 @@ $ROOTURL = '/V_TiemChung/';
 require_once ROOTDIR . 'autoload.php';
 require_once ROOTDIR . 'classes/helpers.php';
 try {
-    $PDO = (new \CT275\Labs\PDOFactory())->create([
+    $PDO = (new TC\OBS\PDOFactory())->create([
         'dbhost' => 'localhost',
         'dbname' => 'db_tiem_chung',
         'dbuser' => 'root',

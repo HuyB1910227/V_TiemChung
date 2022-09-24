@@ -1,6 +1,6 @@
 <?php 
     require '../../db_connect.php';
-    use CT275\Labs\CoSoTiem;
+    use TC\OBS\CoSoTiem;
     $coso = new CoSoTiem($PDO);
     $id = isset($_REQUEST['id']) ? filter_var($_REQUEST['id'], FILTER_SANITIZE_NUMBER_INT) : -1;
     if ($id < 0 || !($coso->find($id))) {

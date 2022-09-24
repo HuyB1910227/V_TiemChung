@@ -1,7 +1,7 @@
 <?php
     require_once '../../db_connect.php';
 
-    use CT275\Labs\CoSoTiem;
+    use TC\OBS\CoSoTiem;
 
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(function ($class) {
 
-    $prefix = 'CT275\\Labs\\';
+    $prefix = 'TC\\OBS\\';
 
     $base_dir = __DIR__ . '/classes/';
     $len = strlen($prefix);
