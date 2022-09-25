@@ -43,12 +43,12 @@ class LichHenTiem{
     public function fill(array $data)
 
 	{
-		if (isset($data['dtNgayTiem'])) {
-			$this->ngaytiem = $data['dtNgayTiem'];
+		if (isset($data['dtNgayHenTiem'])) {
+			$this->ngaytiem = date($data['dtNgayHenTiem']);
 		}
 
 		if (isset($data['slCoSo'])) {
-			$this->tinh = $data['slCoSo'];
+			$this->cs_id = $data['slCoSo'];
 		}
 		return $this;
 	}
@@ -56,8 +56,8 @@ class LichHenTiem{
     public function save(){
         $result = false;
         if ($this->id >=0){
-            $sql = $this->db->prepare('update lich_hen_tiem 
-            set lht_ngaytiem =: ngaytiem, cs_id = cs_id
+            $sql = $this->db->prepare('update lich_hen_tiem
+            set lht_ngaytiem = :ngaytiem, cs_id = :cs_id
             where lht_id = :id');
             $result = $sql->execute([
                 'ngaytiem' => $this->ngaytiem,
@@ -94,7 +94,7 @@ class LichHenTiem{
     }
 
     public function delete(){
-		$sql = $this->db->prepare('delete from lich_hen_tiem where cs_id = :id');
+		$sql = $this->db->prepare('delete from lich_hen_tiem where lht_id = :id');
 		return $sql->execute(['id' => $this->id]);
 	}
 }

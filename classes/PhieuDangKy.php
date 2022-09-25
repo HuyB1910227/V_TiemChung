@@ -14,6 +14,7 @@ class PhieuDangKy{
     public $ngaydangky, $trangthai;
     public $kh_id;
     public $lht_id;
+    public $diembatthuong;
 
     public function getId(){
         return $this->id;
@@ -29,7 +30,8 @@ class PhieuDangKy{
 			'pdk_ngaydangky' => $this->ngaydangky,
             'pdk_trangthai' => $this->trangthai,
             'kh_id' => $this->kh_id,
-            'lht_id' => $this->lht_id
+            'lht_id' => $this->lht_id,
+            'pdk_dbt' => $this->diembatthuong
 		] = $row;
 	    return $this;
 	}
@@ -108,5 +110,14 @@ class PhieuDangKy{
 		$sql = $this->db->prepare('delete from phieu_dang_ky_tiem where cs_id = :id');
 		return $sql->execute(['id' => $this->id]);
 	}
+
+    public function confirm(){
+        $sql = $this->db->prepare('update phieu_dang_ky_tiem set pdk_trangthai = 1 where pdk_id = :id');
+        return $sql->execute(['id' => $this->id]); 
+    }
+    public function refuse(){
+        $sql = $this->db->prepare('update phieu_dang_ky_tiem set pdk_trangthai = 2 where pdk_id = :id');
+        return $sql->execute(['id' => $this->id]); 
+    }
 }
 ?>

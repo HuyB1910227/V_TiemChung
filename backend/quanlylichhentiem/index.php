@@ -24,14 +24,12 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Danh sách lịch sử tiêm chủng</h3>
-                 
-                 
+                <h3 class="text-info">Danh sách lịch hẹn</h3>
                 <div class="bg-white p-2">
                     <p class="float-left">Tổng số lượng: <?php echo count($arrlichhen)?></p>
                     <div class="float-right">
-                        <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button>
-                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a>
+                        <!-- <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button> -->
+                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlylichhentiem/create.php">Thêm</a>
                     </div>
                 </div>
                 <div class="mt-2">
@@ -59,7 +57,15 @@
                             <td><?= $coso->phuong?></td>
                             <td><?= $coso->quan?></td>
                             <td><?= $coso->tinh?></td>
-                            <td></td>
+                            <td>
+                                <a class="btn btn-warning text-white" href="edit.php?id=<?= $lich->getID()?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                
+                                <form action="<?=url('backend/quanlylichhentiem/delete.php')?>" method="POST" style="display: inline;">
+									<input type="hidden" name="id" value="<?=$lich->getID()?>">
+										<button type="submit" class="btn btn-xs btn-danger" name="delete-contact">
+									<i alt="Delete" class="fa fa-trash"></i></button>
+								</form>
+                            </td>
                         </tr>
                         <?php endforeach;?>
                     </table>
@@ -79,19 +85,7 @@
     <?php include_once __DIR__ . '/../layouts/partials/footer.php'; ?>
 
     <?php include_once __DIR__ . '/../layouts/scripts.php'; ?>
-    <script>
-        $(document).ready(function(){
-            
-            $('.btnDelete').click(function(){
-                var cs_id = $(this).data('cs_id');
-                console.log(cs_id);
-                var url = "delete.php?cs_id=" + cs_id;
-                location.href = url;
-            });
-            
-
-        });
-    </script>
+    
 </body>
 
 </html>
