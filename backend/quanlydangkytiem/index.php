@@ -39,7 +39,7 @@
                         <tr class="bg-primary text-center text-light">
                             <th>Chọn</th>
                             <th>STT</th>
-                            <th>Số điện thoại</th>
+                            <!-- <th>Số điện thoại</th> -->
                             <th>Họ và tên</th>
                             <th>Ngày sinh</th>
                             <th>Giới tính</th>
@@ -67,7 +67,7 @@
                                 </td>
                                 <td><?= ++$i?></td>
                                 <td><?= $pdk->getId()?></td>
-                                <td><?= $nt->sdt?></td>
+                                <!-- <td><?= $nt->sdt?></td> -->
                                 <td><?= $nt->hoten?></td>
                                 <td><?= $nt->ngaysinh?></td>
                                 <td><?php 

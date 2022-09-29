@@ -15,6 +15,7 @@ class KhachHang{
     public $tinh;
     public $trangthai;
     public $solantiem;
+    public $baohiem, $baohiembd, $baohiemkt, $dantoc, $tongiao, $nghenghiep;
     
     public function layId(){
         return $this->id;
@@ -29,15 +30,21 @@ class KhachHang{
 			'kh_id' => $this->id,
 			'kh_hoten' => $this->hoten,
             'kh_cmnd' => $this->cmnd,
-            'kh_sodienthoai' => $this->sdt,
+            //'kh_sodienthoai' => $this->sdt,
             'kh_ngaysinh' => $this->ngaysinh,
             'kh_gioitinh' => $this->gioitinh,
 			'kh_diachi' => $this->diachi,
 			'kh_phuong' => $this->phuong,
 			'kh_quan' => $this->quan,
             'kh_tinh' => $this->tinh,
-            'kh_cmnd' => $this->solantiem
-			
+            'kh_cmnd' => $this->solantiem,
+			//
+            'kh_thebaohiem' => $this->baohiem,
+            'kh_thebaohiembd' => $this->baohiembd,
+            'kh_thebaohiemkt' => $this->baohiemkt,
+            'kh_dantoc' => $this->dantoc,
+            'kh_tongiao' => $this->tongiao,
+            'kh_nghenghiep' => $this->nghenghiep
 		] = $row;
 	    return $this;
 	}
@@ -54,32 +61,32 @@ class KhachHang{
 		return $ArrayKhachHang;
 	}
     //fill data
-    public function fill(array $data)
+    // public function fill(array $data)
 
-	{
-		if (isset($data['txtTenCoSo'])) {
-			$this->ten = $data['txtTenCoSo'];
-		}
+	// {
+	// 	if (isset($data['txtTenCoSo'])) {
+	// 		$this->ten = $data['txtTenCoSo'];
+	// 	}
 
-		if (isset($data['txtTinh'])) {
-			$this->tinh = $data['txtTinh'];
-		}
+	// 	if (isset($data['txtTinh'])) {
+	// 		$this->tinh = $data['txtTinh'];
+	// 	}
 
-        if (isset($data['txtQuan'])) {
-			$this->quan = $data['txtQuan'];
-		}
-        if (isset($data['txtPhuong'])) {
-			$this->phuong = $data['txtPhuong'];
-		}
-        if (isset($data['txtDiaChi'])) {
-			$this->diachi = $data['txtDiaChi'];
-		}
-        if (isset($data['slTrangThai'])) {
-			$this->trangthai = preg_replace('/[^0-2]+/', '', $data['slTrangThai']);;
-		}
+    //     if (isset($data['txtQuan'])) {
+	// 		$this->quan = $data['txtQuan'];
+	// 	}
+    //     if (isset($data['txtPhuong'])) {
+	// 		$this->phuong = $data['txtPhuong'];
+	// 	}
+    //     if (isset($data['txtDiaChi'])) {
+	// 		$this->diachi = $data['txtDiaChi'];
+	// 	}
+    //     if (isset($data['slTrangThai'])) {
+	// 		$this->trangthai = preg_replace('/[^0-2]+/', '', $data['slTrangThai']);;
+	// 	}
 		
-		return $this;
-	}
+	// 	return $this;
+	// }
     //create and edit record to table
     public function save(){
         $result = false;
@@ -90,7 +97,7 @@ class KhachHang{
             $result = $sql->execute([
                 'ten' => $this->hoten,
                 'cmnd' => $this->cmnd,
-                'sdt' => $this->sdt,
+                //'sdt' => $this->sdt,
                 'ngaysinh' => $this->ngaysinh,
                 'gioitinh' => $this->gioitinh,
                 'solantiem' => $this->solantiem,
@@ -99,6 +106,7 @@ class KhachHang{
                 'phuong' => $this->phuong,
                 'diachi' => $this->diachi,
                 'id' => $this->id
+                //
             ]);
         } else {
             $sql = $this->db->prepare('insert into khach_hang
@@ -107,7 +115,7 @@ class KhachHang{
             $result = $sql->execute([
                 'ten' => $this->hoten,
                 'cmnd' => $this->cmnd,
-                'sdt' => $this->sdt,
+                //'sdt' => $this->sdt,
                 'ngaysinh' => $this->ngaysinh,
                 'gioitinh' => $this->gioitinh,
                 'solantiem' => $this->solantiem,
@@ -115,6 +123,7 @@ class KhachHang{
                 'quan' => $this->quan,
                 'phuong' => $this->phuong,
                 'diachi' => $this->diachi
+                //
             ]);
             if($result){
                 $this->id = $this->db->lastInsertId();

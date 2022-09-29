@@ -13,36 +13,40 @@
             <div class="row">
                 <div class="col-12 col-md-5 border">
                     
-                    <div class="row">
-                        <h2 class="text-center">Thông tin cá nhân</h2>
+                    <div class="row justify-content-center">
+                        <h4 class="col-12 text-center">Thông tin cá nhân</h4>
                         <!-- <div class="row m-auto p-2 pb-5">
                             <img src="./newseventsimage.webp" alt="" class="rounded-circle" width="150px" height="150px">
                         </div> -->
-                        <div class="row m-auto">
-                            <table class="table table-borderless">
+                        <div class="col">
+                            <table class="table ">
                                 <tr>
                                     <td class="w-50 font-weight-bold">Họ và tên: </td>
-                                    <td class="w-50">Nguyễn Văn A</td>
+                                    <td class="w-50"><?= $kh->hoten?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Ngày sinh:</td>
-                                    <td>18/12/2001</td>
+                                    <td><?= $kh->ngaysinh?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Số điện thoại:</td>
-                                    <td>0928736635</td>
+                                    <td><?= $user->sdt?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Địa chỉ:</td>
-                                    <td>298/828, đường Bùi Hữu Nghĩa</td>
+                                    <td><?= $kh->diachi?></td>
                                 </tr>
                                 <tr>
-                                    <td class="font-weight-bold">Thành phố:</td>
-                                    <td>Thành phố Cân Thơ</td>
+                                    <td class="font-weight-bold">Tỉnh/Thành phố:</td>
+                                    <td><?= $kh->tinh?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Quận/huyện:</td>
-                                    <td>Bình Thủy</td>
+                                    <td><?= $kh->quan?></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Phường/xã:</td>
+                                    <td><?= $kh->phuong?></td>
                                 </tr>
                             </table>
                         </div>

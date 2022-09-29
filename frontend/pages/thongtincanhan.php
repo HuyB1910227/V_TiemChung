@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,40 +33,46 @@
                             <table class="table table-striped mb-0">
                                 <tr>
                                     <td class="w-50 font-weight-bold">Họ và tên: </td>
-                                    <td class="w-50">Nguyễn Văn A</td>
+                                    <td class="w-50"><?= $kh->hoten?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Ngày sinh:</td>
-                                    <td>18/12/2001</td>
+                                    <td><?= $kh->ngaysinh?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Giới tính:</td>
-                                    <td>Nam</td>
+                                    <td><?php if($kh->gioitinh == 1){
+                                        echo "Nữ";
+                                    } else if($kh->gioitinh == 0){
+                                        echo "Nam";
+                                    } else {
+                                        echo "Khác";
+                                    }?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Số điện thoại:</td>
-                                    <td>0928736635</td>
+                                    <td><?= $user->sdt?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">CMND/CCCD:</td>
-                                    <td>0926624426</td>
+                                    <td><?= $kh->cmnd?></td>
                                 </tr>
 
                                 <tr>
                                     <td class="font-weight-bold">Thành phố:</td>
-                                    <td>Thành phố Cân Thơ</td>
+                                    <td><?= $kh->tinh?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Quận/huyện:</td>
-                                    <td>Quận Bình Thủy</td>
+                                    <td><?= $kh->quan?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Phường/xã:</td>
-                                    <td>Phường Long Hòa</td>
+                                    <td><?= $kh->phuong?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Địa chỉ:</td>
-                                    <td>298/828, đường Bùi Hữu Nghĩa</td>
+                                    <td><?= $kh->diachi?></td>
                                 </tr>
                             </table>
                         </div>
@@ -78,29 +85,29 @@
                             <table class="table table-striped mb-0">
                                 <tr>
                                     <td class="w-50 font-weight-bold">Số thẻ BHYT: </td>
-                                    <td class="w-50">POI099837735</td>
+                                    <td class="w-50"><?= $kh->baohiem?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Thời gian sử dụng thẻ - từ ngày:</td>
-                                    <td>18/12/2001</td>
+                                    <td><?= $kh->baohiembd?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Thời gian sử dụng thẻ - đến ngày:</td>
-                                    <td>18/12/2001</td>
+                                    <td><?= $kh->baohiemkt?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Dân tộc:</td>
-                                    <td>Kinh</td>
+                                    <td><?= $kh->dantoc?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Tôn giáo:</td>
-                                    <td>Không</td>
+                                    <td><?= $kh->tongiao?></td>
                                 </tr>
 
 
                                 <tr>
                                     <td class="font-weight-bold">Nghề nghiệp:</td>
-                                    <td>Công nhân</td>
+                                    <td><?= $kh->nghenghiep?></td>
                                 </tr>
 
                             </table>

@@ -1,7 +1,7 @@
 <?php 
 namespace TC\OBS;
 
-use LDAP\Result;
+
 use PDO;
 use TC\OBS\LoaiVaccine;
 

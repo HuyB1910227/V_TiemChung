@@ -1,3 +1,46 @@
+<?php 
+    require '../db_connect.php';
+    session_start();
+
+use TC\OBS\TaiKhoan;
+
+    $user = new TaiKhoan($PDO);
+    
+    // if($user->session()){
+    //     header("Location: dangnhap.php");
+    // }
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $result = $user->login3($_POST['sdt'], $_POST['pwd']);
+        if($result != null){
+            echo "Thành công.";
+            // $user->session();
+            $_SESSION['btnDangNhap'] = $user->getID();
+            header("Location: pages/trangchu.php");
+        } else {
+            echo "Thất bại liu liu";
+        }
+        // echo $_POST['sdt'], $_POST['pwd'];
+        // if($n == 1){
+        //     echo "Thất bại.";
+            
+        // } else {
+        //     
+        // }
+        // var_dump($user);
+        
+        // if($login == 1){
+        //     echo "thanh cong";
+        //     var_dump($user);
+        //     // header("Location: index.php");
+        // } else {
+        //     echo "Failed";
+        // }
+    }
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,17 +58,18 @@
     </style>
 </head>
 
-<body class="container-fluid border" style="position: relative;">
+<body class="container-fluid" style="position: relative;">
 
     <div class="row bg-info align-content-center justify-content-center">
-        <h2 class="text-white">V-Tiêm chủng</h2>
+        <h2 class="text-white">Xin chào</h2>
+        
     </div>
     <div class="row p-5">
         <div class="border card p-3 card-log-in m-auto">
             <div class="col-12">
                 <h3 class="text-center font-weight-bolder text-black-25">Đăng nhập</h3>
             </div>
-            <form>
+            <form action="" method="post">
                 <div class="form-group">
                     <label for="sdt">Số điện thoại</label>
                     <div class="input-group">
@@ -58,7 +102,7 @@
 
 
 
-    <footer class="row bg-primary text-white">
+    <!-- <footer class="row bg-primary text-white">
         <div class="col">
             <p>&copy; Bản quyền thuộc về Đỗ Huy</p>
             <p>Phát triển bởi Đỗ huy</p>
@@ -68,7 +112,7 @@
             <p>Gmail: huydo@gmail.com</p>
         </div>
 
-    </footer>
+    </footer> -->
 
 
 

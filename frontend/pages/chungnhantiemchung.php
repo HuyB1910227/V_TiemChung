@@ -25,19 +25,25 @@
                             <table class="table">
                                 <tr>
                                     <td>Họ tên:</td>
-                                    <td>Nguyễn Văn A</td>
+                                    <td><?= $kh->hoten?></td>
                                 </tr>
                                 <tr>
                                     <td>CMDN/CCCD:</td>
-                                    <td>09398474636</td>
+                                    <td><?= $kh->cmnd?></td>
                                 </tr>
                                 <tr>
                                     <td>Giới tính:</td>
-                                    <td>Nam</td>
+                                    <td><?php if($kh->gioitinh == 1){
+                                        echo "Nữ";
+                                    } else if($kh->gioitinh == 0){
+                                        echo "Nam";
+                                    } else {
+                                        echo "Khác";
+                                    }?></td>
                                 </tr>
                                 <tr>
                                     <td>Ngày sinh: </td>
-                                    <td>18/9/2022</td>
+                                    <td><?= $kh->ngaysinh; ?></td>
                                 </tr>
                             </table>
                             
