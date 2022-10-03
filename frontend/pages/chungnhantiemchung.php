@@ -17,7 +17,7 @@
                         <div class="col jumbotron border bg-info rounded-0">
                             <p  class="text-center display-4 text-white"><i class="fa-solid fa-shield-virus"></i></p>
                             <hr>
-                            <h3 class="text-center text-uppercase text-white-50">Đã tiêm <span style="color: red; font-size: 50px;"> 02</span> mũi vacxin</h3>
+                            <h3 class="text-center text-uppercase text-white-50">Đã tiêm <span style="color: red; font-size: 50px;"> 0<?= $kh->solantiem ?></span> mũi vacxin</h3>
                             <hr>
                         </div>
                         <div class="col jumbotron rounded-0">

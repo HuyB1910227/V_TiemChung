@@ -2,7 +2,7 @@
     require '../db_connect.php';
     session_start();
 
-use TC\OBS\TaiKhoan;
+    use TC\OBS\TaiKhoan;
 
     $user = new TaiKhoan($PDO);
     
@@ -16,9 +16,10 @@ use TC\OBS\TaiKhoan;
             echo "Thành công.";
             // $user->session();
             $_SESSION['btnDangNhap'] = $user->getID();
+            $_SESSION['TaiKhoan'] = "user";
             header("Location: pages/trangchu.php");
         } else {
-            echo "Thất bại liu liu";
+            echo "Đăng nhập thất bại";
         }
         // echo $_POST['sdt'], $_POST['pwd'];
         // if($n == 1){
@@ -89,14 +90,13 @@ use TC\OBS\TaiKhoan;
                         </div>
                         <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Nhập vào mật khẩu....">
                     </div>
-
                 </div>
 
                 <button type="submit" class="btn btn-primary rounded-pill w-100" name="btnDangNhap">Đăng nhập</button>
             </form>
             <br>
             <p class="text-center">Bạn chưa có tài khoản? Hãy đăng ký ngay</p>
-            <a class="btn btn-light text-dark-10 w-100 rounded-pill" href="dangky.html">Đăng ký</a>
+            <a class="btn btn-light text-dark-10 w-100 rounded-pill" href="./dangky.php">Đăng ký</a>
         </div>
     </div>
 

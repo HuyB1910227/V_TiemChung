@@ -3,7 +3,7 @@
     // if(!isset($_SESSION['btnDangNhap'])){
     //     header('Location:dangnhap.php');
     // }
-
+    require_once '../db_connect.php';
 ?>
 
 

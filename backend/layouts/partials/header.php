@@ -1,7 +1,21 @@
 <?php
+    
+    // session_start();
+    // if(!isset($_SESSION['DangNhap'])){
+    //     if($_SESSION["TaiKhoan"] != "admin"){
+    //         header('Location: /V_TiemChung/backend/dangnhap.php');
+    //     }
+        
+    // }
+
+    require_once '../../db_connect.php';
+    //require_once '../../../db_connect.php';
     session_start();
-    if(!isset($_SESSION['btnDangNhap'])){
-        header('Location: /V_TiemChung/backend/dangnhap.php');
+    if(!isset($_SESSION['DangNhap'])){
+        if($_SESSION != "admin"){
+            header("Location: ../dangnhap.php");
+        }
+        
     }
 
 ?>

@@ -7,6 +7,8 @@
     use TC\OBS\CoSoTiem;
     $coso = new CoSoTiem($PDO);
 
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -37,19 +39,37 @@
                 </tr>
                 <?php foreach ($arrlichhen as $i => $lich) : ?>
                     <?php $coso = $lich->findLocation(); ?>
-                    <tr>
-                        <td><?= ++$i ?></td>
-                        <td><?= $lich->getId() ?></td>
-                        <td><?= $lich->ngaytiem ?></td>
-                        <td><?= $coso->ten ?></td>
-                        <td><?= $coso->diachi ?></td>
-                        <td><?= $coso->phuong ?></td>
-                        <td><?= $coso->quan ?></td>
-                        <td><?= $coso->tinh ?></td>
-                        <td>
-                            <a class="btn btn-light text-primary btn-link" href="xulydangkytiem.php?id=<?= $lich->getID()?>">Đăng ký</a>
-                        </td>
-                    </tr>
+                    <?php if($coso->trangthai == 1): ?>
+                        <tr>
+                            <td><?= ++$i ?></td>
+                            <td><?= $lich->getId() ?></td>
+                            <td><?= $lich->ngaytiem ?></td>
+                            <td><?= $coso->ten ?></td>
+                            <td><?= $coso->diachi ?></td>
+                            <td><?= $coso->phuong ?></td>
+                            <td><?= $coso->quan ?></td>
+                            <td><?= $coso->tinh ?></td>
+                            <td>
+                                <?php foreach($arrpdk as $phieudk){
+                                    $result = false;
+                                    if($phieudk->findVaccinationSchedule()->getID() == $lich->getID()){
+                                        $result = true;
+                                        break;
+                                    }
+                                };
+                                ?>
+                                <?php if($result==1):?>
+                                    <a class="btn btn-light text-primary disabled" href="xulydangkytiem.php?id=<?= $lich->getID();?>">Đã đăng ký</a>
+                                <?php else: ?>
+                                    <a class="btn btn-light text-primary btn-link" href="xulydangkytiem.php?id=<?= $lich->getID();?>">Đăng ký</a>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="9">Không có lịch tiêm</td>
+                        </tr>
+                    <?php endif;?>
                 <?php endforeach; ?>
             </table>
         </div>

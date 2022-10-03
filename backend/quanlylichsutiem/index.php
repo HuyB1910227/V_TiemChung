@@ -35,7 +35,7 @@
                 <div class="bg-white p-2">
                     <p class="float-left">Tổng số lượng: 1</p>
                     <div class="float-right">
-                        <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button>
+                        <!-- <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button> -->
                         <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a>
                     </div>
                 </div>

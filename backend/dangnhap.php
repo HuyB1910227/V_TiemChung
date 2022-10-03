@@ -1,3 +1,26 @@
+<?php 
+    
+    require '../db_connect.php';
+    session_start();
+
+    use TC\OBS\TaiKhoan;
+
+    $admin = new TaiKhoan($PDO);
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $result = $admin->loginAdmin($_POST['txtTenDangNhap'], $_POST['pwd']);
+        if($result != null){
+            echo "Thành công.";
+            // $user->session();
+            $_SESSION['DangNhap'] = $admin->getID();
+            $_SESSION['TaiKhoan'] = "admin";
+            header("Location: ./quanlydangkytiem/index.php");
+        } else {
+            echo "Đăng nhập thất bại";
+        }
+    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,36 +42,12 @@
         <label for="pwd">Mật khẩu:</label>
         <input type="password" name="pwd" class="form-control">
         </div>
-        <button type="submit" name="btnDangNhap" class="btn btn-primary rounded-pill w-100">Đăng nhập</button>
+        <button type="submit" name="DangNhap" class="btn btn-primary rounded-pill w-100">Đăng nhập</button>
     </form>
     </div>
     
     
-    <?php 
-    session_start();
-    if(isset($_POST['btnDangNhap'])){
-        include_once __DIR__.'/../dbconnect.php';
-        $tenTaiKhoan = addslashes($_POST['txtTenDangNhap']) ;
-        $matKhau = addslashes($_POST['pwd']);
-        
-
-        $sql = "SELECT * FROM tai_khoan 
-        WHERE tk_ten = '$tenTaiKhoan' 
-        AND tk_matkhau = '$matKhau'
-        AND tk_vaitro = 1;";
-
-        $result = mysqli_query($conn, $sql);
-
-        $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        if(is_null($user)){
-            header('location:dangnhap.php');
-        } else {
-            $_SESSION['btnDangNhap'] = $tenTaiKhoan;
-            header('location:dashboard.php');
-        }
-
-    }
-    ?>
+    
     
 
 

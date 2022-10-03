@@ -25,7 +25,7 @@
             <div class="col-10">
                 <h3 class="text-info">Danh sách thông tin cá nhân</h3>
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng: 1</p>
+                    <p class="float-left">Tổng số lượng: <?= count($mangkhachhang)?></p>
                     <div class="float-right">
                         
                         <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a>
@@ -39,7 +39,7 @@
                             <th>Mã khách hàng</th>
                             <th>Họ tên</th>
                             <th>CMND/CCCD</th>
-                            <th>Số điện thoại</th>
+                            <!-- <th>Số điện thoại</th> -->
                             <th>Ngày sinh</th>
                             <th>Giới tính</th>
                             <th>Phường/Xã</th>
@@ -56,7 +56,7 @@
                             <td><?= $kh->layID()?></td>
                             <td><?= $kh->hoten?></td>
                             <td><?= $kh->cmnd?></td>
-                            <td><?= $kh->sdt?></td>
+                           
                             <td><?= $kh->ngaysinh?></td>
                             <?php if ($kh->gioitinh == 0): ?>
                                 <td>Nam</td>

@@ -7,6 +7,10 @@
     $nt = new KhachHang($PDO);
     use TC\OBS\LichHenTiem;
     $lht = new LichHenTiem($PDO);
+    // $pdk1 = $arrpdk[2];
+    // var_dump($pdk1);
+    // $pdk1->detectUnusual();
+    // var_dump($pdk1->diembatthuong);
 ?>
 
 <!DOCTYPE html>
@@ -98,11 +102,16 @@
                                         echo "Chưa xác nhận";
                                     }?></td>
                                 <td>
-                                    <button class="btn btn-light"><i class="fa-solid fa-eye"></i></button>
+                                    <!-- <a class="btn btn-light text-primary" data-toggle="modal" data-target="#viewDangKy" href="index.php?="><i class="fa-solid fa-eye"></i></a> -->
+                                    <form action="<?=url('backend/quanlydangkytiem/viewUser.php')?>" method="POST" style="display: inline;">
+									    <input type="hidden" name="id" value="<?=$pdk->getId()?>">
+                                        <button type="submit" class="btn btn-light text-primary" name="btnView" data-toggle="modal" data-target="#viewDangKy"><i class="fa-solid fa-eye"></i></button>
+								    </form>
+                                    <!-- <button class="btn btn-light btnView" type="button" data-toggle="modal" data-target="#viewDangKy" data-pdk_id=""><i class="fa-solid fa-eye"></i></button> -->
                                     <form action="<?=url('backend/quanlydangkytiem/delete.php')?>" method="POST" style="display: inline;">
 									    <input type="hidden" name="id" value="<?=$pdk->getId()?>">
-										<button type="submit" class="btn btn-xs btn-danger" name="btn">
-									    <i alt="Delete" class="fa fa-trash"></i></button>
+										<!-- <button type="submit" class="btn btn-xs btn-danger" name="btn"> -->
+									    <!-- <i alt="Delete" class="fa fa-trash"></i></button> -->
 								    </form>
                                     <form action="<?=url('backend/quanlydangkytiem/edit.php')?>" method="POST" style="display: inline;">
 									    <input type="hidden" name="id" value="<?=$pdk->getId()?>">
@@ -114,13 +123,45 @@
                                         <button type="submit" class="btn btn-warning text-white" name="btnRefuse"><i class="fa-solid fa-ban" ></i></button>
 
 								    </form>
-
+                                
 
 
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
+                </div>
+
+                
+
+                <!-- Modal view -->
+                <!-- Button trigger modal -->
+                
+                <!-- Modal -->
+                <!-- <div class="modal fade" id="viewDangKy" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Thông tin đăng ký</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col" id="dd"></div>
+                                <div class="col"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                    </div>
+                </div> -->
                 </div>
             </div>
         </div>
@@ -132,6 +173,29 @@
 
     <?php include_once __DIR__ . '/../layouts/partials/footer.php'; ?>
     <?php include_once __DIR__ . '/../layouts/scripts.php'; ?>
+
+    <script>
+        $(function(){
+            
+            $('.btnView').on("click", function(){
+                console.log("hi");    
+                //$(this).data('cs_id');           
+                var strPDKID = $(this).data("pdk_id");
+                console.log(strPDKID);
+                var div = $("#dd");
+                var phpe = <?php $p->find($strPDKID); ?>;
+                div.innerHTML = "<h1>co</h1>";
+                div.append(phpe);
+                //div.text('<?php $p->find('+ `${strPDKID}` + '); ?>);
+                // div.html('<\?php $p = '+ `${strPDKID}` + '>');
+                // $p->find(2);
+                // var_dump($p);
+                // 
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>

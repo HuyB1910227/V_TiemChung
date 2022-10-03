@@ -26,7 +26,7 @@ class TaiKhoan{
 			'tk_id' => $this->id,
             'tk_ten' => $this->ten,
             'tk_hoten' => $this->hoten,
-            'tk_sodienthoai' => $this-> sdt,
+            'tk_sodienthoai' => $this->sdt,
             'tk_matkhau' => $this->matkhau,
             'tk_vaitro' => $this->vaitro,
             'kh_id' => $this->kh_id
@@ -101,9 +101,24 @@ class TaiKhoan{
     public function login3($sodienthoai, $matkhau)
 	{
 		$sql = $this->db->prepare('select * from tai_khoan 
-        where tk_sodienthoai = :sdt and tk_matkhau = :mk');
+        where tk_sodienthoai = :sdt and tk_matkhau = :mk and tk_vaitro = 2');
 		$sql->execute([
             'sdt' => $sodienthoai,
+            'mk' => $matkhau,
+        ]);
+		if ($row = $sql->fetch()) {
+			$this->fillFromDB($row);
+			return $this;
+		}
+		return null;
+	}
+
+    public function loginAdmin($ten, $matkhau)
+	{
+		$sql = $this->db->prepare('select * from tai_khoan 
+        where tk_ten = :ten and tk_matkhau = :mk and tk_vaitro = 1');
+		$sql->execute([
+            'ten' => $ten,
             'mk' => $matkhau,
         ]);
 		if ($row = $sql->fetch()) {
@@ -133,6 +148,43 @@ class TaiKhoan{
 		}
 		return null;
 	}
+
+
+    public function fill(array $data, $idKhachHang){
+		if (isset($data['txtTen'])) {
+			$this->ten = $data['txtTen'];
+		}
+		if (isset($data['txtHoTen'])) {
+			$this->hoten = $data['txtHoTen'];
+		}
+        if (isset($data['txtSoDienThoai'])){
+            $this->sdt = $data['txtSoDienThoai'];
+        }
+        if (isset($data['pwd'])){
+            $this->matkhau= $data['pwd'];
+        }
+        $this->kh_id = $idKhachHang;
+		return $this;
+	}
+
+    public function save(){
+            $result = false;
+            $sql = $this->db->prepare('insert into tai_khoan
+            (tk_ten, tk_hoten, tk_sodienthoai, tk_matkhau, kh_id)
+			values (:ten, :hoten, :sdt, :pwd, :id_kh)');
+            $result = $sql->execute([
+                'ten' => $this->ten,
+                'hoten' => $this->hoten,
+                'sdt' => $this->sdt,
+                'pwd' => $this->matkhau,
+                'id_kh' => $this->kh_id,
+            ]);
+            if($result){
+                $this->id = $this->db->lastInsertId();
+            }
+        
+        return $result;
+    }
 
 }
 ?>

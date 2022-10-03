@@ -21,62 +21,73 @@
 <body class="container-fluid">
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
     <main class="row">
-        
+    <!-- <p class="">Đang ký tiêm chủng</p> -->
         <div class="container-lg">
 
             <div class="p-5">
-
-                <form action="#" id="dangkytiem" name="dangkytiem">
+                <form action="guidangky.php" id="dangkytiem" name="dangkytiem" method="post">
                     <nav class="nav nav-pills flex-column flex-sm-row">
                         <a class="flex-sm-fill text-sm-center nav-link active" data-toggle="list" href="#thongtincanhan" role="tab">1. Thông tin cá nhân</a>
                         <a class="flex-sm-fill text-sm-center nav-link disabled" data-toggle="list" href="#tiensutiem" role="tab">2. Tiền sử tiêm</a>
                         <a class="flex-sm-fill text-sm-center nav-link disabled" data-toggle="list" href="#phieudongy" role="tab">3. Phiếu đồng ý</a>
                     </nav>
                     <hr>
+
                     <div class="tab-content">
                         <div class="tab-pane active" id="thongtincanhan" role="tabpanel">
+                        <h6 class="text-danger">Vui lòng kiểm tra thông tin cá nhân! Nếu chưa chính xác, chọn "Chỉnh sửa thông tin cá nhân".</h6>
+
+                            <input type="text" name="khachHangID" value="<?= $kh->layID()?>" readonly>
+                            <input type="text" name="lichHenTiemID" value="<?= $lich->getId()?>" readonly>
                             <div class="form-group">
                                 <label for="txtHoTen">Họ và tên </label>
-                                <input type="text" name="txtHoTen" id="txtHoTen" placeholder="" class="form-control" value="<?= $kh->hoten ?>">
+                                <input type="text" name="txtHoTen" id="txtHoTen" placeholder="" class="form-control" value="<?= $kh->hoten ?>" disabled>
                             </div>
 
                             <div class="form-group">
                                 <label for="dtNgaySinh">Ngày sinh </label>
-                                <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" value="<?= $kh->ngaysinh ?>" class="form-control">
+                                <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" value="<?= $kh->ngaysinh ?>" class="form-control" disabled>
                             </div>
                             <legend class="col-form-label">Giới tính </legend>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="rdGioiTinh" id="rdGioiTinh1" value="1" class="form-check-input">
+                                <input type="radio" name="rdGioiTinh" id="rdGioiTinh1" value="0" <?php if($kh->gioitinh == 0){echo "checked";}?> class="form-check-input" disabled>
                                 <label for="rdGioiTinh1" class="form-check-label">Nam</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="rdGioiTinh" id="rdGioiTinh2" value="2" class="form-check-input">
+                                <input type="radio" name="rdGioiTinh" id="rdGioiTinh2" value="1" class="form-check-input" disabled <?php if($kh->gioitinh == 1){echo "checked";}?>>
                                 <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input type="radio" name="rdGioiTinh" id="rdGioiTinh0" value="0" class="form-check-input">
+                                <input type="radio" name="rdGioiTinh" id="rdGioiTinh0" value="2" class="form-check-input" disabled <?php if($kh->gioitinh == 2){echo "checked";}?>>
                                 <label for="rdGioiTinh0" class="form-check-label">Khác</label>
                             </div>
                             <div class="form-group">
                                 <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
-                                <input type="text" name="txtCCCD" id="txtCCCD" placeholder="" class="form-control" value="<?= $kh->cmnd ?>" readonly>
+                                <input type="text" name="txtCCCD" id="txtCCCD" placeholder="" class="form-control" value="<?= $kh->cmnd ?>" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="txtBHYT">Số thẻ BHYT </label>
-                                <input type="text" name="txtBHYT" id="txtBHYT" placeholder="" class="form-control" value="<?= $kh->baohiem ?>">
+                                <input type="text" name="txtBHYT" id="txtBHYT" placeholder="" class="form-control" value="<?= $kh->baohiem ?>" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="txtDiaChi">Địa chỉ </label>
-                                <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="" class="form-control" value="<?= $kh->diachi ?>">
+                                <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="" class="form-control" value="<?= $kh->diachi.', '.$kh->phuong.', '.$kh->quan.', '.$kh->tinh?>" disabled>
                             </div>
+                            <a href="thongtincanhan.php">Chỉnh sửa thông tin cá nhân</a>
+                            <hr>
                             <div class="form-group">
                                 <label for="dtLichHen">Lịch hẹn </label>
-                                <input type="date" name="dtLichHen" id="dtLichHen" placeholder="" class="form-control" value="<?= $lich->ngaytiem?>" readonly>
+                                <input type="date" name="dtLichHen" id="dtLichHen" placeholder="" class="form-control" value="<?= $lich->ngaytiem?>" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="txtDiaChi">Cơ sở tiêm </label>
-                                <input type="text" name="txtCoSo" id="txtCoSo" placeholder="" class="form-control" value="<?= $coso->find($lich->cs_id)->ten?>" readonly>
+                                <input type="text" name="txtCoSo" id="txtCoSo" placeholder="" class="form-control" value="<?= $coso->find($lich->cs_id)->ten ?>" disabled>
                             </div>
+                            <div class="form-group">
+                                <label for="txtDiaChi">Địa chỉ cơ sở </label>
+                                <input type="text" name="txtCoSo" id="txtCoSo" placeholder="" class="form-control" value="<?= $coso->find($lich->cs_id)->diachi.", ".$coso->find($lich->cs_id)->phuong.", ".$coso->find($lich->cs_id)->quan.", ".$coso->find($lich->cs_id)->tinh?>" disabled>
+                            </div>
+                            
                             <hr>
 
                             <a class="btn btn-light rounded-circle border border-primary text-primary " type="button" id="btnPrev1" href="dangkytiemchung.php"><i class="fa-solid fa-arrow-left"></i></a>
@@ -104,7 +115,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh1" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh1" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>
@@ -122,7 +133,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh2" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh2" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>
@@ -140,7 +151,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh3" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh3" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>
@@ -158,7 +169,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh4" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh4" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>
@@ -176,7 +187,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh5" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh5" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>
@@ -194,7 +205,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh6" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh6" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>
@@ -212,7 +223,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh7" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh7" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>
@@ -230,7 +241,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh8" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh8" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>
@@ -248,7 +259,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh9" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh9" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>
@@ -266,7 +277,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input type="radio" name="rdTienSuBenh10" value="2" class="form-check-input mx-auto">
+                                            <input type="radio" name="rdTienSuBenh10" value="3" class="form-check-input mx-auto">
                                         </div>
                                     </td>
                                 </tr>

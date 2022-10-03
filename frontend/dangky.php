@@ -25,7 +25,16 @@
             <div class="col-12">
                 <h3 class="text-center font-weight-bolder text-black-25">Đăng ký</h3>
             </div>
-            <form>
+            <form action="xulydangky.php" method="POST">
+            <div class="form-group">
+                    <label for="txtTen">Tên đăng nhập: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Nhập vào họ tên....">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="txtHoTen">Họ và tên</label>
                     <div class="input-group">
@@ -34,20 +43,57 @@
                         </div>
                         <input type="text" class="form-control" id="txtHoTen" name="txtHoTen" placeholder="Nhập vào họ tên....">
                     </div>
-
-                    
                 </div>
                 <div class="form-group">
-                    <label for="sdt">Số điện thoại</label>
+                    <label for="txtSoDienThoai">Số điện thoại</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="sdt" name="sdt" placeholder="Nhập vào số điện thoại....">
+                        <input type="text" class="form-control" id="txtSoDienThoai" name="txtSoDienThoai" placeholder="Nhập vào số điện thoại....">
                     </div>
-
-                    
                 </div>
+
+                <div class="form-group">
+                    <label for="dtNgaySinh">Ngày sinh </label>
+                    <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" class="form-control" >
+                </div>
+                <legend class="col-form-label">Giới tính </legend>
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rdGioiTinh" value="0" class="form-check-input">
+                    <label for="rdGioiTinh1" class="form-check-label">Nam</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rdGioiTinh" value="1" class="form-check-input">
+                    <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rdGioiTinh" value="2" class="form-check-input">
+                    <label for="rdGioiTinh0" class="form-check-label">Khác</label>
+                </div>
+                <div class="form-group">
+                    <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
+                    <input type="text" name="txtCCCD" id="txtCCCD" placeholder="Nhập vào Căn cước công dân..." class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtTP">Tỉnh/ Thành phố</label>
+                    <input type="text" name="txtTP" id="txtTP" placeholder="Nhập vào tỉnh / thành phố..." class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtQH">Quận/ Huyện</label>
+                    <input type="text" name="txtQH" id="txtQH" placeholder="Nhập vào quận / huyện..." class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtPX">Phường/ Xã: </label>
+                    <input type="text" name="txtPX" id="txtPX" placeholder="Nhập vào phường / xã..." class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtDiaChi">Địa chỉ </label>
+                    <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="Nhập vào địa chỉ..." class="form-control">
+                </div>
+
+
+
                 <div class="form-group">
                     <label for="pwd">Mật khẩu</label>
                     <div class="input-group">
@@ -64,20 +110,20 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
                         </div>
-                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Nhập vào mật khẩu....">
+                        <input type="password" class="form-control" id="re_pwd" name="re_pwd" placeholder="Nhập vào mật khẩu....">
                     </div>
 
                 </div>
 
                 <button type="submit" class="btn btn-primary rounded-pill w-100" name="btnDangKy">Đăng ký</button>
             </form>
-            
+
         </div>
     </div>
 
 
 
-    <footer class="row bg-primary text-white">
+    <!-- <footer class="row bg-primary text-white">
         <div class="col">
             <p>&copy; Bản quyền thuộc về Đỗ Huy</p>
             <p>Phát triển bởi Đỗ huy</p>
@@ -87,7 +133,7 @@
             <p>Gmail: huydo@gmail.com</p>
         </div>
 
-    </footer>
+    </footer> -->
 
 
 

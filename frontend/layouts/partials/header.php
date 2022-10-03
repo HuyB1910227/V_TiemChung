@@ -1,13 +1,17 @@
 <?php 
     require_once '../../db_connect.php';
+    //require_once '../../../db_connect.php';
     session_start();
     if(!isset($_SESSION['btnDangNhap'])){
+        if($_SESSION != "user"){
+            header("Location: ../dangnhap.php");
+        }
         
-        header("Location: ../dangnhap.php");
     }
 
     use TC\OBS\TaiKhoan;
     use TC\OBS\KhachHang;
+    use TC\OBS\PhieuDangKy;
 
     $user = new TaiKhoan($PDO);
     $id = $_SESSION['btnDangNhap'];
@@ -15,6 +19,10 @@
     $kh = new KhachHang($PDO);
     $kh->find($user->kh_id);   
 
+    $phieudk = new PhieuDangKy($PDO);
+    //echo "$user->kh_id";
+    $arrpdk = $phieudk->selectFromUser($user->kh_id);
+    // $arrpdk = $phieudk->selectall(1);
 
 
 ?>
