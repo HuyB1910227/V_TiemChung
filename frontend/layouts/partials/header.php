@@ -9,9 +9,13 @@
         
     }
 
-    use TC\OBS\TaiKhoan;
+use TC\OBS\CoSoTiem;
+use TC\OBS\TaiKhoan;
     use TC\OBS\KhachHang;
+    use TC\OBS\LichSuTiem;
     use TC\OBS\PhieuDangKy;
+    use TC\OBS\ThongTinTiem;
+    use TC\OBS\Vaccine;
 
     $user = new TaiKhoan($PDO);
     $id = $_SESSION['btnDangNhap'];
@@ -23,7 +27,11 @@
     //echo "$user->kh_id";
     $arrpdk = $phieudk->selectFromUser($user->kh_id);
     // $arrpdk = $phieudk->selectall(1);
-
+    $lst = new LichSuTiem($PDO);
+    $arrLST = $lst->all();
+    $tt = new ThongTinTiem($PDO);
+    $vaccine = new Vaccine($PDO);
+    $coso = new CoSoTiem($PDO);
 
 ?>
 

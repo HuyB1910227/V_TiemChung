@@ -17,18 +17,17 @@
                <th>Ngày tiêm</th>
                <th>Cơ sở tiêm chủng</th>
             </tr>
+           
+            <?php foreach($arrLST as $lst):?>
+            <?php $tt->find($lst->tc_id);?>
             <tr>
-               <td>01</td>
-               <td>AstraZeneca</td>
-               <td>30/10/2021</td>
-               <td>TTYT Q.Ninh Kiều</td>
+               <td><?= $tt->lantiem?></td>
+               <td><?= $vaccine->find($tt->v_id)->ten ?></td>
+               <td><?= $tt->ngaytiem?></td>
+               <td><?= $coso->find($tt->cs_id)->ten?></td>
             </tr>
-            <tr>
-               <td>02</td>
-               <td>Comirnaty (Pfizer/BioNtech)</td>
-               <td>3/01/2021</td>
-               <td>TTYT Q.Ninh Kiều</td>
-            </tr>
+            
+           <?php endforeach; ?>
          
          </table>
       </div>

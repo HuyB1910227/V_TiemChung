@@ -1,4 +1,6 @@
-<footer class="row bg-primary text-white">
+
+<div style="position: fixed; width: 100%; bottom: 0px;">
+<footer class="row bg-primary text-white" >
     <div class="container-lg">
         <div class="row">
             <div class="col">
@@ -13,3 +15,4 @@
 
     </div>
 </footer>
+</div>

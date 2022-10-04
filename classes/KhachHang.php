@@ -185,7 +185,10 @@ class KhachHang{
 		$sql = $this->db->prepare('delete from khach_hang where kh_id = :id');
 		return $sql->execute(['id' => $this->id]);
 	}
-
+    public function updateNOV($lantiem){
+        $sql = $this->db->prepare('update khach_hang set kh_solantiem = :slt where kh_id = :id');
+        return $sql->execute(['id' => $this->id, 'slt' => $lantiem]);
+    }
 
    
 }

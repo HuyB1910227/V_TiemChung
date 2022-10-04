@@ -43,6 +43,7 @@
                         <tr class="bg-primary text-center text-light">
                             <th>Chọn</th>
                             <th>STT</th>
+                            <th>Mã khách hàng</th>
                             <!-- <th>Số điện thoại</th> -->
                             <th>Họ và tên</th>
                             <th>Ngày sinh</th>
@@ -84,6 +85,7 @@
                                         }
                                         ?>
                                 </td>
+                                <td><?= $nt->cmnd?></td>
                                 <td><?= $nt->tinh?></td>
                                 <td><?= $nt->quan?></td>
                                 <td><?= $nt->phuong?></td>

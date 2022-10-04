@@ -50,15 +50,19 @@
                             <td><?= $coso->quan ?></td>
                             <td><?= $coso->tinh ?></td>
                             <td>
-                                <?php foreach($arrpdk as $phieudk){
+                                <?php 
+                                    $t = false;
+                                    foreach($arrpdk as $phieudk){
                                     $result = false;
                                     if($phieudk->findVaccinationSchedule()->getID() == $lich->getID()){
                                         $result = true;
+                                        $t = true;
                                         break;
                                     }
-                                };
+                                   
+                                    };
                                 ?>
-                                <?php if($result==1):?>
+                                <?php if($t==1 ):?>
                                     <a class="btn btn-light text-primary disabled" href="xulydangkytiem.php?id=<?= $lich->getID();?>">Đã đăng ký</a>
                                 <?php else: ?>
                                     <a class="btn btn-light text-primary btn-link" href="xulydangkytiem.php?id=<?= $lich->getID();?>">Đăng ký</a>
