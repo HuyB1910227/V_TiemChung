@@ -8,6 +8,8 @@
         
     // }
 
+use TC\OBS\TaiKhoan;
+
     require_once '../../db_connect.php';
     //require_once '../../../db_connect.php';
     session_start();
@@ -17,11 +19,22 @@
         }
         
     }
+    $id = $_SESSION['DangNhap'];
+    $admin = new TaiKhoan($PDO);
+    $admin->find($id)
 
 ?>
    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a class="navbar-brand" href="#">V-Tiêm chủng</a>
-        <a href="/V_TiemChung/backend/logout.php" class="btn btn-primary">Đăng xuất</a>
+        <div class="ml-auto">
+            <div >
+            Xin chào! <br>
+            <span class="text-primary"><?= $admin->hoten?></span>
+            </div>
+            
+            <!-- <a href="/V_TiemChung/backend/logout.php" class="btn btn-primary">Đăng xuất</a> -->
+        </div>
+        
     </nav>   
     
     

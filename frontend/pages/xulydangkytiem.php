@@ -37,8 +37,8 @@
                         <div class="tab-pane active" id="thongtincanhan" role="tabpanel">
                         <h6 class="text-danger">Vui lòng kiểm tra thông tin cá nhân! Nếu chưa chính xác, chọn "Chỉnh sửa thông tin cá nhân".</h6>
 
-                            <input type="text" name="khachHangID" value="<?= $kh->layID()?>" readonly>
-                            <input type="text" name="lichHenTiemID" value="<?= $lich->getId()?>" readonly>
+                            <input hidden type="text" name="khachHangID" value="<?= $kh->layID()?>" readonly>
+                            <input hidden type="text" name="lichHenTiemID" value="<?= $lich->getId()?>" readonly>
                             <div class="form-group">
                                 <label for="txtHoTen">Họ và tên </label>
                                 <input type="text" name="txtHoTen" id="txtHoTen" placeholder="" class="form-control" value="<?= $kh->hoten ?>" disabled>

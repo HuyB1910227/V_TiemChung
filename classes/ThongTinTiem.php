@@ -1,7 +1,7 @@
 <?php 
 namespace TC\OBS;
 
-
+use DateTime;
 use PDO;
 
 class ThongTinTiem{
@@ -58,6 +58,7 @@ class ThongTinTiem{
         if (isset($data['slCoSoID'])) {
 			$this->cs_id = $data['slCoSoID'];
 		}
+        
 		return $this;
 	}
   
@@ -70,6 +71,7 @@ class ThongTinTiem{
                 'lantiem' => $this->lantiem,
                 'v_id' => $this->v_id,
                 'cs_id' => $this->cs_id,
+                
                 
             ]);
             if($result){

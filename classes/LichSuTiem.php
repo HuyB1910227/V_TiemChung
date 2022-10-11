@@ -94,5 +94,17 @@ class LichSuTiem{
 		return $sql->execute(['id' => $this->id]);
 	}
 
+
+	public function selectFromUser($khID){
+        $arr = [];
+        $sql = $this->db->prepare('select * from lich_su_tiem where kh_id = :id');
+        $sql->execute(['id' => $khID]);
+        while($row=$sql->fetch()){
+            $e = new LichSuTiem($this->db);
+            $e->fillFromDB($row);
+            $arr[] = $e;
+        }
+        return $arr;
+    }
 }
 ?>

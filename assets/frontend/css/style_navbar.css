@@ -1,0 +1,35 @@
+header{
+  
+    
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(50px);
+    /* border-bottom: 2px solid grey; */
+    box-shadow: 0px 2px 10px rgb(223, 223, 223);
+}
+
+
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: roboto;
+}
+
+
+.navbar-light .navbar-nav .nav-link{
+    color: rgb(44, 44, 44);
+    font-size: 18px;
+    /* text-shadow: 1px 1px 1px grey; */
+    
+    
+}
+
+main{
+    margin-top: 70px;
+    min-height: 650px;
+}
+
+.navbar-light .navbar-brand{
+    font-size: 25px;
+    color: dodgerblue;
+    text-shadow: 1px 1px 1px rgb(121, 183, 245);
+    font-weight: 600;
+}

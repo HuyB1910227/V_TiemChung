@@ -1,7 +1,7 @@
 <?php 
 namespace TC\OBS;
 
-use LDAP\Result;
+
 use PDO;
 
 class KhachHang{
@@ -14,8 +14,9 @@ class KhachHang{
     public $quan;
     public $tinh;
     
-    public $solantiem;
+    public $solantiem, $ngaytiemgannhat;
     public $baohiem, $baohiembd, $baohiemkt, $dantoc, $tongiao, $nghenghiep;
+    // public $tempVaccineID = null;
     // public $sdt, $trangthai;
     
     public function layId(){
@@ -45,7 +46,8 @@ class KhachHang{
             'kh_thebaohiemkt' => $this->baohiemkt,
             'kh_dantoc' => $this->dantoc,
             'kh_tongiao' => $this->tongiao,
-            'kh_nghenghiep' => $this->nghenghiep
+            'kh_nghenghiep' => $this->nghenghiep,
+            'kh_ngaytiemgannhat' => $this->ngaytiemgannhat
 		] = $row;
 	    return $this;
 	}
@@ -106,6 +108,13 @@ class KhachHang{
         if (isset($data['txtNgheNghiep'])) {
 			$this->nghenghiep = $data['txtNgheNghiep'];
 		}
+        if (isset($data['nbSoLanTiem'])){
+            $this->solantiem = $data['nbSoLanTiem'];
+        }
+        if (isset($data['dtNgayTiemGanNhat'])){
+            $this->ngaytiemgannhat = $data['dtNgayTiemGanNhat'];
+        }
+
 		return $this;
 	}
     //create and edit record to table
@@ -140,8 +149,8 @@ class KhachHang{
             ]);
         } else {
             $sql = $this->db->prepare('insert into khach_hang
-            (kh_hoten, kh_cmnd, kh_ngaysinh, kh_gioitinh, kh_tinh,kh_quan, kh_phuong, kh_diachi, kh_solantiem, kh_thebaohiem, kh_thebaohiembd, kh_thebaohiemkt, kh_dantoc, kh_tongiao, kh_nghenghiep)
-			values (:ten,:cmnd, :ngaysinh,:gioitinh,:tinh,:quan, :phuong,:diachi, :solantiem, :tbhid, :tbhbd, :tbhkt, :dt,:tg,:nn)');
+            (kh_hoten, kh_cmnd, kh_ngaysinh, kh_gioitinh, kh_tinh,kh_quan, kh_phuong, kh_diachi, kh_solantiem, kh_thebaohiem, kh_thebaohiembd, kh_thebaohiemkt, kh_dantoc, kh_tongiao, kh_nghenghiep, kh_ngaytiemgannhat)
+			values (:ten,:cmnd, :ngaysinh,:gioitinh,:tinh,:quan, :phuong,:diachi, :solantiem, :tbhid, :tbhbd, :tbhkt, :dt,:tg,:nn, :ntgn)');
             $result = $sql->execute([
                 'ten' => $this->hoten,
                 'cmnd' => $this->cmnd,
@@ -160,6 +169,7 @@ class KhachHang{
                 'dt' => $this->dantoc,
                 'tg' => $this->tongiao,
                 'nn' => $this->nghenghiep,
+                'ntgn' => $this->ngaytiemgannhat
                 
             ]);
             if($result){
@@ -189,7 +199,46 @@ class KhachHang{
         $sql = $this->db->prepare('update khach_hang set kh_solantiem = :slt where kh_id = :id');
         return $sql->execute(['id' => $this->id, 'slt' => $lantiem]);
     }
+    public function updateLastVaccinated($ngaytiem){
+        $ngaytiem = strtotime($ngaytiem);
+        $nt = date('Y-m-d', $ngaytiem);
+        $sql = $this->db->prepare('update khach_hang set kh_ngaytiemgannhat = :slt where kh_id = :id');
+        return $sql->execute(['id' => $this->id, 'slt' => $nt]);
+    }
 
-   
+    public function findDateLastVaccinated() {
+        $lichtiem = $this->db->prepare("select max(tc_ngaytiem) from lich_su_tiem lst join thong_tin_tiem_chung tt on lst.tc_id = tt.tc_id where kh_id = :id");
+        $lichtiem->execute(["id" => $this->id]);
+        $kq = $lichtiem->fetch();
+        if($kq[0] != null){
+            $date = strtotime($kq[0]);
+            $dat = date('Y-m-d', $date);
+            return $dat;
+        }
+        return $kq[0];
+    }
+
+    public function dateEXP(){
+        $date = $this->ngaytiemgannhat;
+        if($date != null){
+            $date = date_create($date);
+            date_add($date, date_interval_create_from_date_string("100 days"));
+            return date_format($date, "Y-m-d");
+        }
+        return $date;
+    }
+
+    public function compareDateEXP($strDate){
+        $result = true;
+        $date = strtotime($strDate);
+        $dateEXP = $this->dateEXP();
+        if($dateEXP != null){
+            $dateEXP = strtotime($dateEXP);
+            if($date < $dateEXP){
+                return $result = false;
+            }
+        }
+        return $result;
+    }
 }
 ?>

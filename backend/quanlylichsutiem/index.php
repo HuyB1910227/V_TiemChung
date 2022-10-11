@@ -1,10 +1,10 @@
 <?php
     require_once '../../db_connect.php';
 
-use TC\OBS\CoSoTiem;
-use TC\OBS\KhachHang;
-use TC\OBS\LichSuTiem;
-use TC\OBS\ThongTinTiem;
+    use TC\OBS\CoSoTiem;
+    use TC\OBS\KhachHang;
+    use TC\OBS\LichSuTiem;
+    use TC\OBS\ThongTinTiem;
 
     $nt = new KhachHang($PDO);
     $tc = new ThongTinTiem($PDO);
@@ -86,7 +86,7 @@ use TC\OBS\ThongTinTiem;
                                         } else {
                                             echo "Khác";
                                         }
-                                        ?>
+                                    ?>
                                 </td>
                                 <td><?= $nt->cmnd?></td>
                                 <td><?= $nt->tinh?></td>
@@ -98,7 +98,9 @@ use TC\OBS\ThongTinTiem;
                                
                                 <td><?= $cs->find($tc->cs_id)->ten ?></td>
                                 <td><?= $tc->lantiem?></td>
-                                <?php $nt->updateNOV($tc->lantiem)?>
+                                <!-- <?php //$nt->updateNOV($tc->lantiem);
+                                   // $nt->updateLastVaccinated($tc->ngaytiem);?> -->
+                                
                                 <td><?= $lst->ttsautiem?></td>
                                     
                             </tr>

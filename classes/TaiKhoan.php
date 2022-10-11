@@ -13,6 +13,7 @@ class TaiKhoan{
     private $matkhau;
     public $vaitro;
     public $kh_id;
+    private $errors = [];
    
     
     public function __construct(PDO $pdo){
@@ -100,11 +101,12 @@ class TaiKhoan{
 
     public function login3($sodienthoai, $matkhau)
 	{
+        $mk = md5($matkhau);
 		$sql = $this->db->prepare('select * from tai_khoan 
         where tk_sodienthoai = :sdt and tk_matkhau = :mk and tk_vaitro = 2');
 		$sql->execute([
             'sdt' => $sodienthoai,
-            'mk' => $matkhau,
+            'mk' => $mk
         ]);
 		if ($row = $sql->fetch()) {
 			$this->fillFromDB($row);
@@ -158,13 +160,43 @@ class TaiKhoan{
 			$this->hoten = $data['txtHoTen'];
 		}
         if (isset($data['txtSoDienThoai'])){
-            $this->sdt = $data['txtSoDienThoai'];
+            $this->sdt = preg_replace('/\D+/', '', $data['txtSoDienThoai']);;
         }
         if (isset($data['pwd'])){
             $this->matkhau= $data['pwd'];
         }
         $this->kh_id = $idKhachHang;
 		return $this;
+	}
+
+    public function getValidationErrors() {
+		return $this->errors;
+	}
+
+	public function validate() {
+        
+		if (!$this->ten) {
+			$this->errors['txtTen'] = 'Bạn chưa nhập tên đăng nhập!';
+		} else if(strlen($this->ten) <= 8){
+            $this->errors['txtTen'] = 'Tên đăng nhập phải lớn hơn 8 kí tự';
+        } 
+
+        if (!$this->hoten){
+            $this->errors['txtHoTen'] = 'Bạn chưa nhập vào họ tên!';
+        } else if(strlen($this->hoten) <= 10){
+            $this->errors['txtHoTen'] = 'Họ tên chưa đúng định dạng!';
+        } 
+
+        
+        if(!$this->sdt){
+            $this->errors['txtSoDienThoai'] = 'Bạn chưa nhập số điện thoại';
+        } elseif (strlen($this->sdt) != 10){
+            $this->errors['txtSoDienThoai'] = 'Số điện thoại phải đủ 10 chữ số';
+        }
+
+
+		
+		return empty($this->errors);
 	}
 
     public function save(){
@@ -176,7 +208,7 @@ class TaiKhoan{
                 'ten' => $this->ten,
                 'hoten' => $this->hoten,
                 'sdt' => $this->sdt,
-                'pwd' => $this->matkhau,
+                'pwd' => md5($this->matkhau),
                 'id_kh' => $this->kh_id,
             ]);
             if($result){
@@ -185,6 +217,52 @@ class TaiKhoan{
         
         return $result;
     }
+
+    public function changeFullName($fullname){
+        $sql = $this->db->prepare('update tai_khoan
+                    set tk_hoten = :hoten
+                    where tk_id = :id');
+        $result = $sql->execute([
+            'hoten' => $fullname,
+            'id' => $this->id
+        ]);
+        return $result;
+    }
+    // public function save(){
+    //     $result = false;
+    //     if ($this->id >=0){
+    //         $sql = $this->db->prepare('update co_so_tiem_chung 
+    //         set cs_ten = :ten, cs_tinh = :tinh, cs_quan = :quan, cs_phuong = :phuong, cs_diachi = :diachi, cs_trangthai = :trangthai
+    //         where cs_id = :id');
+    //         $result = $sql->execute([
+    //             'ten' => $this->ten,
+    //             'tinh' => $this->tinh,
+    //             'quan' => $this->quan,
+    //             'phuong' => $this->phuong,
+    //             'diachi' => $this->diachi,
+    //             'trangthai' => $this->trangthai,
+    //             'id' => $this->id
+    //         ]);
+    //     } else {
+    //         $sql = $this->db->prepare('insert into tai_khoan
+    //                 (tk_ten, tk_hoten, tk_sodienthoai, tk_matkhau, kh_id)
+    //         		values (:ten, :hoten, :sdt, :pwd, :id_kh)');
+    //         $result = $sql->execute([
+    //                     'ten' => $this->ten,
+    //                     'hoten' => $this->hoten,
+    //                     'sdt' => $this->sdt,
+    //                     'pwd' => $this->matkhau,
+    //                     'id_kh' => $this->kh_id,
+    //                 ]);
+    //         if($result){
+    //             $this->id = $this->db->lastInsertId();
+    //         }
+    //     }
+    //     return $result;
+    // }
+
+
+    
 
 }
 ?>

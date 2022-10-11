@@ -103,16 +103,23 @@ if (isset($_POST['id'])) {
                                 <?php else : ?>
                                     <div class="col border mr-1">
                                         <h6>Có</h6>
+                                        <?php if($ttDK->listUnusualYes() != null):?>
                                         <?php foreach($ttDK->listUnusualYes() as $i => $e):?>
                                             <p class="text-danger"><?= ++$i.". " .$e?></p>
                                         <?php endforeach;?>
-
+                                        <?php else: ?>
+                                            <p>Không</p>
+                                        <?php endif;?>
                                     </div>
                                     <div class="col border">
                                     <h6>Không rõ</h6>
+                                    <?php if($ttDK->listUnusualUnclear() != null):?>
                                         <?php foreach($ttDK->listUnusualUnclear() as $i => $e):?>
                                             <p class="text-danger"><?= ++$i.". " .$e?></p>
                                         <?php endforeach;?>
+                                        <?php else: ?>
+                                            <p>Không</p>
+                                        <?php endif;?>
                                     </div>
                                     
                                     

@@ -23,8 +23,12 @@
                         }
                         else if($phieudk->trangthai == 1){
                             echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã xác nhận";
-                        } else {
+                        } else if($phieudk->trangthai == 2){
                             echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã từ chối";
+                        } else if($phieudk->trangthai == 3){
+                            echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hủy";
+                        } else if($phieudk->trangthai == 4){
+                            echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hoàn thành";
                         }
                     ?>
             

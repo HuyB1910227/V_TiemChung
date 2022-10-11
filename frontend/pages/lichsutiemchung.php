@@ -4,6 +4,7 @@
     <?php include_once __DIR__ . '/../layouts/meta.php'; ?>
     <title>Lịch sử tiêm chủng</title>
     <?php include_once __DIR__ . '/../layouts/styles.php'; ?>
+    
 </head>
 <body class="container-fluid">
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>

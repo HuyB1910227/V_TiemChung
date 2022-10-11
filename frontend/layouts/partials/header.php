@@ -28,21 +28,22 @@ use TC\OBS\TaiKhoan;
     $arrpdk = $phieudk->selectFromUser($user->kh_id);
     // $arrpdk = $phieudk->selectall(1);
     $lst = new LichSuTiem($PDO);
-    $arrLST = $lst->all();
+    $arrLST = $lst->selectFromUser($user->kh_id);
     $tt = new ThongTinTiem($PDO);
     $vaccine = new Vaccine($PDO);
     $coso = new CoSoTiem($PDO);
-
+    //include __DIR__ . "/../../../assets/frontend/css/style_navbar.css";
+    
 ?>
 
-<header class="row bg-light">
-    <div class="container-lg">
-        <nav class="navbar navbar-expand-md navbar-light bg-light row">
+<header class="fixed-top">
+    <div class="container-lg ">
+        <nav class="navbar navbar-expand-md navbar-light row">
             <a class="navbar-brand" href="#">V-Tiêm chủng</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse sha" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/V_TiemChung/frontend/pages/trangchu.php">Trang chủ<span class="sr-only">(current)</span></a>
@@ -51,11 +52,11 @@ use TC\OBS\TaiKhoan;
                         <a class="nav-link" href="/V_TiemChung/frontend/pages/dangkytiemchung.php">Đăng ký tiêm</a>
                     </li>
 
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                             Quản lý
                         </a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu shadow-lg">
                             <a class="dropdown-item" href="/V_TiemChung/frontend/pages/thongtincanhan.php">Thông tin cá nhân</a>
                             <a class="dropdown-item" href="/V_TiemChung/frontend/pages/chungnhantiemchung.php">Chứng nhận tiêm</a>
                             <a class="dropdown-item" href="/V_TiemChung/frontend/pages/lichsutiemchung.php">Lịch sử tiêm chủng</a>
@@ -73,3 +74,4 @@ use TC\OBS\TaiKhoan;
         </nav>
     </div>
 </header>
+

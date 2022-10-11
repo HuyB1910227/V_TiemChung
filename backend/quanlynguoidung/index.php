@@ -28,7 +28,7 @@
                     <p class="float-left">Tổng số lượng: <?= count($mangkhachhang)?></p>
                     <div class="float-right">
                         
-                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a>
+                        <!-- <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a> -->
                     </div>
                 </div>
                 <div class="mt-2">
@@ -47,7 +47,7 @@
                             <th>Tỉnh/Thành Phố</th>
                             <th>Địa chỉ</th>
                             <th>Số lần tiêm</th>
-                            <th>Thao tác</th>
+                            <!-- <th>Thao tác</th> -->
                         </tr>
                         <?php foreach($mangkhachhang as $k => $kh):?>
                         <tr>
@@ -71,11 +71,11 @@
                             <td><?= $kh->diachi?></td>
                             <td><?= $kh->solantiem?></td>
                             
-                            <td>
+                            <!-- <td>
                                 <a class="btn btn-warning" href="edit.php?cs_id=<?= $e['kh_id']?>">Sửa</a>
                                
                                 <button class="btn btn-danger btnDelete" type="button" data-cs_id="<?= $e['kh_id']?>">Xóa</button>
-                            </td>
+                            </td> -->
                         </tr>
                         <?php endforeach; ?>
                     </table>

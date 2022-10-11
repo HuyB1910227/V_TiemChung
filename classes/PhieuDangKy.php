@@ -244,7 +244,26 @@ class PhieuDangKy{
 	// 	return $are;
 	// }
 
-    
+    public function regCompleted(){
+        $sql = $this->db->prepare('update phieu_dang_ky_tiem set pdk_trangthai = 4 where pdk_id = :id');
+        return $sql->execute(['id' => $this->id]);
+    }
+
+    public function regCancel(){
+        $sql = $this->db->prepare('update phieu_dang_ky_tiem set pdk_trangthai = 3 where pdk_id = :id');
+        return $sql->execute(['id' => $this->id]);
+    }
+
+    public function checkToCancel($ngayhieuluc){
+        $ngayhieuluc = strtotime($ngayhieuluc);
+        $ngayhentiem = strtotime($this->findVaccinationSchedule()->ngaytiem);
+        if(($this->trangthai == 1) || ($this->trangthai == 0)){
+            if($ngayhentiem < $ngayhieuluc){
+                return $this->regCancel();
+            }
+        }
+        return false;
+    }
 
 }
 ?>

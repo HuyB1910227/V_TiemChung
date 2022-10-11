@@ -62,6 +62,7 @@
 
                         </tr>
                         <?php foreach($arrpdk as $i => $pdk):?>
+                            <?php if($pdk->trangthai == 0):?>
                             <?php 
                                 $nt = $pdk->findUser();
                                 $lht = $pdk->findVaccinationSchedule();
@@ -130,6 +131,7 @@
 
                                 </td>
                             </tr>
+                            <?php endif;?>
                         <?php endforeach; ?>
                     </table>
                 </div>

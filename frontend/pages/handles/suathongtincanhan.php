@@ -9,6 +9,7 @@
 
         // var_dump($kh);
         $kh->save();
-        echo "<meta http-equiv='refresh' content='0'>";
+        $user->changeFullName($kh->hoten);
+       echo "<meta http-equiv='refresh' content='0'>";
     } 
 ?>

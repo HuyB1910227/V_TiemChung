@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="mt-2">
-                    <table class="table table-bordered bg-white table-responsive">
+                    <table class="table table-bordered bg-white table-responsive-lg ">
                         <tr class="bg-primary text-center text-light">
                             <!-- <th>Chọn</th> -->
                             <th>STT</th>

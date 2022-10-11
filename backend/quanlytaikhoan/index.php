@@ -13,7 +13,7 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Danh sách thông tin cá nhân</h3>
+                <h3 class="text-info">Danh sách tài khoản</h3>
                 <?php 
                  include_once(__DIR__ . '/../../dbconnect.php');
                  $sql = "SELECT * FROM tai_khoan where tk_vaitro = 2;";
@@ -35,41 +35,39 @@
                     <p class="float-left">Tổng số lượng: <?= count($data)?></p>
                     <div class="float-right">
                         
-                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a>
+                        <!-- <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlycosotiem/create.php">Thêm</a> -->
                     </div>
                 </div>
                 <div class="mt-2">
                     <table class="table table-bordered bg-white">
                         <tr class="bg-primary text-center text-light">
                             
-                            <th>STT</th>
+                            <!-- <th>STT</th> -->
                             <th>Mã tài khoản</th>
                             <th>Tên tài khoản</th>
                             <th>Họ tên</th>
                             <th>Số điện thoại</th>
-                            <th>Mật khẩu</th>
                             
-                            <th>Thao tác</th>
                         </tr>
                         <?php foreach($data as $k => $e):?>
                         <tr>
                             
-                            <td><?= ++$k?></td>
+                            <!-- <td><?= ++$k?></td> -->
                             <td><?= $e['tk_id']?></td>
                             <td><?= $e['tk_ten']?></td>
                             <td><?= $e['tk_hoten']?></td>
                             <td><?= $e['tk_sodienthoai']?></td>
-                            <td><?= $e['tk_matkhau']?></td>
+                           
                             
 
     
                             
                             
-                            <td>
+                            <!-- <td>
                                 
                                
                                 <button class="btn btn-danger btnDelete" type="button" data-cs_id="<?= $e['tk_id']?>">Xóa</button>
-                            </td>
+                            </td> -->
                         </tr>
                         <?php endforeach; ?>
                     </table>

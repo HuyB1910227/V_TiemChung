@@ -74,6 +74,20 @@
                                     <td class="font-weight-bold">Địa chỉ:</td>
                                     <td><?= $kh->diachi?></td>
                                 </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Số lần tiêm:</td>
+                                    <td><?= $kh->solantiem?></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Ngày tiêm gần nhất:</td>
+                                   <td><?php echo $kh->ngaytiemgannhat;
+                                   
+                                    ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Hiệu lực:</td>
+                                   <td><?= $kh->dateEXP();?></td>
+                                </tr>
                             </table>
                         </div>
                     </div>
@@ -103,13 +117,10 @@
                                     <td class="font-weight-bold">Tôn giáo:</td>
                                     <td><?= $kh->tongiao?></td>
                                 </tr>
-
-
                                 <tr>
                                     <td class="font-weight-bold">Nghề nghiệp:</td>
                                     <td><?= $kh->nghenghiep?></td>
                                 </tr>
-
                             </table>
                         </div>
                     </div>
@@ -222,14 +233,15 @@
     <?php include_once __DIR__ . '/../layouts/script.php'; ?>
     
     <script>
-        // $(function(){
-        //     console.log("hi");
-        //     const save = $('#btnLuuThayDoi');
-        //     save.on("click",function(){
-        //         window.location = "./layouts/partials/footer.php";
-        //         location.reload();
-        //     });
-        // });
+        $(function(){
+            console.log("hi");
+            const save = $('#btnLuuThayDoi');
+            save.on("click",function(){
+                window.location = "./layouts/partials/footer.php";
+                location.reload();
+            });
+        });
+        
     </script>
 </body>
 </html>

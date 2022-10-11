@@ -13,7 +13,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $result = $user->login3($_POST['sdt'], $_POST['pwd']);
         if($result != null){
-            echo "Thành công.";
+            //echo "Thành công.";
             // $user->session();
             $_SESSION['btnDangNhap'] = $user->getID();
             $_SESSION['TaiKhoan'] = "user";
@@ -51,7 +51,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./vendor/fontawesome-free-6.2.0-web/css/all.css">
+    <link rel="stylesheet" href="/V_TiemChung/assets/vendor/fontawesome/css/all.css">
+
     <style>
         .card-log-in {
             width: 500px;
@@ -79,6 +80,7 @@
                         </div>
                         <input type="text" class="form-control" id="sdt" name="sdt" placeholder="Nhập vào số điện thoại....">
                     </div>
+                    
 
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>

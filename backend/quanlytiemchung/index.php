@@ -6,7 +6,7 @@
     use TC\OBS\KhachHang;
     $nt = new KhachHang($PDO);
     use TC\OBS\LichHenTiem;
-use TC\OBS\Vaccine;
+    use TC\OBS\Vaccine;
 
     $lht = new LichHenTiem($PDO);
     // $pdk1 = $arrpdk[2];
@@ -43,7 +43,7 @@ use TC\OBS\Vaccine;
                     </div>
                 </div>
                 <div class="mt-2">
-                    <table class="table table-bordered bg-white table-responsive">
+                    <table class="table table-bordered bg-white table-responsive-lg">
                         <tr class="bg-primary text-center text-light">
                             <th>Chọn</th>
                             <th>STT</th>
@@ -124,7 +124,8 @@ use TC\OBS\Vaccine;
                                             <input type="hidden" name="idKH" value="<?=$nt->layId()?>">
                                             <input type="hidden" name="nbLanTiem" value="<?= (int)$nt->solantiem + 1?>">
                                             <input type="hidden" name="slCoSoID" value="<?= $lht->findLocation()->layID()?>"> 
-                                            <button type="submit" class="btn btn-primary" name="btnExecute">Xác nhận</button>
+                                            <input type="hidden" name="idPDK" value="<?=$pdk->getId()?>">
+                                            <button type="submit" class="btn btn-primary" name="btnExecute">Xác nhận tiêm</button>
                                         </form>
                                         <form action="<?=url('backend/quanlytiemchung/viewUsers.php')?>" method="POST" style="display: inline;">
                                             <input type="hidden" name="id" value="<?=$pdk->getId()?>">

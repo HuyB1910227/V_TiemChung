@@ -12,7 +12,9 @@ use TC\OBS\TaiKhoan;
         $id = $newKH->layID();
         $newTK->fill($_POST, $id);
         $newTK->save();
-        header("Location: dangnhap.php");
+
+       header("Location: dangnhap.php");
+        
     } else {
         echo "no";
     }

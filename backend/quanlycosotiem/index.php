@@ -35,7 +35,7 @@
                 </div>
                 <div class="mt-2">
                     <table class="table table-bordered bg-white table-responsive-lg">
-                        <tr class="bg-primary text-center text-light">
+                        <tr class="text-center">
                             <th>Chọn</th>
                             <th>STT</th>
                             <th>Tên cơ sở</th>

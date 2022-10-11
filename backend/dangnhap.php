@@ -31,7 +31,7 @@
 </head>
 
 <body >
-    <div class="container justify-content-center w-50 border p-5">
+    <div class="container justify-content-center border p-5 " style="width: 600px;">
     <h1 class="text-center">Đăng nhập</h1>
     <form action="dangnhap.php" method="post" class="">
         <div class="form-group">
