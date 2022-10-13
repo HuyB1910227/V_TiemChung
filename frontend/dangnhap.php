@@ -9,7 +9,7 @@
     // if($user->session()){
     //     header("Location: dangnhap.php");
     // }
-
+        $error = "";
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $result = $user->login3($_POST['sdt'], $_POST['pwd']);
         if($result != null){
@@ -19,7 +19,7 @@
             $_SESSION['TaiKhoan'] = "user";
             header("Location: pages/trangchu.php");
         } else {
-            echo "Đăng nhập thất bại";
+            $error = "Tên đăng nhập hoặc mật khẩu chưa chính xác";
         }
         // echo $_POST['sdt'], $_POST['pwd'];
         // if($n == 1){
@@ -71,7 +71,10 @@
             <div class="col-12">
                 <h3 class="text-center font-weight-bolder text-black-25">Đăng nhập</h3>
             </div>
-            <form action="" method="post">
+            <div>
+                <span class="text-danger"><?= $error ?></span>
+            </div>
+            <form action="" method="post" id="frmDangNhap">
                 <div class="form-group">
                     <label for="sdt">Số điện thoại</label>
                     <div class="input-group">
@@ -122,6 +125,57 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/V_TiemChung/assets/vendor/plugin_validate/jquery.validate.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#frmDangNhap').validate({
+                rules: {
+                    
+                    sdt: {
+                        required: true,
+                        rangelength: [10, 10],
+                        number: true
+                    },
+                    
+                    
+                    pwd:  { required: true},
+					
+                },
+                messages: {
+                   
+                   
+                    sdt: {
+                        required: "Bạn chưa nhập vào số điện thoại",
+                        rangelength: "Tên đăng nhập phải có 10 ký tự số!",
+                        number: "Số điện thoại sai định dạng"
+                    },
+                    
+                    pwd: {
+						required: "Bạn chưa nhập mật khẩu",
+						
+					},
+					
+                    
+                },
+                errorElement: "div",
+                errorPlacement: function(error, element) {
+                    error.addClass("invalid-feedback");
+                    if (element.prop("type") === "radio") {
+                        error.insertAfter(element.siblings("label"));
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass("is-invalid").removeClass("is-valid");
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).addClass("is-valid").removeClass("is-invalid");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

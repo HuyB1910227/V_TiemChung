@@ -107,52 +107,13 @@
 
 			
 		});
-        // $(document).ready(function() {
-        //     const btnNext1 = $('#btnNext1');
-        //     const btnNext2 = $('#btnNext2');
-        //     const btnPrev3 = $('#btnPrev3');
-        //     const btnPrev2 = $('#btnPrev2');
-
-        //     function findAActiveClassInForm() {
-        //         var aActiveClass = $('#dangkytiem a.active');
-        //         console.log(aActiveClass);
-        //         aActiveClass.removeClass('active');
-        //         aActiveClass.addClass('disabled');
-        //         const dvActiveClass = $('div.active');
-        //         console.log(dvActiveClass)
-        //         dvActiveClass.removeClass('active');
-
-        //     }
-            // const modDvDisplay = (id) => {
-
-            //     $('a[href="#`${id}`"]').removeClass('disabled').addClass('active').trigger('click');
-            //     $(`'div#${id}'`).addClass('active');
-            // }
-        //     btnNext1.on('click', function() {
-        //         findAActiveClassInForm();
-        //         // modDvDisplay("tiensutiem");
-        //         $('a[href="#tiensutiem"]').removeClass('disabled').addClass('active').trigger('click');
-        //         $('div#tiensutiem').addClass('active');
-        //     })
-        //     btnNext2.on('click', function() {
-        //         findAActiveClassInForm();
-        //         $('a[href="#phieudongy"]').removeClass('disabled').addClass('active').trigger('click');
-        //         $('div#phieudongy').addClass('active');
-        //     })
-        //     btnPrev3.on('click', function() {
-        //         findAActiveClassInForm();
-        //         $('a[href="#tiensutiem"]').removeClass('disabled').addClass('active').trigger('click');
-        //         $('div#tiensutiem').addClass('active');
-        //     })
-        //     btnPrev2.on('click', function() {
-        //         findAActiveClassInForm();
-        //         $('a[href="#thongtincanhan"]').removeClass('disabled').addClass('active').trigger('click');
-        //         $('div#thongtincanhan').addClass('active');
-        //     })
-        // })
+        
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
+
+    
+
 </body>
 
 </html>

@@ -24,9 +24,9 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Danh sách lịch hẹn</h3>
+                <h3>Danh sách lịch hẹn</h3>
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng: <?php echo count($arrlichhen)?></p>
+                    
                     <div class="float-right">
                         <!-- <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button> -->
                         <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlylichhentiem/create.php">Thêm</a>
@@ -34,7 +34,8 @@
                 </div>
                 <div class="mt-2">
                     <table class="table table-bordered bg-white table-responsive-lg ">
-                        <tr class="bg-primary text-center text-light">
+                        <thead>
+                            <tr class="">
                             <!-- <th>Chọn</th> -->
                             <th>STT</th>
                             <th>Mã lịch hẹn</th>
@@ -47,7 +48,9 @@
                             <th>Trạng thái</th>
                             <th>Thao tác</th>
                         </tr>
-                        <?php foreach($arrlichhen as $i => $lich):?>
+                        </thead>
+                        <tbody>
+                            <?php foreach($arrlichhen as $i => $lich):?>
                         <?php $coso = $lich->findLocation();?>
                         <tr>
                             <td><?= ++$i?></td>
@@ -70,6 +73,8 @@
                             </td>
                         </tr>
                         <?php endforeach;?>
+                        </tbody>
+                        
                     </table>
                 </div>
             </div>

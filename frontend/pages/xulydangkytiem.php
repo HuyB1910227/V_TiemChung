@@ -25,7 +25,7 @@
         <div class="container-lg">
 
             <div class="p-5">
-                <form action="guidangky.php" id="dangkytiem" name="dangkytiem" method="post">
+                <form action="guidangky.php" id="dangkytiem" name="dangkytiem" method="post" id="frmDangKyTiem">
                     <nav class="nav nav-pills flex-column flex-sm-row">
                         <a class="flex-sm-fill text-sm-center nav-link active" data-toggle="list" href="#thongtincanhan" role="tab">1. Thông tin cá nhân</a>
                         <a class="flex-sm-fill text-sm-center nav-link disabled" data-toggle="list" href="#tiensutiem" role="tab">2. Tiền sử tiêm</a>
@@ -315,7 +315,7 @@
                                 <tr>
                                     <td>Sau khi đọc các thông tin trên: </td>
                                     <td>
-                                        <label class="text-danger"><input type="checkbox" name="chkDongYDKTiem" id="chkDongYDKTiem"> Đồng ý tiêm chủng và cam kết trong vòng 14 ngày qua
+                                        <label class=""><input type="checkbox" name="chkDongYDKTiem" id="chkDongYDKTiem"> Đồng ý tiêm chủng và cam kết trong vòng 14 ngày qua
                                             chưa tiêm phòng, nếu sai tôi xin chịu trách nhiệm.</label>
                                     </td>
                                 </tr>
@@ -348,11 +348,11 @@
 
             function findAActiveClassInForm() {
                 var aActiveClass = $('#dangkytiem a.active');
-                console.log(aActiveClass);
+                //console.log(aActiveClass);
                 aActiveClass.removeClass('active');
                 aActiveClass.addClass('disabled');
                 const dvActiveClass = $('div.active');
-                console.log(dvActiveClass)
+                //console.log(dvActiveClass)
                 dvActiveClass.removeClass('active');
 
             }
@@ -368,9 +368,30 @@
                 $('div#tiensutiem').addClass('active');
             })
             btnNext2.on('click', function() {
-                findAActiveClassInForm();
-                $('a[href="#phieudongy"]').removeClass('disabled').addClass('active').trigger('click');
-                $('div#phieudongy').addClass('active');
+                
+                var error = 0;
+                for(var i = 1; i<= 10; i++){
+                    var nameInput = "rdTienSuBenh" + i;
+                    var inp = `input[name=${nameInput}]`;
+                    var input = $(inp);
+                    var tr = $(inp).parents("tr");
+                    tr.css("color", "black");
+                    if(input.is(":checked")){
+                        error += 0;
+                    } else  {
+                        error += 1;
+                       
+                        tr.css("color", "red");
+                    }
+                    
+                }
+                if(error == 0){
+                    findAActiveClassInForm();
+                    $('a[href="#phieudongy"]').removeClass('disabled').addClass('active').trigger('click');
+                    $('div#phieudongy').addClass('active');
+                }
+                
+
             })
             btnPrev3.on('click', function() {
                 findAActiveClassInForm();
@@ -382,8 +403,22 @@
                 $('a[href="#thongtincanhan"]').removeClass('disabled').addClass('active').trigger('click');
                 $('div#thongtincanhan').addClass('active');
             })
+
+            $('#btnSubmit').on("click", function(e){
+                
+                if($('#chkDongYDKTiem').is(":checked")){
+                    confirm("Gửi phiếu đăng ký");
+                    // $('#btnSubmit').unbind('click');
+                    
+                } else{
+                    e.preventDefault();
+                    $('#chkDongYDKTiem').parent("label").css("color", "red");
+                }
+            })
         })
     </script>
+        
+    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

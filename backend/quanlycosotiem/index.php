@@ -23,20 +23,20 @@
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
-            <div class="col-10">
-                <h3 class="text-info">Danh sách cơ sở tiêm chủng</h3>
-                
+            <div class="col-10 mt-1">
+                <h3>Danh sách cơ sở tiêm chủng</h3>
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng: <?= count($mangcoso);?></p>
+                    <!-- <p class="float-left">Tổng số lượng: <?= count($mangcoso);?></p> -->
                     <div class="float-right">
-                        <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button>
+                        <!-- <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button> -->
                         <a class="btn btn-primary btn-link text-light" href="<?= url('backend/quanlycosotiem/create.php') ?>">Thêm</a>
                     </div>
                 </div>
                 <div class="mt-2">
                     <table class="table table-bordered bg-white table-responsive-lg">
-                        <tr class="text-center">
-                            <th>Chọn</th>
+                        <thead>
+                            <tr class="text-center">
+                            
                             <th>STT</th>
                             <th>Tên cơ sở</th>
                             <th>Địa chỉ</th>
@@ -46,11 +46,13 @@
                             <th>Trạng thái</th>
                             <th>Thao tác</th>
                         </tr>
-                        <?php foreach($mangcoso as $i => $coso):?>
+                        </thead>
+                        <tbody>
+                            <?php foreach($mangcoso as $i => $coso):?>
                         <tr>
-                            <td>
+                            <!-- <td>
                                 <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $coso->layID()?>" >
-                            </td>
+                            </td> -->
                             <td><?= ++$i?></td>
                             <td><?= $coso->ten?></td>
                             <td><?= $coso->diachi?></td>
@@ -77,6 +79,8 @@
                             </td>
                         </tr>
                         <?php endforeach; ?>
+                        </tbody>
+                        
                     </table>
                 </div>
             </div>

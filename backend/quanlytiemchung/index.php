@@ -33,10 +33,10 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Danh sách tiêm vaccin</h3>
+                <h3>Danh sách tiêm vaccin</h3>
 
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng</p>
+                    
                     <div class="float-right">
                         <!-- <button class="btn btn-warning text-white"><i class="fa-solid fa-ban"></i> Từ chối</button>
                         <button class="btn btn-primary"><i class="fa-solid fa-check"></i> Xác nhận</button> -->
@@ -44,7 +44,8 @@
                 </div>
                 <div class="mt-2">
                     <table class="table table-bordered bg-white table-responsive-lg">
-                        <tr class="bg-primary text-center text-light">
+                        <thead>
+                            <tr class="">
                             <th>Chọn</th>
                             <th>STT</th>
                             <th>Mã phiếu</th>
@@ -67,8 +68,11 @@
                             <th>Thao tác</th>
 
                         </tr>
-                        <?php foreach($arrpdk as $i => $pdk):?>
-                            <?php if($pdk->trangthai == 1):?>
+                        </thead>
+                        <tbody>
+                            <?php $today = date("Y-m-d");?>
+                            <?php foreach($arrpdk as $i => $pdk):?>
+                            <?php if($pdk->trangthai == 1 && $pdk->findVaccinationSchedule()->ngaytiem >= $today):?>
                                 <?php 
                                     $nt = $pdk->findUser();
                                     $lht = $pdk->findVaccinationSchedule();
@@ -141,6 +145,8 @@
                                 
                             </tr>
                         <?php endforeach; ?>
+                        </tbody>
+                        
                     </table>
                 </div>
 

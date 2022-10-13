@@ -32,10 +32,10 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Danh sách đăng ký tiêm vaccin</h3>
+                <h3>Lịch sử tiêm</h3>
 
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng: <?= count($arrLST)?></p>
+                    
                     <div class="float-right">
                         <!-- <button class="btn btn-warning text-white"><i class="fa-solid fa-ban"></i> Từ chối</button>
                         <button class="btn btn-primary"><i class="fa-solid fa-check"></i> Xác nhận</button> -->
@@ -43,7 +43,8 @@
                 </div>
                 <div class="mt-2">
                     <table class="table table-bordered bg-white table-responsive">
-                        <tr class="bg-primary text-center text-light">
+                        <thead>
+                            <tr class="">
                             
                             <th>STT</th>
                             
@@ -63,10 +64,12 @@
                             
                             <th>Lần tiêm</th>
                             <th>Trạng thái sau tiêm</th>
-                            
+                            <th>Thao tác</th>
 
                         </tr>
-                        <?php foreach($arrLST as $i => $lst):?>
+                        </thead>
+                        <tbody>
+                            <?php foreach($arrLST as $i => $lst):?>
                             <?php 
                                 $nt->find($lst->kh_id) ;
                                 $tc->find($lst->tc_id);
@@ -102,9 +105,14 @@
                                    // $nt->updateLastVaccinated($tc->ngaytiem);?> -->
                                 
                                 <td><?= $lst->ttsautiem?></td>
-                                    
+                                 <td>
+                                    <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Thêm trạng thái</button>
+                                 
+                                 </td>   
                             </tr>
                         <?php endforeach; ?>
+                        </tbody>
+                        
                     </table>
                 </div>
 

@@ -36,18 +36,19 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Danh sách vacxin</h3>
+                <h3>Danh sách vacxin</h3>
                 
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng: 1</p>
+                  
                     <div class="float-right">
-                        <!-- <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button> -->
+                       
                         <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlyvaccin/create.php">Thêm</a>
                     </div>
                 </div>
                 <div class="mt-2">
                     <table class="table table-bordered bg-white">
-                        <tr class="bg-primary text-center text-light">
+                        <thead>
+                            <tr class="">
                             <!-- <th>Chọn</th> -->
                             <th>STT</th>
                             <th>Mã vaccine</th>
@@ -58,7 +59,9 @@
                             <th>Thao tác</th>
                             
                         </tr>
-                        <?php foreach($mangvaccine as $k => $vaccine):?>
+                        </thead>
+                        <tbody>
+                            <?php foreach($mangvaccine as $k => $vaccine):?>
                         <tr>
                             <!-- <td>
                                 <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $e['cs_id']?>" >
@@ -89,6 +92,8 @@
                             </td>
                         </tr>
                         <?php endforeach; ?>
+                        </tbody>
+                        
                     </table>
                 </div>
             </div>

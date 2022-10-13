@@ -35,7 +35,7 @@ if (isset($_POST['id'])) {
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Chi tiết đăng ký tiêm vaccin</h3>
+                <h3>Chi tiết đăng ký tiêm vaccin</h3>
 
                 <div class="bg-white p-2">
                     <div class="float-right">
@@ -45,7 +45,7 @@ if (isset($_POST['id'])) {
                 </div>
                 <div class="mt-2">
                     <div class="card container">
-                        <div class="card-header row"><?= $ttDK->trangthai?></div>
+                        
                         <div class="card-body container">
 
                             <div class="row">
@@ -86,10 +86,7 @@ if (isset($_POST['id'])) {
                                             <th>Số lần tiêm:</th>
                                             <td><?= $ttKH->solantiem ?></td>
                                         </tr>
-                                        <tr>
-                                            <th>Địa chỉ:</th>
-                                            <td><?= $ttKH->diachi . ", "  . $ttKH->phuong . "," . $ttKH->quan . "," . $ttKH->tinh; ?></td>
-                                        </tr>
+                                        
 
                                     </table>
                                 </div>
@@ -101,15 +98,15 @@ if (isset($_POST['id'])) {
                                 <?php if ($ttDK->diembatthuong == 0) : ?>
                                     <span class="text-primary col-12">Không có điểm bất thường</span>
                                 <?php else : ?>
-                                    <div class="col border mr-1">
-                                        <h6>Có</h6>
+                                    <div class="col">
+                                        <h5>Có</h5>
                                         <?php foreach($ttDK->listUnusualYes() as $i => $e):?>
                                             <p class="text-danger"><?= ++$i.". " .$e?></p>
                                         <?php endforeach;?>
 
                                     </div>
-                                    <div class="col border">
-                                    <h6>Không rõ</h6>
+                                    <div class="col">
+                                        <h5>Không rõ</h5>
                                         <?php foreach($ttDK->listUnusualUnclear() as $i => $e):?>
                                             <p class="text-danger"><?= ++$i.". " .$e?></p>
                                         <?php endforeach;?>

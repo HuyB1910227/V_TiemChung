@@ -28,11 +28,11 @@
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
-            <div class="col-10">
-                <h3 class="text-info">Danh sách đăng ký tiêm vaccin</h3>
-
+            <div class="col-10 mt-1">
+                <h3>Danh sách đăng ký tiêm vaccin</h3>
+               
                 <div class="bg-white p-2">
-                    <p class="float-left">Tổng số lượng: <?= count($arrpdk)?></p>
+                    
                     <div class="float-right">
                         <!-- <button class="btn btn-warning text-white"><i class="fa-solid fa-ban"></i> Từ chối</button>
                         <button class="btn btn-primary"><i class="fa-solid fa-check"></i> Xác nhận</button> -->
@@ -40,27 +40,30 @@
                 </div>
                 <div class="mt-2">
                     <table class="table table-bordered bg-white table-responsive">
-                        <tr class="bg-primary text-center text-light">
-                            <th>Chọn</th>
-                            <th>STT</th>
-                            <th>Mã khách hàng</th>
-                            <!-- <th>Số điện thoại</th> -->
-                            <th>Họ và tên</th>
-                            <th>Ngày sinh</th>
-                            <th>Giới tính</th>
-                            <th>CCCD</th>
-                            <th>Tỉnh/Thành phố</th>
-                            <th>Quận/Huyện</th>
-                            <th>Xã/Phường</th>
-                            <th>Địa chỉ</th>
-                            <th>Ngày đăng ký</th>
-                            <th>Lịch tiêm</th>
-                            <th>Cơ sở tiêm</th>
-                            <th>Điểm bất thường</th>
-                            <th>Trạng thái</th>
-                            <th>Thao tác</th>
+                        <thead>
+                            <tr class="">
+                                <!-- <th>Chọn</th> -->
+                                <th>STT</th>
+                                <th>Mã khách hàng</th>
+                                <!-- <th>Số điện thoại</th> -->
+                                <th>Họ và tên</th>
+                                <th>Ngày sinh</th>
+                                <th>Giới tính</th>
+                                <th>CCCD</th>
+                                <th>Tỉnh/Thành phố</th>
+                                <th>Quận/Huyện</th>
+                                <th>Xã/Phường</th>
+                                <th>Địa chỉ</th>
+                                <th>Ngày đăng ký</th>
+                                <th>Lịch tiêm</th>
+                                <th>Cơ sở tiêm</th>
+                                <th>Điểm bất thường</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
 
-                        </tr>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <?php foreach($arrpdk as $i => $pdk):?>
                             <?php if($pdk->trangthai == 0):?>
                             <?php 
@@ -68,9 +71,9 @@
                                 $lht = $pdk->findVaccinationSchedule();
                             ?>
                             <tr>
-                                <td>
+                                <!-- <td>
                                 <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $pdk->getID()?>" >
-                                </td>
+                                </td> -->
                                 <td><?= ++$i?></td>
                                 <td><?= $pdk->getId()?></td>
                                 <!-- <td><?= $nt->sdt?></td> -->
@@ -133,6 +136,8 @@
                             </tr>
                             <?php endif;?>
                         <?php endforeach; ?>
+                        </tbody>
+                        
                     </table>
                 </div>
 

@@ -41,16 +41,36 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Sửa Vaccine</h3>
+                <h3 >Sửa Vaccine</h3>
                 
                 <form action="" method="post">
-                    <label for="txtMavaccine">Mã Vắc xin: </label>
-                    <input type="text" name="txtMavaccine" id="txtMavaccine" value="<?= $vaccine->layID()?>" readonly><br>
-                    <label for="txtTenVaccine">Tên Vắc xin: </label>
-                    <input type="text" name="txtTenVaccine" id="txtTenVaccine" required value="<?= $vaccine->ten?>"><br>
-                    <label for="txtHieuLuc">Hiệu lực: </label>
-                    <input type="text" name="txtHieuLuc" id="txtHieuLuc" required value="<?= $vaccine->hieuluc?>"><br>
-                    <select name="slLoaiVaccine" id="slLoaiVaccine">
+                   <br>
+                    <br>
+                    <br>
+                    
+                    
+                    
+                   
+                    
+                </form>
+                <div class="card frmCreate">
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="form-group">
+                            <label for="txtMavaccine">Mã Vắc xin: </label>
+                    <input type="text" name="txtMavaccine" id="txtMavaccine" class="form-control" value="<?= $vaccine->layID()?>" readonly>
+                            </div>
+                            <div class="form-group">
+                            <label for="txtTenVaccine">Tên Vắc xin: </label>
+                    <input type="text" name="txtTenVaccine" id="txtTenVaccine" class="form-control" required value="<?= $vaccine->ten?>">
+                            </div>
+                            <div class="form-group">
+                            <label for="txtHieuLuc">Hiệu lực: </label>
+                    <input type="text" name="txtHieuLuc" id="txtHieuLuc" class="form-control" required value="<?= $vaccine->hieuluc?>">
+                            </div>
+                            <label for="slLoaiVaccine">Loại vắc xin:</label>
+                            <div class="form-group">
+                            <select name="slLoaiVaccine" id="slLoaiVaccine" class="custom-select">
                         <?php foreach($mangloai as $loai): ?>
                             <?php if($loai->layID() == $vaccine->lvc_id):?>
                                 <option value="<?= $loai->layID();?>" selected><?= $loai->ten; ?></option>
@@ -59,11 +79,14 @@
                             <?php endif;?>
                         <?php endforeach; ?>
                     </select>
-                    
-                    
-                   
-                    <button name="btnSave" id="btnSave">Sửa</button>
-                </form>
+                            </div>
+                            
+
+                            <button name="btnSave" id="btnSave" class="btn btn-primary">Cập nhật</button>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

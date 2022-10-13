@@ -38,33 +38,59 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Sửa cơ sở</h3>
-                
-                <form action="" method="post">
-                    <label for="txtMaCoSo">Mã cơ sở: </label>
-                    <input type="text" name="txtMaCoSo" id="txtMaCoSo" value="<?= $coso->layId()?>" readonly><br>
-                    <label for="txtTenCoSo">Tên cơ sở: </label>
-                    <input type="text" name="txtTenCoSo" id="txtTenCoSo" required value="<?= $coso->ten?>"><br>
-                    <label for="txtTinh">Tỉnh/Thành Phố: </label>
-                    <input type="text" name="txtTinh" id="txtTinh" required value="<?= $coso->tinh?>"><br>
-                    <label for="txtQuan">Quận/Huyện: </label>
-                    <input type="text" name="txtQuan" id="txtQuan" required value="<?= $coso->quan?>"><br>
-                    <label for="txtPhuong">Phường/Xã: </label>
-                    <input type="text" name="txtPhuong" id="txtPhuong" required value="<?= $coso->phuong?>"><br>
-                    <label for="txtDiaChi">Địa chỉ: </label>
-                    <input type="text" name="txtDiaChi" id="txtDiaChi" required value="<?= $coso->diachi?>"><br>
-                    <select name="slTrangThai" id="slTrangThai">
-                        <?php if ($coso->trangthai == 0):?>
+                <h3 class="">Sửa cơ sở</h3>
+                <div class="card frmCreate " >
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="form-group">
+                            <label for="txtMaCoSo">Mã cơ sở: </label>
+                            <input type="text" name="txtMaCoSo" id="txtMaCoSo" value="<?= $coso->layId()?>" class="form-control" readonly>
+                            </div>
+                            <div class="form-group">
+                            <label for="txtTenCoSo">Tên cơ sở: </label>
+                            <input type="text" name="txtTenCoSo" id="txtTenCoSo" required value="<?= $coso->ten?>" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                            <label for="txtTinh">Tỉnh/Thành Phố: </label>
+                    <input type="text" name="txtTinh" id="txtTinh" class="form-control" required value="<?= $coso->tinh?>" >
+                            </div>
+                            <div class="form-group">
+                            <label for="txtQuan">Quận/Huyện: </label>
+                    <input type="text" name="txtQuan" id="txtQuan" class="form-control" required value="<?= $coso->quan?>">
+                            </div>
+                            <div class="form-group">
+                            <label for="txtPhuong">Phường/Xã: </label>
+                    <input type="text" name="txtPhuong" id="txtPhuong" class="form-control" required value="<?= $coso->phuong?>">
+                            </div>
+                            <div class="form-group">
+                            <label for="txtDiaChi">Địa chỉ: </label>
+                    <input type="text" name="txtDiaChi" id="txtDiaChi" class="form-control" required value="<?= $coso->diachi?>">
+                            </div>
+                            <div class="form-group">
+                            <label for="">Trạng thái hoạt động</label>
+                            <select name="slTrangThai" id="slTrangThai" class="custom-select">
+                            <?php if ($coso->trangthai == 0):?>
                             <option value="0" selected>Không hoạt động</option>
                             <option value="1" >Hoạt động</option>
                         <?php else:?>
                             <option value="0">Không hoạt động</option>
                             <option value="1" selected>Hoạt động</option>
                         <?php endif;?>
-                        
-                    </select>
-                    <button name="btnSave" id="btnSave">Sửa</button>
-                </form>
+                            </select>
+                            </div>
+                           
+                           
+                            
+                            
+                            <button name="btnSave" id="btnSave" class="btn btn-primary">Cập nhật</button>
+                        </form>
+                    </div>
+
+                </div>
+                
+                    
+                
             </div>
         </div>
     </div>

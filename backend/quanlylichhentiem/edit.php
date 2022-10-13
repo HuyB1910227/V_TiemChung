@@ -42,25 +42,37 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10">
-                <h3 class="text-info">Sửa cơ sở</h3>
+                <h3>Sửa cơ sở</h3>
                 
-                <form action="" method="post">
-                    <label for="txtMaCoSo">Mã cơ sở: </label>
-                    <input type="text" name="txtMaCoSo" id="txtMaCoSo" value="<?= $e->getID()?>" readonly><br>
-                    <label for="dtNgayHenTiem">Ngày hẹn tiêm: </label>
-                    <input type="date" name="dtNgayHenTiem" id="dtNgayHenTiem" required value="<?=$e->ngaytiem?>"><br>
-                    
-                    <select name="slCoSo" id="slCoSo">
-                        <?php foreach($arrcoso as $coso): ?>
+              
+                <div class="card frmCreate">
+                    <div class="card-body">
+                        <form action="" method="post">
+                        
+                            <div class="form-group">
+                            <label for="dtNgayHenTiem">Ngày hẹn tiêm: </label>
+                    <input type="date" name="dtNgayHenTiem" id="dtNgayHenTiem" required value="<?=$e->ngaytiem?>" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Trạng thái hoạt động</label>
+                                <select name="slCoSo" id="slCoSo" class="custom-select">
+                                <?php foreach($arrcoso as $coso): ?>
                            
-                            <option value="<?= $coso->layID();?>" <?php if($coso->layID() == $e->cs_id) {echo "selected";};?>><?= $coso->ten; ?></option>
-                            
-                                
-                            
-                        <?php endforeach; ?>
-                    </select>
-                    <button name="btnSave" id="btnSave">Sửa</button>
-                </form>
+                           <option value="<?= $coso->layID();?>" <?php if($coso->layID() == $e->cs_id) {echo "selected";};?>><?= $coso->ten . ", " . $coso->diachi . ", " . $coso->quan . ", " . $coso->tinh; ?></option>
+                           
+                               
+                           
+                       <?php endforeach; ?>
+                                </select>
+                            </div>
+
+
+
+
+                            <button name="btnSave" id="btnSave" class="btn btn-primary">Cập nhật</button>
+                        </form>
+                    </div>
             </div>
         </div>
     </div>
