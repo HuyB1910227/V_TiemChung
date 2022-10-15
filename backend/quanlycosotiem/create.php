@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
-            <div class="col-10  mt-1">
+            <div class="col-10 offset-2  mt-1">
                 <h3>Thêm cơ sở</h3>
                 <div class="card frmCreate">
                     <div class="card-body">

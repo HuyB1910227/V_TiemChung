@@ -31,7 +31,7 @@
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
-            <div class="col-10">
+            <div class="col-10 offset-2">
                 <h3>Lịch sử tiêm</h3>
 
                 <div class="bg-white p-2">
@@ -106,7 +106,9 @@
                                 
                                 <td><?= $lst->ttsautiem?></td>
                                  <td>
-                                    <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Thêm trạng thái</button>
+                                    <button type="button" class="btn btn-primary btnttst" data-toggle="modal" data-target="#exampleModal" data-lst_id="<?= $lst->getID()?>">
+                                            Thêm trạng thái sau tiêm
+                                </button>
                                  
                                  </td>   
                             </tr>
@@ -114,6 +116,46 @@
                         </tbody>
                         
                     </table>
+
+                    <!-- Button trigger modal -->
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Launch demo modal
+                                </button> -->
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                        <form action="edit.php" method="post" id="frmSuaTrangThai">
+                                            <div>
+                                                <input type="text" class="form-control" name="lstID"  id="lstID" hidden>
+                                                
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtTTST">Trạng thái sau tiêm</label>
+                                                <input type="text" class="form-control" name="txtTTST">
+
+
+                                            </div>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                    </form>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
                 </div>
 
                 
@@ -132,8 +174,17 @@
 
     <?php include_once __DIR__ . '/../layouts/partials/footer.php'; ?>
     <?php include_once __DIR__ . '/../layouts/scripts.php'; ?>
-
     
+    <script>
+        $(document).ready(function(){
+            var btnTTST = $('.btnttst');
+            const frmTrangThai = $('#lstID');
+            btnTTST.on("click", function(){
+                var lstID = $(this).data('lst_id');
+                frmTrangThai.val(lstID);
+             })
+        });
+    </script>
 
 
 </body>

@@ -1,8 +1,12 @@
+/* nav{
+    min-height: 50px;
+} */
 .navbar-light .navbar-brand{
     font-size: 25px;
     color: dodgerblue;
     text-shadow: 1px 1px 1px rgb(121, 183, 245);
     font-weight: 600;
+    
 }
 
 .navbar{

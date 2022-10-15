@@ -264,6 +264,11 @@ class PhieuDangKy{
         }
         return false;
     }
-
+    public function confirms($str){
+        $arr = explode(',', $str);
+        foreach($arr as $e){
+            
+        }
+    }
 }
 ?>

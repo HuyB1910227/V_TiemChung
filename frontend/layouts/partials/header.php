@@ -33,6 +33,8 @@ use TC\OBS\TaiKhoan;
     $vaccine = new Vaccine($PDO);
     $coso = new CoSoTiem($PDO);
     //include __DIR__ . "/../../../assets/frontend/css/style_navbar.css";
+    $today = date('Y-m-d');
+    $today = strtotime($today);
     
 ?>
 

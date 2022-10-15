@@ -1,10 +1,12 @@
 #sidebar{
     min-height: 800px;
-    padding-top: 30px;
+    /* padding-top: 30px; */
     /* border: 1px solid grey; */
-    border-radius: 0px 5px 5px 0px;
-    /* box-shadow: 3px 1px 4px #9095cd; */
-    box-shadow: 3px 1px 4px rgb(223, 223, 223);
+    
+    /* position: fixed;
+    
+    z-index: 100;
+    overflow: hidden; */
 
 }
 
@@ -37,3 +39,9 @@
     border-radius: 10px;
 }
 
+#sb{
+    height: 100%;
+    border-radius: 0px 5px 5px 0px;
+    /* box-shadow: 3px 1px 4px #9095cd; */
+    box-shadow: 3px 1px 4px rgb(223, 223, 223);
+}

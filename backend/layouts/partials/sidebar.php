@@ -1,14 +1,15 @@
-<nav class="col-md-2" id="sidebar">
+<div class="col-2 position-fixed" id="sb">
+    <nav id="sidebar">
     <div>
         <ul class="nav flex-column">
             <!-- <li class="nav-item">
                 <span>Quản lý</span>
             </li> -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="/V_TiemChung/backend/thongke/dashboard.php" class="nav-link"> Dashboard</a>
             </li>
             <!-- Menu chức năng danh mục -->
-            <li class="nav-item">
+            <li >
                 <span>Quản lý tiêm</span>
                 <ul class="list-unstyled">
                     <li class="nav-item ">
@@ -31,7 +32,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
+            <li>
                 <span>Quản lý đối tượng</span>
                 <ul class="list-unstyled">
                     <li class="nav-item">
@@ -60,3 +61,6 @@
         </ul>
     </div>
 </nav>
+
+</div>
+

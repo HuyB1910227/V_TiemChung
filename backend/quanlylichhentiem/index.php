@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
-            <div class="col-10">
+            <div class="col-10 offset-2">
                 <h3>Danh sách lịch hẹn</h3>
                 <div class="bg-white p-2">
                     

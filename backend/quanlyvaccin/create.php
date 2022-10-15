@@ -37,7 +37,7 @@ $mangloai = $loai->all();
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
-            <div class="col-10">
+            <div class="col-10 offset-2">
                 <h3 class="text-info">Thêm Vắc xin</h3>
 
                 

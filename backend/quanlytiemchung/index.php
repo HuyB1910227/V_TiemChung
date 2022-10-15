@@ -32,7 +32,7 @@
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
-            <div class="col-10">
+            <div class="col-10 offset-2">
                 <h3>Danh sách tiêm vaccin</h3>
 
                 <div class="bg-white p-2">
@@ -117,11 +117,14 @@
                                         }?></td>
                                     </td>
                                     <td>
-                                        <select name="slVaccineID" id="">
+                                        <div class="form-group">
+                                        <select name="slVaccineID" id="" class="custom-select">
                                             <?php foreach($Vaccines as $vac):?>
                                                 <option value="<?= $vac->layID();?>"><?= $vac->ten?></option>
                                             <?php endforeach;?> 
                                         </select>
+                                        </div>
+                                        
                                     </td>
                                     <td><?= $nt->solantiem + 1;?></td>
                                     <td>

@@ -22,7 +22,7 @@ use TC\OBS\KhachHang;
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
-            <div class="col-10">
+            <div class="col-10 offset-2">
                 <h3>Danh sách người dùng</h3>
                 <div class="bg-white p-2">
                     
@@ -34,7 +34,7 @@ use TC\OBS\KhachHang;
                 <div class="mt-2">
                     <table class="table table-bordered bg-white table-responsive-lg " id="tbNguoiDung">
                         <thead>
-                            <tr class="">
+                            <tr >
                             
                             <th>STT</th>
                             <th>Mã khách hàng</th>
@@ -105,7 +105,9 @@ use TC\OBS\KhachHang;
     <script>
         $(document).ready(function() {
 			
-			$('#tbNguoiDung').DataTable();
+			$('#tbNguoiDung').DataTable({
+                scrollX: true,
+            });
 
 			
 		});

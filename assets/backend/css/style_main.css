@@ -25,3 +25,22 @@ footer {
   box-shadow: 1px 2px 5px #616AC6;
   margin: auto;
 }
+
+.filter {
+  background-color: #f0f0f0;
+  margin: 2px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.filter h5{
+   
+    color:#616AC6 ;
+}
+
+.main{
+    margin-top: 100px;
+}
+
+body div.container-fluid{
+    margin-top: 65px;
+}

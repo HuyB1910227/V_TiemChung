@@ -34,7 +34,7 @@ if (isset($_POST['id'])) {
     <div class="container-fluid">
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
-            <div class="col-10">
+            <div class="col-10 offset-2">
                 <h3 class="text-info">Chi tiết đăng ký tiêm vaccin</h3>
 
                 <div class="bg-white p-2">
@@ -45,7 +45,7 @@ if (isset($_POST['id'])) {
                 </div>
                 <div class="mt-2">
                     <div class="card container">
-                        <div class="card-header row"><?= $ttDK->trangthai?></div>
+                  
                         <div class="card-body container">
 
                             <div class="row">

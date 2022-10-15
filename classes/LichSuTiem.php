@@ -106,5 +106,10 @@ class LichSuTiem{
         }
         return $arr;
     }
+
+    public function UpdateTTST($str){
+        $sql = $this->db->prepare('update lich_su_tiem set lst_trangthaisautiem = :ttst where lst_id = :id');
+        return $sql->execute(['ttst' => $str, 'id' => $this->id]);
+    }
 }
 ?>
