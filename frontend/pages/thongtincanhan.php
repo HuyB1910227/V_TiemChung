@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,9 +19,13 @@
                 <div class="col-12">
                     <div class="row">
                         <div class="col ">
-                            <!-- <img src="./newseventsimage.webp" alt="" class="rounded-circle" width="150px" height="150px"> -->
-                            <!-- <h4>Xin chào!</h4>
-                            <h5>Nguyễn Văn A</h5> -->
+                            <img src="/V_TiemChung/assets/uploads/<?=$user->avatar ?>" alt="" class="rounded-circle" width="150px" height="150px">
+                            <h4>Xin chào!</h4>
+                            <h5>Nguyễn Văn A</h5>
+                            <form action="changeAvatar.php" method="post" enctype="multipart/form-data">
+                                <input type="file" name="fileToUpload" id="fileToUpload" value="<?=$user->avatar ?>"> 
+                                <button type="submit" name="submit">Lưu</button>
+                            </form>
                         </div>
                         <div class="col p-2 ">
                             <button class="btn btn-warning float-right text-light" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i> Sửa thông tin cá nhân</button>
@@ -87,6 +93,10 @@
                                 <tr>
                                     <td class="font-weight-bold">Hiệu lực:</td>
                                    <td><?= $kh->dateEXP();?></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Hiệu lực2:</td>
+                                   <td><?= $kh->findVaccineLastVaccinated();?></td>
                                 </tr>
                             </table>
                         </div>
@@ -213,6 +223,7 @@
                 </div>
             </div>
         </div>
+        
     </main>
 
     <?php include_once __DIR__ . './handles/suathongtincanhan.php'; ?> 

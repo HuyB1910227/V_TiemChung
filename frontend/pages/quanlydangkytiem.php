@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,37 +9,50 @@
 
 <body class="container-fluid">
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
+    <?php
+
+    // use TC\OBS\PhieuDangKy;
+
+    // require_once '../../db_connect.php';
+    // $pdk = new PhieuDangKy($PDO);
+    // $arrpdk = $pdk->selectFromUser($kh->layId());
+    $ngayhethieuluc = $kh->dateEXP();
+    var_dump($ngayhethieuluc);
+    foreach ($arrpdk as $p) {
+        $p->checkToCancel($ngayhethieuluc);
+    }
+
+    ?>
     <main class="row">
         <div class="container p-4">
             <h5>Lịch sử đăng ký tiêm chủng.</h5>
-            <?php foreach($arrpdk as $phieudk):?>
-            
-            <div class="card p-4 m-3" style="width: 400px; position: relative;">
-            <!-- -->
-                
-                    <?php if($phieudk->trangthai == 0){
-                            echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Chưa xác nhận";
-                        }
-                        else if($phieudk->trangthai == 1){
-                            echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã xác nhận";
-                        } else if($phieudk->trangthai == 2){
-                            echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã từ chối";
-                        } else if($phieudk->trangthai == 3){
-                            echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hủy";
-                        } else if($phieudk->trangthai == 4){
-                            echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hoàn thành";
-                        }
+            <?php foreach ($arrpdk as $phieudk) : ?>
+
+                <div class="card p-4 m-3" style="width: 400px; position: relative;">
+                    <!-- -->
+
+                    <?php if ($phieudk->trangthai == 0) {
+                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Chưa xác nhận";
+                    } else if ($phieudk->trangthai == 1) {
+                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã xác nhận";
+                    } else if ($phieudk->trangthai == 2) {
+                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã từ chối";
+                    } else if ($phieudk->trangthai == 3) {
+                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hủy";
+                    } else if ($phieudk->trangthai == 4) {
+                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hoàn thành";
+                    }
                     ?>
-            
+
                 </div>
-                <div class="">Ngày tiêm: <?= $phieudk->findVaccinationSchedule()->ngaytiem?></div>
-                <div>Cơ sở: <?= $phieudk->findVaccinationSchedule()->findLocation()->ten?></div>
+                <div class="">Ngày tiêm: <?= $phieudk->findVaccinationSchedule()->ngaytiem ?></div>
+                <div>Cơ sở: <?= $phieudk->findVaccinationSchedule()->findLocation()->ten ?></div>
                 <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
-            </div>
-            <?php endforeach;?>
         </div>
-        
-        
+    <?php endforeach; ?>
+    </div>
+
+
     </main>
 
 

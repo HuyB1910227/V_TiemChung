@@ -24,24 +24,20 @@ if(isset($_POST)){
     $pdk = new PhieuDangKy($PDO);
     
     $pdk->find($_POST['idPDK']);
-    if(true){
+    
         // $ngaytiem = $tt->ngaytiem;
         // var_dump($ngaytiem);
         // var_dump($tt);
-        $nt->updateNOV($tt->lantiem);
+        $nt->updateNOV($_POST["nbLanTiem"]);
         
-        $nt->updateLastVaccinated($nt->findDateLastVaccinated());
+        $nt->updateLastVaccinated();
 
         var_dump($nt);
         $pdk->regCompleted();
-        $arrpdk = $pdk->selectFromUser($nt->layId());
-        $ngayhethieuluc = $nt->dateEXP();
-        foreach($arrpdk as $p){
-            $p->checkToCancel($ngayhethieuluc);
-        }
+        
 
-    }
-
+  
+        header("Location: index.php");
    
 } else {
     echo "ko";

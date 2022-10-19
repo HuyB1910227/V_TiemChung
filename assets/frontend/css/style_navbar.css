@@ -8,10 +8,7 @@ header{
 }
 
 
-body{
-    background-color: rgb(255, 255, 255);
-    font-family: roboto;
-}
+
 
 
 .navbar-light .navbar-nav .nav-link{
@@ -22,10 +19,7 @@ body{
     
 }
 
-main{
-    margin-top: 70px;
-    min-height: 650px;
-}
+
 
 .navbar-light .navbar-brand{
     font-size: 25px;

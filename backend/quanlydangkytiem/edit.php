@@ -7,12 +7,12 @@
 
     if (isset($_POST['id'])&& ($pdk->find($_POST['id'])) !== null) {
         if(isset($_POST["btnConfirm"])){
-            //$pdk->confirm();
+            $pdk->confirm();
         } else if(isset($_POST["btnRefuse"])){
-            //$pdk->refuse();
+            $pdk->refuse();
         } 
         
-        //header('Location: index.php');
+        header('Location: index.php');
     } elseif(isset($_POST["btnXNA"]) && isset($_POST['arrID'])){
         
         

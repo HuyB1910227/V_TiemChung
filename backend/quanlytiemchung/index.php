@@ -34,7 +34,72 @@
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
                 <h3>Danh sách tiêm vaccin</h3>
-
+                <!-- hshshshsh -->
+                <div class="row filter">
+                    <h5 class="col-12"><i class="fa-solid fa-filter"></i>
+                        Bộ lọc</h5>
+                    <div class="col-2 ">
+                        <div class="form-group">
+                            <label for="inputPassword">Trạng thái</label>
+                           
+                            <select name="slTT" id="slTT" class="custom-select">
+                                <option value="">Tất cả</option>
+                                <option value="">Chưa xác nhận</option>
+                                <option value="">Đã xác nhận</option>
+                                <option value="">Đã từ chối</option>
+                                <option value="">Đã hủy</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label for="inputPassword">Giới tính</label>
+                           
+                            <select name="slTT" id="slTT" class="custom-select">
+                                <option value="">Tất cả</option>
+                                <option value="">Nam</option>
+                                <option value="">Nữ</option>
+                                <option value="">Khác</option>
+                                
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label for="inputPassword">Ngày đăng ký</label>
+                           
+                            <input type="date" id="dateNDK" class="form-control">
+                            
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label for="inputPassword">Ngày tiêm dự kiến</label>
+                           
+                            <input type="date" id="dateNDK" class="form-control">
+                            
+                        </div>
+                    </div>
+                    <div class="col-2">
+                    <div class="form-group">
+                            <label for="inputPassword">Cơ sở tiêm</label>
+                           
+                            <select name="slTT" id="slTT" class="custom-select">
+                                <option value="">Tất cả</option>
+                                <option value="">Nam</option>
+                                <option value="">Nữ</option>
+                                <option value="">Khác</option>
+                                
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <!-- <div class="col-2 border">6</div> -->
+                </div>
+                <!-- hdksdkkd -->
+                <hr>
                 <div class="bg-white p-2">
                     
                     <div class="float-right">

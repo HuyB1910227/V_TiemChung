@@ -6,7 +6,7 @@
                 <span>Quản lý</span>
             </li> -->
             <li class="nav-item">
-                <a href="/V_TiemChung/backend/thongke/dashboard.php" class="nav-link"> Dashboard</a>
+                <a href="/V_TiemChung/backend/thongke/dashboard.php" class="nav-link"><i class="fa-solid fa-gauge"></i>&nbsp; Tổng quan</a>
             </li>
             <!-- Menu chức năng danh mục -->
             <li >

@@ -1,5 +1,5 @@
 <?php
-require_once '../../db_connect.php';
+require '../../db_connect.php';
 
 use TC\OBS\LichHenTiem;
 
@@ -31,7 +31,7 @@ $coso = new CoSoTiem($PDO);
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
     <main class="row">
         <div class="container-lg p-5">
-            <div>
+            <!-- <div>
                 <select name="" id="tp">
                     <option value="">--Chon--</option>
                     <option value="Thành Phố Cần Thơ">Thành Phố Cần Thơ</option>
@@ -39,7 +39,7 @@ $coso = new CoSoTiem($PDO);
                     <option value="Vĩnh Long"> Vĩnh Long</option>
 
                 </select>
-            </div>
+            </div> -->
             <table class="table table-bordered bg-white table-responsive" id="lichhen">
                 <thead>
                     <tr class="bg-primary text-center text-light">
@@ -113,19 +113,19 @@ $coso = new CoSoTiem($PDO);
         $(document).ready(function() {
 
             $('#lichhen').DataTable({
-                "language": {
-                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
-                },
+                // "language": {
+                //     "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
+                // },
 
 
             });
-            var table = $('#lichhen').DataTable({
-                dom: 'lrtip'
+            // var table = $('#lichhen').DataTable({
+            //     dom: 'lrtip'
 
-            });
-            $('#tp').on('change', function() {
-                table.search(this.value).draw();
-            });
+            // });
+            // $('#tp').on('change', function() {
+            //     table.search(this.value).draw();
+            // });
 
         });
     </script>

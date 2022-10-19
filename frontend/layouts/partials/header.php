@@ -35,6 +35,10 @@ use TC\OBS\TaiKhoan;
     //include __DIR__ . "/../../../assets/frontend/css/style_navbar.css";
     $today = date('Y-m-d');
     $today = strtotime($today);
+
+    // $nguoithan = new KhachHang($PDO);
+    $dsnguoithan = $kh->findFamily();
+
     
 ?>
 
@@ -50,8 +54,17 @@ use TC\OBS\TaiKhoan;
                     <li class="nav-item">
                         <a class="nav-link" href="/V_TiemChung/frontend/pages/trangchu.php">Trang chủ<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="/V_TiemChung/frontend/pages/dangkytiemchung.php">Đăng ký tiêm</a>
+                    </li> -->
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Đăng ký tiêm
+                        </a>
+                        <div class="dropdown-menu shadow-lg" >
+                            <a class="dropdown-item" href="/V_TiemChung/frontend/pages/dangkytiemchung.php">Đăng ký tiêm cho cá nhân</a>
+                            <a class="dropdown-item" href="/V_TiemChung/frontend/pages/dangkytiemchungnt.php">Đăng ký tiêm cho người thân</a>
+                        </div>
                     </li>
 
                     <li class="nav-item dropdown ">
@@ -63,7 +76,7 @@ use TC\OBS\TaiKhoan;
                             <a class="dropdown-item" href="/V_TiemChung/frontend/pages/chungnhantiemchung.php">Chứng nhận tiêm</a>
                             <a class="dropdown-item" href="/V_TiemChung/frontend/pages/lichsutiemchung.php">Lịch sử tiêm chủng</a>
                             <a class="dropdown-item" href="/V_TiemChung/frontend/pages/quanlydangkytiem.php">Đăng ký tiêm</a>
-
+                            <a class="dropdown-item" href="/V_TiemChung/frontend/pages/quanlynguoithan.php">Người thân</a>
                         </div>
                     </li>
                     <li class="nav-item">

@@ -14,6 +14,7 @@ class TaiKhoan{
     public $vaitro;
     public $kh_id;
     private $errors = [];
+    public $avatar;
    
     
     public function __construct(PDO $pdo){
@@ -30,6 +31,7 @@ class TaiKhoan{
             'tk_sodienthoai' => $this->sdt,
             'tk_matkhau' => $this->matkhau,
             'tk_vaitro' => $this->vaitro,
+            'tk_avatar' => $this->avatar,
             'kh_id' => $this->kh_id
 		] = $row;
 	    return $this;
@@ -169,6 +171,15 @@ class TaiKhoan{
 		return $this;
 	}
 
+    public function fillAvatar($data){
+		if (isset($data)) {
+			$this->avatar = $data;
+		}
+		
+		return $this;
+	}
+
+    
     public function getValidationErrors() {
 		return $this->errors;
 	}
@@ -224,6 +235,17 @@ class TaiKhoan{
                     where tk_id = :id');
         $result = $sql->execute([
             'hoten' => $fullname,
+            'id' => $this->id
+        ]);
+        return $result;
+    }
+
+    public function changeAvatarName(){
+        $sql = $this->db->prepare('update tai_khoan
+                    set tk_avatar = :a
+                    where tk_id = :id');
+        $result = $sql->execute([
+            'a' => $this->avatar,
             'id' => $this->id
         ]);
         return $result;

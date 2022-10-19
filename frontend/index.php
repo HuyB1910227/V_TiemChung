@@ -49,6 +49,7 @@
                     <div class="">
                         
                         <a class="btn border border-secondary bg-white" href="/V_TiemChung/frontend/pages/trangchu.php">Đăng nhập</a>
+                        <a class="btn border border-secondary bg-white" href="/V_TiemChung/frontend/dangky.php">Đăng ký</a>
                         <!-- <button class="btn border border-secondary bg-light">Tư vấn</button> -->
                     </div>
                 </div>
@@ -97,15 +98,53 @@
                     <a href="https://covid19.gov.vn/6-cach-khong-dung-thuoc-giup-giam-nhe-chung-covid-keo-dai-171220218114701263.htm" class="text-decoration-none text-dark">
                         <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt4.jpg" class="card-img-top" alt="..."  height="150px">
                         <div class="card-body">
-                          <p class="card-text">Cách giảm nhẹ các triệu chứng COVID-19</p>
+                          <p class="card-text">Cách giảm các triệu chứng COVID-19</p>
                         </div>
                     </a>
                 </div>
             </div>
             
         </div>
-        <br>
-        </div>  
+
+        <!-- <br>
+        </div>   -->
+        <!-- Biểu đồ -->
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="border m-2 shadow rounded" >
+                <div class="embed-responsive embed-responsive-1by1">
+                <iframe class="embed-responsive-item" src="https://api.ncovtrack.com/vaccine/vietnam/provinces?metric=cases&showTable=false&showMap=true" title="ncovtrack - COVID & Vaccination Statistics" height='100%' width='100%'></iframe>
+
+                </div>
+                </div>
+            </div>
+            <div class="col">
+            <div class="border m-2 shadow rounded" >
+                <div class="embed-responsive embed-responsive-1by1">
+                <iframe src="https://api.ncovtrack.com/vaccine/vietnam/provinces?metric=recovered&showTable=false&showMap=true" title="ncovtrack - COVID & Vaccination Statistics" height='100%' width='100%'></iframe>
+
+                </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="border m-2 shadow rounded" >
+                <div class="embed-responsive embed-responsive-1by1">
+                <iframe src="https://api.ncovtrack.com/vaccine/vietnam/provinces?metric=first_dose&showTable=true&showMap=true" title="ncovtrack - COVID & Vaccination Statistics" height='100%' width='100%'></iframe>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+            <div class="border m-2 shadow rounded" >
+                <div class="embed-responsive embed-responsive-1by1">
+                <iframe src="https://api.ncovtrack.com/vaccine/vietnam/provinces?metric=second_dose&showTable=true&showMap=true" title="ncovtrack - COVID & Vaccination Statistics" height='500' width='928'></iframe>
+                </div>
+                </div>
+            </div>
+        </div>
     </main>
    
     
