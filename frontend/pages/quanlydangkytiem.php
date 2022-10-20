@@ -24,33 +24,84 @@
 
     ?>
     <main class="row">
-        <div class="container p-4">
-            <h5>Lịch sử đăng ký tiêm chủng.</h5>
-            <?php foreach ($arrpdk as $phieudk) : ?>
 
-                <div class="card p-4 m-3" style="width: 400px; position: relative;">
-                    <!-- -->
 
-                    <?php if ($phieudk->trangthai == 0) {
-                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Chưa xác nhận";
-                    } else if ($phieudk->trangthai == 1) {
-                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã xác nhận";
-                    } else if ($phieudk->trangthai == 2) {
-                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã từ chối";
-                    } else if ($phieudk->trangthai == 3) {
-                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hủy";
-                    } else if ($phieudk->trangthai == 4) {
-                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hoàn thành";
-                    }
-                    ?>
 
-                </div>
-                <div class="">Ngày tiêm: <?= $phieudk->findVaccinationSchedule()->ngaytiem ?></div>
-                <div>Cơ sở: <?= $phieudk->findVaccinationSchedule()->findLocation()->ten ?></div>
-                <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
+        <div class="container p-0">
+            <h3 class="titile">Lịch sử đăng ký tiêm chủng</h3>
+            <br>
+            <h5 class="text-center">Đăng ký tiêm cho cá nhân</h5>
+            <div class="row justify-content-center">
+                <?php foreach ($arrpdk as $phieudk) : ?>
+
+                    <div class="card p-4 m-3" style="width: 400px; position: relative;">
+                        <!-- -->
+
+                        <?php if ($phieudk->trangthai == 0) {
+                            echo "<div class=\"badge badge-info mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Chưa xác nhận";
+                        } else if ($phieudk->trangthai == 1) {
+                            echo "<div class=\"badge badge-primary mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã xác nhận";
+                        } else if ($phieudk->trangthai == 2) {
+                            echo "<div class=\"badge badge-warning mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã từ chối";
+                        } else if ($phieudk->trangthai == 3) {
+                            echo "<div class=\"badge badge-danger mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hủy";
+                        } else if ($phieudk->trangthai == 4) {
+                            echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hoàn thành";
+                        }
+                        ?>
+
+                    </div>
+                    <div class="">Họ và tên: <b> <?= $user->hoten ?></b></div>
+                    <div class="">Ngày tiêm: <b> <?= $phieudk->findVaccinationSchedule()->ngaytiem ?></b></div>
+                    <div>Cơ sở: <b><?= $phieudk->findVaccinationSchedule()->findLocation()->ten ?></b> </div>
+                    <div>Địa điểm: <b><i><?= $phieudk->findVaccinationSchedule()->findLocation()->diachi.", ".
+                    $phieudk->findVaccinationSchedule()->findLocation()->phuong.", ".
+                    $phieudk->findVaccinationSchedule()->findLocation()->quan.", ".$phieudk->findVaccinationSchedule()->findLocation()->tinh ?></i></b> </div>
+                    <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
+            </div>
+        <?php endforeach; ?>
+
         </div>
-    <?php endforeach; ?>
-    </div>
+
+<hr>
+        <br>
+        <h5 class="text-center">Đăng ký tiêm hộ người thân</h5>
+        <div class="row justify-content-center">
+                <?php foreach ($dsnguoithan as $nguoithan) : ?>
+                    <?php $dspdk = $phieudk->selectFromUser($nguoithan->layId())?>
+                    <?php foreach ($dspdk  as $phieudk) : ?>
+
+                    <div class="card p-4 m-3" style="width: 400px; position: relative;">
+                        <!-- -->
+
+                        <?php if ($phieudk->trangthai == 0) {
+                            echo "<div class=\"badge badge-info mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Chưa xác nhận";
+                        } else if ($phieudk->trangthai == 1) {
+                            echo "<div class=\"badge badge-primary mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã xác nhận";
+                        } else if ($phieudk->trangthai == 2) {
+                            echo "<div class=\"badge badge-warning mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã từ chối";
+                        } else if ($phieudk->trangthai == 3) {
+                            echo "<div class=\"badge badge-danger mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hủy";
+                        } else if ($phieudk->trangthai == 4) {
+                            echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hoàn thành";
+                        }
+                        ?>
+
+                    </div>
+                    <div class="">Họ và tên: <b> <?= $nguoithan->hoten ?></b></div>
+                    <div class="">Ngày tiêm: <b> <?= $phieudk->findVaccinationSchedule()->ngaytiem ?></b></div>
+                    <div>Cơ sở: <b><?= $phieudk->findVaccinationSchedule()->findLocation()->ten ?></b> </div>
+                    <div>Địa điểm: <b><i><?= $phieudk->findVaccinationSchedule()->findLocation()->diachi.", ".
+                    $phieudk->findVaccinationSchedule()->findLocation()->phuong.", ".
+                    $phieudk->findVaccinationSchedule()->findLocation()->quan.", ".$phieudk->findVaccinationSchedule()->findLocation()->tinh ?></i></b> </div>
+                    <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
+            </div>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+
+        </div>
+
+        </div>
 
 
     </main>

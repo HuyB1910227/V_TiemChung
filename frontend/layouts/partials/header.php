@@ -38,6 +38,7 @@ use TC\OBS\TaiKhoan;
 
     // $nguoithan = new KhachHang($PDO);
     $dsnguoithan = $kh->findFamily();
+    
 
     
 ?>

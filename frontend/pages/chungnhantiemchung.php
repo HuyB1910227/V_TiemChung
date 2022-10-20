@@ -8,8 +8,9 @@
 <body class="container-fluid">
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
     <main class="row">
+
         <div class="container-lg">
-                <div class="text-center">
+                <div class="text-center ">
                     <h3 class="text-info font-weight-bold">CHỨNG NHẬN TIÊM CHỦNG</h3>
                 </div>
                 <div class="row">

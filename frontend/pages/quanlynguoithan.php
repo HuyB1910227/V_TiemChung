@@ -29,7 +29,7 @@
                                     <button class="btn btn-warning  text-light mr-2" name="btnSuaNT"><i class="fa-solid fa-pen-to-square"></i> Sửa thông tin</button>
 
                                 </form>
-                                <button class="btn btn-danger text-light">Loại bỏ</button>
+                                <!-- <button class="btn btn-danger text-light">Loại bỏ</button> -->
 
                             </div>
                         </div>
