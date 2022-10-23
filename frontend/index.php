@@ -5,15 +5,25 @@
     <title>Quản lý cơ sở tiêm</title>
     <?php include_once __DIR__ . '/layouts/styles.php'; ?>
     <title>V_Tiêm chủng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
-        
+        body{
+            font-family: roboto;
+            background-color: white;
+        }
         .purple-square-container {
 		  height: 80%;
 		  display: flex;
 		  align-items: center;
 		  
 		}
-
+        .phone{
+            border: 3px solid orange;
+            background-color: #fab861;
+            color: white;
+        }
         
     </style>
 </head>
@@ -23,7 +33,7 @@
         <div class="container-lg">
             <nav class="navbar navbar-expand-md navbar-light bg-light row">
                 <a class="navbar-brand" href="#">V-Tiêm chủng</a>
-                
+                <a class="btn rounded-pill ml-auto phone" href="tel:0932988029" ><i class="fa-solid fa-phone"></i>  0932-988-029</a>
                 
             </nav>
         </div>

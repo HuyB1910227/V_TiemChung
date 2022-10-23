@@ -31,9 +31,25 @@
     <title>Trang chủ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/V_TiemChung/assets/vendor/fontawesome/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
+        body{
+            font-family: roboto;
+        }
         .card-log-in {
-            width: 500px;
+            
+            width: 1000px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px grey;
+
+        }
+
+        .card-log-in h3{
+            color: #616AC6;
+
+
         }
 
         .error-block {
@@ -43,140 +59,154 @@
     </style>
 </head>
 
-<body class="container-fluid border" style="position: relative;">
+<body class="container-fluid " style="position: relative;">
 
-    <div class="row bg-info align-content-center justify-content-center">
+    <!-- <div class="row bg-info align-content-center justify-content-center">
         <h2 class="text-white">V-Tiêm chủng</h2>
-    </div>
-    <div class="row p-5">
-        <div class="border card p-3 card-log-in m-auto">
+    </div> -->
+    <div class="container mt-2">
+        <div class="p-3 m-auto card-log-in">
             <div class="col-12">
-                <h3 class="text-center font-weight-bolder text-black-25">Đăng ký</h3>
+                <h3 class="text-center font-weight-bolder ">Đăng ký</h3>
             </div>
-            <form action="xulydangky.php" method="POST" class="" id="signupForm">
-                <div class="form-group">
-                    <label for="txtTen">Tên đăng nhập: </label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
+            <form action="xulydangky.php" method="POST" id="signupForm">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="txtTen">Tên đăng nhập: </label>
+                            <div class="input-group">
+                                <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
 
+                        </div> -->
+                                <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Nhập vào họ tên....">
+
+
+                            </div>
+
+
                         </div>
-                        <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Nhập vào họ tên....">
-
-
-                    </div>
-
-                </div>
-                <div class="form-group">
-                    <label for="txtHoTen">Họ và tên</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
+                        <div class="form-group">
+                            <label for="txtHoTen">Họ và tên</label>
+                            <div class="input-group">
+                                <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                        </div> -->
+                                <input type="text" class="form-control" id="txtHoTen" name="txtHoTen" placeholder="Nhập vào họ tên....">
+
+                            </div>
+
                         </div>
-                        <input type="text" class="form-control" id="txtHoTen" name="txtHoTen" placeholder="Nhập vào họ tên....">
-
-                    </div>
-
-                </div>
-                <div class="form-group">
-                    <label for="txtSoDienThoai">Số điện thoại</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
+                        <div class="form-group">
+                            <label for="txtSoDienThoai">Số điện thoại</label>
+                            <div class="input-group">
+                                <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                        </div> -->
+                                <input type="text" class="form-control" id="txtSoDienThoai" name="txtSoDienThoai" placeholder="Nhập vào số điện thoại....">
+
+                            </div>
+
                         </div>
-                        <input type="text" class="form-control" id="txtSoDienThoai" name="txtSoDienThoai" placeholder="Nhập vào số điện thoại....">
+
+                        <div class="form-group">
+                            <label for="dtNgaySinh">Ngày sinh </label>
+                            <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" class="form-control">
+
+                        </div>
+                        <label class="col-form-label">Giới tính </label> <br>
+                        <!-- <input type="radio" name="rdGioiTinh" id="0"> Nam
+                    <input type="radio" name="rdGioiTinh" id="1"> Nữ -->
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="rdGioiTinh" value="0" class="form-check-input">
+                            <label for="rdGioiTinh1" class="form-check-label">Nam</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="rdGioiTinh" value="1" class="form-check-input">
+                            <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="rdGioiTinh" value="2" class="form-check-input">
+                            <label for="rdGioiTinh0" class="form-check-label">Khác</label>
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
+                            <input type="text" name="txtCCCD" id="txtCCCD" placeholder="Nhập vào Căn cước công dân..." class="form-control">
+
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="txtTP">Tỉnh/ Thành phố</label>
+                            <input type="text" name="txtTP" id="txtTP" placeholder="Nhập vào tỉnh / thành phố..." class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="txtQH">Quận/ Huyện</label>
+                            <input type="text" name="txtQH" id="txtQH" placeholder="Nhập vào quận / huyện..." class="form-control">
+
+                        </div>
 
                     </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group ">
+                            <label for="txtPX">Phường/ Xã: </label>
+                            <input type="text" name="txtPX" id="txtPX" placeholder="Nhập vào phường / xã..." class="form-control">
 
-                </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="txtDiaChi">Địa chỉ </label>
+                            <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="Nhập vào địa chỉ..." class="form-control">
 
-                <div class="form-group">
-                    <label for="dtNgaySinh">Ngày sinh </label>
-                    <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" class="form-control">
-
-                </div>
-                <label class="col-form-label">Giới tính </label> <br>
-                <!-- <input type="radio" name="rdGioiTinh" id="0"> Nam
-                <input type="radio" name="rdGioiTinh" id="1"> Nữ -->
-                <div class="form-check form-check-inline">
-                    <input type="radio" name="rdGioiTinh" value="0" class="form-check-input">
-                    <label for="rdGioiTinh1" class="form-check-label">Nam</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="radio" name="rdGioiTinh" value="1" class="form-check-input">
-                    <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="radio" name="rdGioiTinh" value="2" class="form-check-input">
-                    <label for="rdGioiTinh0" class="form-check-label">Khác</label>
-                </div>
-
-                <div class="form-group ">
-                    <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
-                    <input type="text" name="txtCCCD" id="txtCCCD" placeholder="Nhập vào Căn cước công dân..." class="form-control">
-
-                </div>
-                <div class="form-group ">
-                    <label for="txtTP">Tỉnh/ Thành phố</label>
-                    <input type="text" name="txtTP" id="txtTP" placeholder="Nhập vào tỉnh / thành phố..." class="form-control">
-
-                </div>
-                <div class="form-group">
-                    <label for="txtQH">Quận/ Huyện</label>
-                    <input type="text" name="txtQH" id="txtQH" placeholder="Nhập vào quận / huyện..." class="form-control">
-
-                </div>
-                <div class="form-group ">
-                    <label for="txtPX">Phường/ Xã: </label>
-                    <input type="text" name="txtPX" id="txtPX" placeholder="Nhập vào phường / xã..." class="form-control">
-
-                </div>
-                <div class="form-group ">
-                    <label for="txtDiaChi">Địa chỉ </label>
-                    <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="Nhập vào địa chỉ..." class="form-control">
-
-                </div>
+                        </div>
 
 
 
-                <div class="form-group ">
-                    <label for="pwd">Mật khẩu</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
+                        <div class="form-group ">
+                            <label for="pwd">Mật khẩu</label>
+                            <div class="input-group">
+                                <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                        </div>
-                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Nhập vào mật khẩu....">
-                    </div>
+                        </div> -->
+                                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Nhập vào mật khẩu....">
+                            </div>
 
-                </div>
-                <div class="form-group ">
-                    <label for="pwd">Nhập lại mật khẩu</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
+                        </div>
+                        <div class="form-group ">
+                            <label for="pwd">Nhập lại mật khẩu</label>
+                            <div class="input-group">
+                                <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                        </div>
-                        <input type="password" class="form-control" id="re_pwd" name="re_pwd" placeholder="Nhập vào mật khẩu....">
-                    </div>
+                        </div> -->
+                                <input type="password" class="form-control" id="re_pwd" name="re_pwd" placeholder="Nhập vào mật khẩu....">
+                            </div>
 
-                </div>
-                <hr>
-                <!--  -->
-                <div class="form-group ">
-                    <label for="nbSoLanTiem">Số lần tiêm: </label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
+                        </div>
+                        <hr>
+                        <!--  -->
+                        <div class="form-group ">
+                            <label for="nbSoLanTiem">Số lần tiêm: </label>
+                            <div class="input-group">
+                                <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                        </div> -->
+                                <input type="number" class="form-control" id="nbSoLanTiem" name="nbSoLanTiem" value="0">
+                            </div>
+
                         </div>
-                        <input type="number" class="form-control" id="nbSoLanTiem" name="nbSoLanTiem" value="0">
+                        <!--  -->
+                        <div class="form-group ">
+                            <label for="dtNgayTiemGanNhat">Ngày tiêm gần nhất: </label>
+                            <input type="date" name="dtNgayTiemGanNhat" id="dtNgayTiemGanNhat" placeholder="" class="form-control">
+
+                        </div>
+
                     </div>
-
                 </div>
-                <!--  -->
-                <div class="form-group ">
-                    <label for="dtNgayTiemGanNhat">Ngày tiêm gần nhất: </label>
-                    <input type="date" name="dtNgayTiemGanNhat" id="dtNgayTiemGanNhat" placeholder="" class="form-control">
 
-                </div>
+
+
+
                 <!--  -->
                 <!-- <label for="">Loại vaccine tiêm gần nhất: </label>
                 <select class="custom-select" name="slTVaccine">
@@ -187,8 +217,19 @@
                         <option value="<?= $v->layID() ?>"><?= $v->ten ?></option>
                     <?php endforeach; ?>
                 </select> -->
+                <div class="row">
+                    <div class="col-6">
+                        <a class="btn btn-light rounded-circle border border-primary text-primary " href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary rounded-pill w-100 mt-2 " name="btnDangKy">Đăng ký</button>
+                    </div>
+                </div>
 
-                <button type="submit" class="btn btn-primary rounded-pill w-100 mt-2" name="btnDangKy">Đăng ký</button>
+
+
+
+
             </form>
 
         </div>
@@ -233,13 +274,13 @@
 
             return age >= min;
         }, "You are not old enough!");
-        $.validator.addMethod("reqVC", function(value){
+        $.validator.addMethod("reqVC", function(value) {
             var sc = new Date(value);
             var today = new Date();
-            if($("#nbSoLanTiem").val() == 0){
+            if ($("#nbSoLanTiem").val() == 0) {
                 return true;
             }
-            if($("#nbSoLanTiem").val() != 0 && sc < today){
+            if ($("#nbSoLanTiem").val() != 0 && sc < today) {
                 return true;
             }
             return false;
@@ -288,10 +329,17 @@
                         required: true,
                         number: true,
                         rangelength: [12, 12],
-                       
+
                     },
-                    pwd:  { required: true, minlength: 8 },
-					re_pwd: { required: true, minlength: 8, equalTo: "#pwd" },
+                    pwd: {
+                        required: true,
+                        minlength: 8
+                    },
+                    re_pwd: {
+                        required: true,
+                        minlength: 8,
+                        equalTo: "#pwd"
+                    },
                     dtNgayTiemGanNhat: {
                         reqVC: true,
                     }
@@ -333,15 +381,15 @@
                         number: "Căn cước công dân sai định dạng"
                     },
                     pwd: {
-						required: "Bạn chưa nhập mật khẩu",
-						minlength: "Mật khẩu phải có ít nhất 8 ký tự!",
-					},
-					re_pwd: {
-						required: "Bạn chưa nhập mật khẩu",
-						minlength: "Mật khẩu phải có ít nhất 8 ký tự!",
-						equalTo: "Mật khẩu không trùng khớp với mật khẩu vừa nhập!"
-					},
-                    
+                        required: "Bạn chưa nhập mật khẩu",
+                        minlength: "Mật khẩu phải có ít nhất 8 ký tự!",
+                    },
+                    re_pwd: {
+                        required: "Bạn chưa nhập mật khẩu",
+                        minlength: "Mật khẩu phải có ít nhất 8 ký tự!",
+                        equalTo: "Mật khẩu không trùng khớp với mật khẩu vừa nhập!"
+                    },
+
                 },
                 errorElement: "div",
                 errorPlacement: function(error, element) {

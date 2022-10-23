@@ -59,7 +59,7 @@
                     $phieudk->findVaccinationSchedule()->findLocation()->quan.", ".$phieudk->findVaccinationSchedule()->findLocation()->tinh ?></i></b> </div>
                     <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
             </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
 
         </div>
 

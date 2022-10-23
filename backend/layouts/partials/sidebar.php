@@ -9,6 +9,7 @@
                 <a href="/V_TiemChung/backend/thongke/dashboard.php" class="nav-link"><i class="fa-solid fa-gauge"></i>&nbsp; Tổng quan</a>
             </li>
             <!-- Menu chức năng danh mục -->
+            
             <li >
                 <span>Quản lý tiêm</span>
                 <ul class="list-unstyled">
@@ -32,6 +33,7 @@
                     </li>
                 </ul>
             </li>
+           
             <li>
                 <span>Quản lý đối tượng</span>
                 <ul class="list-unstyled">

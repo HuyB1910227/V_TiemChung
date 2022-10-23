@@ -42,7 +42,7 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
-                <h3>Sửa cơ sở</h3>
+                <h3>Sửa lịch hẹn</h3>
                 
               
                 <div class="card frmCreate">
@@ -55,11 +55,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">Trạng thái hoạt động</label>
+                                <label for="">Cơ sở:</label>
                                 <select name="slCoSo" id="slCoSo" class="custom-select">
                                 <?php foreach($arrcoso as $coso): ?>
                            
-                           <option value="<?= $coso->layID();?>" <?php if($coso->layID() == $e->cs_id) {echo "selected";};?>><?= $coso->ten . ", " . $coso->diachi . ", " . $coso->quan . ", " . $coso->tinh; ?></option>
+                                        <option value="<?= $coso->layID();?>" <?php if($coso->layID() == $e->cs_id) {echo "selected";};?>><?= $coso->ten . ", " . $coso->diachi . ", " . $coso->quan . ", " . $coso->tinh; ?></option>
                            
                                
                            

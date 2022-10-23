@@ -123,7 +123,7 @@ class TaiKhoan{
         where tk_ten = :ten and tk_matkhau = :mk and tk_vaitro = 1');
 		$sql->execute([
             'ten' => $ten,
-            'mk' => $matkhau,
+            'mk' => md5($matkhau),
         ]);
 		if ($row = $sql->fetch()) {
 			$this->fillFromDB($row);

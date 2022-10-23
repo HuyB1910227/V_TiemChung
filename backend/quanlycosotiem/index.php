@@ -27,15 +27,16 @@ $mangcoso = $coso->all();
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2 mt-1">
                 <h3>Danh sách cơ sở tiêm chủng</h3>
-                <div class="bg-white p-2">
+                <div class="bg-white mx-2 row">
                     <!-- <p class="float-left">Tổng số lượng: <?= count($mangcoso); ?></p> -->
                     <div class="float-right">
                         <!-- <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button> -->
-                        <a class="btn btn-primary btn-link text-light" href="<?= url('backend/quanlycosotiem/create.php') ?>">Thêm</a>
+                        <a class="btn btn-primary btn-link text-light" href="<?= url('backend/quanlycosotiem/create.php') ?>"><i class="fa-regular fa-hospital"></i> Thêm cơ sở</a>
                     </div>
                 </div>
+                <hr>
                 <div class="mt-2">
-                    <table class="table table-bordered bg-white table-responsive-lg">
+                    <table class="table table-bordered bg-white table-responsive-lg" id="tbCoSoTiem">
                         <thead>
                             <tr class="text-center">
 
@@ -142,11 +143,11 @@ $mangcoso = $coso->all();
 
                 swalWithBootstrapButtons.fire({
                     title: 'Bạn chắc chắn muốn xóa?',
-                    text: `Cơ sở: ${nameTd2.text()}!`,
+                    text: `Cơ sở: ${nameTd2.text()}.`,
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonText: 'Có!',
-                    cancelButtonText: 'Hủy!',
+                    confirmButtonText: 'Có',
+                    cancelButtonText: 'Hủy',
                     reverseButtons: true
                 }).then((result) => {
                     if (result.isConfirmed) {
@@ -169,6 +170,12 @@ $mangcoso = $coso->all();
                     // }
                 })
             });
+
+            $('#tbCoSoTiem').DataTable({
+                // scrollX: true,
+            });
+
+
 
         });
     </script>

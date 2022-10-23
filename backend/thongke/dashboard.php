@@ -102,9 +102,9 @@ require_once '../../db_connect.php';
                     </div> -->
           <div class="row">
             <!-- Biểu đồ đường thống kê số người tiêm -->
-            <div class="col-sm-6 col-lg-6">
-              <canvas id="chartOfobjChartThongKeTiemChung"></canvas>
-              <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeTiemChung">Refresh dữ liệu</button>
+            <div class="col-sm-6 col-lg-6 p-2">
+              <canvas id="chartOfobjChartThongKeTiemChung" class="shadow"></canvas>
+              <!-- <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeTiemChung">Refresh dữ liệu</button> -->
             </div><!-- col -->
 
           </div>
@@ -234,8 +234,8 @@ require_once '../../db_connect.php';
                   data: myData,
                   borderColor: "#616AC6",
                   fill: false,
-                  // backgroundColor: "#9ad0f5",
-                  // borderWidth: 1
+                  backgroundColor: "#9ad0f5",
+                  borderWidth: 1,
                   tension: 0.1
                 }]
               },

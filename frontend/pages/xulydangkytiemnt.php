@@ -42,7 +42,7 @@ use TC\OBS\LichHenTiem;
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="thongtincanhan" role="tabpanel">
-                        <h6 class="text-danger">Vui lòng kiểm tra thông tin cá nhân! Nếu chưa chính xác, chọn "Chỉnh sửa thông tin cá nhân".</h6>
+                        <h6 class="text-danger">Vui lòng kiểm tra thông tin người thân! Nếu chưa chính xác, chọn "Chỉnh sửa thông tin thành viên".</h6>
 
                             <input hidden type="text" name="khachHangID" value="<?= $nguoitiem->layId()?>" readonly>
                             <input hidden type="text" name="lichHenTiemID" value="<?= $lich->getId()?>" readonly>
@@ -80,7 +80,7 @@ use TC\OBS\LichHenTiem;
                                 <label for="txtDiaChi">Địa chỉ </label>
                                 <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="" class="form-control" value="<?= $nguoitiem->diachi.', '.$nguoitiem->phuong.', '.$nguoitiem->quan.', '.$nguoitiem->tinh?>" disabled>
                             </div>
-                            <a href="thongtincanhan.php">Chỉnh sửa thông tin cá nhân</a>
+                            <a href="quanlynguoithan.php">Chỉnh sửa thông tin thành viên</a>
                             <hr>
                             <div class="form-group">
                                 <label for="dtLichHen">Lịch hẹn </label>
@@ -97,10 +97,11 @@ use TC\OBS\LichHenTiem;
                             
                             <hr>
 
-                            <a class="btn btn-light rounded-circle border border-primary text-primary " type="button" id="btnPrev1" href="dangkytiemchung.php"><i class="fa-solid fa-arrow-left"></i></a>
+                            <a class="btn btn-light rounded-circle border border-primary text-primary " type="button" id="btnPrev1" href="dangkytiemchungnt.php"><i class="fa-solid fa-arrow-left"></i></a>
                             <button class="btn btn-primary rounded-pill float-right w-50" type="button" id="btnNext1">Tiếp tục</button>
                         </div>
                         <div class="tab-pane" id="tiensutiem" role="tabpanel">
+                        <h6 class="text-danger">Vui lòng chọn đầy đủ vào bảng tiền sử bệnh!</h6>
                             <table class="table table-bordered table-striped">
                                 <tr class="bg-info text-center text-light">
                                     <th>Tiền sử</th>

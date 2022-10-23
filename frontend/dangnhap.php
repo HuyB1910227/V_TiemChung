@@ -52,22 +52,36 @@
     <title>Trang chủ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/V_TiemChung/assets/vendor/fontawesome/css/all.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
+        body{
+            font-family: roboto;
+        }
         .card-log-in {
             width: 500px;
+            border-radius: 10px;
+            box-shadow: 1px 2px 10px grey;
+            
+        }
+        .card-log-in h3{
+            color: #616AC6;
+        }
+        .card-log-in label{
+            font-weight: bolder;
         }
     </style>
 </head>
 
-<body class="container-fluid" style="position: relative;">
+<body class="container-fluid">
 
-    <div class="row bg-info align-content-center justify-content-center">
+    <!-- <div class="row bg-info align-content-center justify-content-center">
         <h2 class="text-white">Xin chào</h2>
         
-    </div>
+    </div> -->
     <div class="row p-5">
-        <div class="border card p-3 card-log-in m-auto">
+        <div class="p-3 card-log-in m-auto">
             <div class="col-12">
                 <h3 class="text-center font-weight-bolder text-black-25">Đăng nhập</h3>
             </div>
@@ -81,7 +95,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="sdt" name="sdt" placeholder="Nhập vào số điện thoại....">
+                        <input type="text" class="form-control" id="sdt" name="sdt" placeholder="Nhập vào số điện thoại...." value="<?php echo (isset($_POST["sdt"])) ?  $_POST["sdt"] : ""; ?>">
                     </div>
                     
 
@@ -93,7 +107,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
                         </div>
-                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Nhập vào mật khẩu....">
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Nhập vào mật khẩu...." value="<?php echo (isset($_POST["pwd"])) ?  $_POST["pwd"] : ""; ?>">
                     </div>
                 </div>
 

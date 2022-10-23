@@ -38,15 +38,16 @@
             <div class="col-10 offset-2">
                 <h3>Danh sách vacxin</h3>
                 
-                <div class="bg-white p-2">
+                <div class="bg-white mx-2 row">
                   
-                    <div class="float-right">
+                    <div class="">
                        
-                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlyvaccin/create.php">Thêm</a>
+                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlyvaccin/create.php"><i class="fa-solid fa-vial-virus"></i> Thêm vac-xin</a>
                     </div>
                 </div>
+                <hr>
                 <div class="mt-2">
-                    <table class="table table-bordered bg-white">
+                    <table class="table table-bordered bg-white" id="tbVaccine">
                         <thead>
                             <tr class="">
                             <!-- <th>Chọn</th> -->
@@ -86,7 +87,7 @@
                                 <!-- <a href="delete.php?cs_id=">Xóa</a> -->
                                 <form action="<?=url('backend/quanlyvaccin/delete.php')?>" method="POST" style="display: inline;">
 									<input type="hidden" name="id" value="<?=$vaccine->layId()?>">
-										<button type="submit" class="btn btn-xs btn-danger" name="delete-contact">
+										<button type="submit" class="btn btn-xs btn-danger btnDelete" >
 									<i alt="Delete" class="fa fa-trash"></i></button>
 								</form>
                             </td>
@@ -114,13 +115,47 @@
     <script>
         $(document).ready(function(){
             
-            $('.btnDelete').click(function(){
-                var cs_id = $(this).data('cs_id');
-                console.log(cs_id);
-                var url = "delete.php?cs_id=" + cs_id;
-                location.href = url;
+            // $('.btnDelete').click(function(){
+            //     var cs_id = $(this).data('cs_id');
+            //     console.log(cs_id);
+            //     var url = "delete.php?cs_id=" + cs_id;
+            //     location.href = url;
+            // });
+           
+            $('.btnDelete').on("click", function(e) {
+                e.preventDefault();
+                const form = $(this).closest('form');
+                const nameTd = $(this).closest('tr').find('td:first');
+                const nameTd2 = nameTd.siblings('td');
+                // const nameTd3 = nameTd2.siblings('td:first');
+                console.log(nameTd2.text());
+                const swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                        confirmButton: 'btn btn-success ml-2',
+                        cancelButton: 'btn btn-danger'
+                    },
+                    buttonsStyling: false
+                })
+
+                swalWithBootstrapButtons.fire({
+                    title: 'Bạn chắc chắn muốn xóa?',
+                    text: `Vacxin: ${nameTd2.text()}.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Có',
+                    cancelButtonText: 'Hủy',
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.trigger('submit');
+                    } 
+                    
+                })
             });
-            
+
+            $('#tbVaccine').DataTable({
+               
+            });
 
         });
     </script>

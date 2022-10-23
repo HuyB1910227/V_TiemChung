@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="mt-2">
-                    <table class="table table-bordered bg-white table-responsive">
+                    <table class="table table-bordered bg-white table-responsive" id="tbLichSuTiem">
                         <thead>
                             <tr class="">
                             
@@ -106,8 +106,8 @@
                                 
                                 <td><?= $lst->ttsautiem?></td>
                                  <td>
-                                    <button type="button" class="btn btn-primary btnttst" data-toggle="modal" data-target="#exampleModal" data-lst_id="<?= $lst->getID()?>">
-                                            Thêm trạng thái sau tiêm
+                                    <button type="button" class="btn btn-primary btnttst" data-toggle="modal" data-target="#exampleModal" data-lst_id="<?= $lst->getID()?>" <?php if($lst->ttsautiem !=null){echo "disabled";} ?>>
+                                    <i class="fa-solid fa-plus" ></i> Trạng thái
                                 </button>
                                  
                                  </td>   
@@ -127,7 +127,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Thêm trạng thái sau tiêm</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -145,12 +145,16 @@
 
 
                                             </div>
+                                            <div>
+                                                <p class="text-danger">Lưu ý: Sau khi cập nhật trạng thái sau tiêm, bạn không có khả năng hoàn tác!</p>
+                                            </div>
                                         
                                     </div>
                                     <div class="modal-footer">
+
                                         <button type="submit" class="btn btn-primary">Cập nhật</button>
                                     </form>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
                                         
                                     </div>
                                     </div>
@@ -183,6 +187,10 @@
                 var lstID = $(this).data('lst_id');
                 frmTrangThai.val(lstID);
              })
+
+             $('#tbLichSuTiem').DataTable({
+               
+            });
         });
     </script>
 

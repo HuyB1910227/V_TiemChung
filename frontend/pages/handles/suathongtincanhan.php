@@ -3,7 +3,7 @@
 <?php 
    
 
-    if(isset($_POST['btnLuuThayDoi'])){
+    if(isset($_POST['txtHoTen'])){
         
         $kh->fill($_POST);
 
