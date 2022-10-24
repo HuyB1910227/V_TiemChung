@@ -29,7 +29,9 @@ use TC\OBS\LichHenTiem;
     <main class="row">
     <!-- <p class="">Đang ký tiêm chủng</p> -->
         <div class="container-lg">
-
+        <div class="text-center">
+                <h3 class="titile mb-1">Đăng ký tiêm cho người thân</h3>
+            </div>
             <div class="p-5">
                
                 <form action="guidangky.php" id="dangkytiem" name="dangkytiem" method="post" id="frmDangKyTiem">

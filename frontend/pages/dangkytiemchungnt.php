@@ -30,8 +30,15 @@ $coso = new CoSoTiem($PDO);
 <body class="container-fluid">
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
     <main class="row">
-        <div class="container-lg p-5">
-            
+        <div class="container-lg">
+            <div class="text-center">
+                <h3 class="titile mb-1">Đăng ký tiêm cho người thân</h3>
+            </div>
+            <div class="row m-1">
+                <a href="dangkytiemchung.php" class="btn btn-primary mr-auto"> <i class="fa-solid fa-arrow-left"></i> Đăng ký tiêm cho cá nhân </a>
+
+            </div>
+            <hr>
             <table class="table table-bordered bg-white table-responsive" id="lichhen">
                 <thead>
                     <tr class="bg-primary text-center text-light">
@@ -72,15 +79,15 @@ $coso = new CoSoTiem($PDO);
                                         }
                                     };
                                     ?>
-                                    
-                                        <!-- <a class="btn btn-light text-primary disabled" href="xulydangkytiem.php?id=<?= $lich->getID(); ?>">Đã đăng ký</a>
+
+                                    <!-- <a class="btn btn-light text-primary disabled" href="xulydangkytiem.php?id=<?= $lich->getID(); ?>">Đã đăng ký</a>
                                     
                                        
                                             <a class="btn btn-light text-primary btn-link disabled" href="xulydangkytiem.php?id=<?= $lich->getID(); ?>">Chưa đến hạn tiêm</a> -->
-                                        
-                                            <a class="btn btn-light text-primary btn-link" href="chonnguoitiem.php?id=<?= $lich->getID(); ?>">Đăng ký</a>
-                                        
-                                    
+
+                                    <a class="btn btn-light text-primary btn-link" href="chonnguoitiem.php?id=<?= $lich->getID(); ?>">Đăng ký</a>
+
+
                                 </td>
                             </tr>
 
@@ -105,9 +112,9 @@ $coso = new CoSoTiem($PDO);
         $(document).ready(function() {
 
             $('#lichhen').DataTable({
-                // "language": {
-                //     "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
-                // },
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
+                },
 
 
             });

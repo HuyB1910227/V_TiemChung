@@ -55,10 +55,10 @@ if (isset($_POST['btnSua']) && $nt->find($_POST['ntID'])) {
                                     <input type="radio" name="rdGioiTinh" value="1" class="form-check-input" <?php if($nt->gioitinh == 1){echo "checked";};?>>
                                     <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <!-- <div class="form-check form-check-inline">
                                     <input type="radio" name="rdGioiTinh" value="2" class="form-check-input" <?php if($nt->gioitinh == 2){echo "checked";};?>>
                                     <label for="rdGioiTinh0" class="form-check-label">Khác</label>
-                                </div>
+                                </div> -->
                         <div class="form-group">
                             <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
                             <input type="text" name="txtCCCD" id="txtCCCD" placeholder="" class="form-control" value="<?= $nt->cmnd?>">

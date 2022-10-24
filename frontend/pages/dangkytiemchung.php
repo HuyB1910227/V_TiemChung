@@ -30,19 +30,18 @@ $coso = new CoSoTiem($PDO);
 <body class="container-fluid">
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
     <main class="row">
-        <div class="container-lg p-5">
-            <!-- <div>
-                <select name="" id="tp">
-                    <option value="">--Chon--</option>
-                    <option value="Thành Phố Cần Thơ">Thành Phố Cần Thơ</option>
-                    <option value="dsad"></option>
-                    <option value="Vĩnh Long"> Vĩnh Long</option>
+        <div class="container-lg">
+            <div class="text-center">
+                <h3 class="titile mb-1">Đăng ký tiêm cho cá nhân</h3>
+            </div>
+            <div class="row m-1">
+                <a href="dangkytiemchungnt.php" class="btn btn-primary ml-auto">  Đăng ký tiêm cho người thân <i class="fa-solid fa-arrow-right"></i></a>
 
-                </select>
-            </div> -->
-            <table class="table table-bordered bg-white table-responsive" id="lichhen">
+            </div>
+            <hr>
+            <table class="table table-bordered table-responsive" id="lichhen">
                 <thead>
-                    <tr class="bg-primary text-center text-light">
+                    <tr class="">
                         <!-- <th>Chọn</th> -->
 
                         <th>Mã lịch hẹn</th>
@@ -113,9 +112,9 @@ $coso = new CoSoTiem($PDO);
         $(document).ready(function() {
 
             $('#lichhen').DataTable({
-                // "language": {
-                //     "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
-                // },
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
+                },
 
 
             });

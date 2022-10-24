@@ -24,7 +24,10 @@ $lich->find($_GET["id"]);
     <main class="row">
         <!-- <p class="">Đang ký tiêm chủng</p> -->
         <div class="container-lg ">
-            <h4>Chọn người thân</h4>
+            <div class="text-center">
+                <h3 class="titile mb-1">Đăng ký tiêm cho người thân</h3>
+            </div>
+            <p class="text-danger">(*) Vui lòng chọn người thân bạn muốn đăng ký hộ:</p>
             <div class="row">
                 <?php foreach ($dsnguoithan as $nguoithan) : ?>
                     <div class="card col-5 ml-5 my-2" style="width: 50%;">

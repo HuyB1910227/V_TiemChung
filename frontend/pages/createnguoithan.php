@@ -66,10 +66,10 @@ if (isset($_POST['btnThem'])) {
                             <input type="radio" name="rdGioiTinh" value="1" class="form-check-input">
                             <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
                         </div>
-                        <div class="form-check form-check-inline">
+                        <!-- <div class="form-check form-check-inline">
                             <input type="radio" name="rdGioiTinh" value="2" class="form-check-input">
                             <label for="rdGioiTinh0" class="form-check-label">Khác</label>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>

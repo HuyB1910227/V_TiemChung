@@ -6,11 +6,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: auto;
     
 }
 .calendar {
     width: 100%;
-    /* height: 52rem; */
+    height: 38rem;
     /* background-color: #222227; */
     box-shadow: 0 0.5rem 3rem rgba(224, 224, 224, 0.4);
     border-radius: 10px;
@@ -19,7 +20,7 @@
 .month {
     width: 100%;
     height: 12rem;
-    background-color: #fb7fff;
+    background-color: #ba00c0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,7 +100,7 @@
 }
 
 .today {
-    background-color: #fb7fff;
+    background-color: #ba00c0;
     color: white;
     border-radius: 10px;
 }

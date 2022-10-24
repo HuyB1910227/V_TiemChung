@@ -37,12 +37,14 @@
     <style>
         body{
             font-family: roboto;
+            
         }
         .card-log-in {
             
             width: 1000px;
             border-radius: 10px;
             box-shadow: 2px 2px 10px grey;
+            background-color: white;
 
         }
 
@@ -114,7 +116,8 @@
                             <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" class="form-control">
 
                         </div>
-                        <label class="col-form-label">Giới tính </label> <br>
+                        <label class="col-form-label gioitinh">Giới tính </label> 
+                        <br>
                         <!-- <input type="radio" name="rdGioiTinh" id="0"> Nam
                     <input type="radio" name="rdGioiTinh" id="1"> Nữ -->
                         <div class="form-check form-check-inline">
@@ -125,10 +128,10 @@
                             <input type="radio" name="rdGioiTinh" value="1" class="form-check-input">
                             <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
                         </div>
-                        <div class="form-check form-check-inline">
+                        <!-- <div class="form-check form-check-inline">
                             <input type="radio" name="rdGioiTinh" value="2" class="form-check-input">
                             <label for="rdGioiTinh0" class="form-check-label">Khác</label>
-                        </div>
+                        </div> -->
 
                         <div class="form-group ">
                             <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
@@ -394,8 +397,8 @@
                 errorElement: "div",
                 errorPlacement: function(error, element) {
                     error.addClass("invalid-feedback");
-                    if (element.prop("type") === "radio") {
-                        error.insertAfter(element.siblings("label"));
+                    if (element.prop("name") === "rdGioiTinh") {
+                        error.insertAfter(element.parent("div").siblings("label.gioitinh"));
                     } else {
                         error.insertAfter(element);
                     }

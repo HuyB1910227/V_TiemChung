@@ -76,10 +76,7 @@ h3.titile {
 }
 
 
-
-
-
-    i.fa {
+i.fa {
         display: inline-block;
         border-radius: 60px;
         box-shadow: 0 0 2px #888;
@@ -87,3 +84,13 @@ h3.titile {
         background-color: white;
         color: #616AC6;
       }
+
+
+ footer #QRcode{
+    border-radius: 7px;
+ }   
+
+ .fa-footer{
+    font-size: 2rem;
+    margin-right: 3rem;
+ }

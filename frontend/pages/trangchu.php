@@ -10,9 +10,6 @@
             background-color: #038546;
             color: white;
         }
-
-
-        
     </style>
 </head>
 
@@ -28,7 +25,7 @@
                     </div>
                     <div class="row justify-content-center div_rounded div_tc_tt">
                         <h3 style="color: #616AC6; text-shadow: 1px 1px 2px #616AC6"><?= $user->ten ?></h3>
-                        <h4 class="col-12 text-center">Thông tin cá nhân</h4>
+                        <h4 class="col-12 text-center font-weight-bold">Thông tin cá nhân</h4>
 
                         <div class="col">
 
@@ -67,13 +64,18 @@
 
                     </div>
 
-                    <div class="row m-2 div_rounded div_shadow div_family p-2 style-scrollY" style="height: 750px; overflow: auto" >
-                        <h4 class="col-12 text-center">Danh sách người thân</h4>
+                    <div class="row m-2 div_rounded div_shadow div_family p-2 style-scrollY" style="min-height: 300px;max-height: 725px; overflow: auto">
+                        <h4 class="col-12 text-center font-weight-bold">Danh sách người thân</h4>
                         <?php if ($dsnguoithan == null) : ?>
-                            <h5>Chưa có thành viên</h5>
+                            <h5 class="col-12 text-center text-danger">Chưa có thành viên</h5>
+                            <h5 class="col-12 text-primary">(*) Quý khách có thể sử dụng chức năng quản lý người thân để thêm thành viên trong gia đình.</h5>
+                            <div class="col-12">
+                                <a href="quanlynguoithan.php" class="btn btn-primary rounded-pill w-100">Quản lý người thân</a>
+                            </div>
+
                         <?php else : ?>
                             <?php foreach ($dsnguoithan as $nguoithan) : ?>
-                                <div class="card w-100 m-2 card-member">
+                                <div class="card w-100 m-2 card-member" style="height: 200px;">
                                     <div class="card-body">
                                         <h5 class="card-title"><?= $nguoithan->hoten ?></h5>
                                         <hr>
@@ -175,7 +177,7 @@
 
                     <!--  -->
                     <div class="row mt-3 ">
-                        <div class="col-7 contain p-0 div_rounded div_shadow ">
+                        <div class="col-12 col-md-7 contain p-0 div_rounded div_shadow ">
                             <div class="calendar">
                                 <div class="month">
                                     <i class="fas fa-angle-left prev"></i>
@@ -186,52 +188,103 @@
                                     <i class="fas fa-angle-right next"></i>
                                 </div>
                                 <div class="weekdays">
-                                    <div>Sun</div>
-                                    <div>Mon</div>
-                                    <div>Tue</div>
-                                    <div>Wed</div>
-                                    <div>Thu</div>
-                                    <div>Fri</div>
-                                    <div>Sat</div>
+                                    <div>CN</div>
+                                    <div>T2</div>
+                                    <div>T3</div>
+                                    <div>T4</div>
+                                    <div>T5</div>
+                                    <div>T6</div>
+                                    <div>T7</div>
                                 </div>
                                 <div class="days"></div>
                             </div>
                         </div>
-                        <div class="col-5 pl-3 " style="height: 600px;">
+                        <div class="col-12 col-md-5 pl-3 " style="height: 600px;">
 
 
 
-                            <div class="row justify-content-center div_rounded div_shadow ml-1">
-
+                            <div class="row justify-content-center div_rounded div_shadow ml-1 style-scrollY" style="min-height: 300px;max-height: 600px; overflow: auto">
+                                <h4 class="col-12 text-center font-weight-bold mt-2">Danh sách lịch hẹn</h4>
+                                <?php $emptyL = 0; ?>
                                 <?php foreach ($arrpdk as $phieudk) : ?>
                                     <?php if ($phieudk->trangthai == 1) : ?>
-                                        <div class="card p-4 m-3">
-                                            <!-- -->
+                                        <?php $emptyL = 1; ?>
+                                        <div class="col-12 ">
+                                            <div class="card p-4 my-2" style=" position: relative">
 
-                                            <?php if ($phieudk->trangthai == 0) {
-                                                echo "<div class=\"badge badge-info mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Chưa xác nhận";
-                                            } else if ($phieudk->trangthai == 1) {
-                                                echo "<div class=\"badge badge-primary mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã xác nhận";
-                                            } else if ($phieudk->trangthai == 2) {
-                                                echo "<div class=\"badge badge-warning mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã từ chối";
-                                            } else if ($phieudk->trangthai == 3) {
-                                                echo "<div class=\"badge badge-danger mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hủy";
-                                            } else if ($phieudk->trangthai == 4) {
-                                                echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hoàn thành";
-                                            }
-                                            ?>
 
+                                                <?php if ($phieudk->trangthai == 0) {
+                                                    echo "<div class=\"badge badge-info mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Chưa xác nhận</div>";
+                                                } else if ($phieudk->trangthai == 1) {
+                                                    echo "<div class=\"badge badge-primary mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã xác nhận</div>";
+                                                } else if ($phieudk->trangthai == 2) {
+                                                    echo "<div class=\"badge badge-warning mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã từ chối</div>";
+                                                } else if ($phieudk->trangthai == 3) {
+                                                    echo "<div class=\"badge badge-danger mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hủy</div>";
+                                                } else if ($phieudk->trangthai == 4) {
+                                                    echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hoàn thành</div>";
+                                                }
+                                                ?>
+                                                <div class="">Họ và tên: <b> <?= $user->hoten ?></b></div>
+                                                <div class="">Ngày tiêm: <b> <?= $phieudk->findVaccinationSchedule()->ngaytiem ?></b></div>
+                                                <div>Cơ sở: <b><?= $phieudk->findVaccinationSchedule()->findLocation()->ten ?></b> </div>
+                                                <div>Địa điểm: <b><i><?= $phieudk->findVaccinationSchedule()->findLocation()->diachi . ", " .
+                                                                            $phieudk->findVaccinationSchedule()->findLocation()->phuong . ", " .
+                                                                            $phieudk->findVaccinationSchedule()->findLocation()->quan . ", " . $phieudk->findVaccinationSchedule()->findLocation()->tinh ?></i></b> </div>
+                                                <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
+                                            </div>
                                         </div>
-                                        <div class="">Họ và tên: <b> <?= $user->hoten ?></b></div>
-                                        <div class="">Ngày tiêm: <b> <?= $phieudk->findVaccinationSchedule()->ngaytiem ?></b></div>
-                                        <div>Cơ sở: <b><?= $phieudk->findVaccinationSchedule()->findLocation()->ten ?></b> </div>
-                                        <div>Địa điểm: <b><i><?= $phieudk->findVaccinationSchedule()->findLocation()->diachi . ", " .
-                                                                    $phieudk->findVaccinationSchedule()->findLocation()->phuong . ", " .
-                                                                    $phieudk->findVaccinationSchedule()->findLocation()->quan . ", " . $phieudk->findVaccinationSchedule()->findLocation()->tinh ?></i></b> </div>
-                                        <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
+                                    <?php endif ?>
+
+                                <?php endforeach; ?>
+
+                                <?php foreach ($dsnguoithan as $nguoithan) : ?>
+                                    <?php $dspdk = $phieudk->selectFromUser($nguoithan->layId()) ?>
+                                    <?php foreach ($dspdk  as $phieudk) : ?>
+                                        <?php if ($phieudk->trangthai == 1) : ?>
+                                            <?php $emptyL = 1; ?>
+                                            <div class="col-12 ">
+                                                <div class="card p-4 my-2" style=" position: relative">
+
+
+                                                    <?php if ($phieudk->trangthai == 0) {
+                                                        echo "<div class=\"badge badge-info mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Chưa xác nhận</div>";
+                                                    } else if ($phieudk->trangthai == 1) {
+                                                        echo "<div class=\"badge badge-primary mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã xác nhận</div>";
+                                                    } else if ($phieudk->trangthai == 2) {
+                                                        echo "<div class=\"badge badge-warning mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã từ chối</div>";
+                                                    } else if ($phieudk->trangthai == 3) {
+                                                        echo "<div class=\"badge badge-danger mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hủy</div>";
+                                                    } else if ($phieudk->trangthai == 4) {
+                                                        echo "<div class=\"badge badge-success mt-0\"  style=\"width: 100px; position: absolute; top: 0px; right: 1px\">Đã hoàn thành</div>";
+                                                    }
+                                                    ?>
+                                                    <div class="">Họ và tên: <b> <?= $nguoithan->hoten ?></b></div>
+                                                    <div class="">Ngày tiêm: <b> <?= $phieudk->findVaccinationSchedule()->ngaytiem ?></b></div>
+                                                    <div>Cơ sở: <b><?= $phieudk->findVaccinationSchedule()->findLocation()->ten ?></b> </div>
+                                                    <div>Địa điểm: <b><i><?= $phieudk->findVaccinationSchedule()->findLocation()->diachi . ", " .
+                                                                                $phieudk->findVaccinationSchedule()->findLocation()->phuong . ", " .
+                                                                                $phieudk->findVaccinationSchedule()->findLocation()->quan . ", " . $phieudk->findVaccinationSchedule()->findLocation()->tinh ?></i></b> </div>
+                                                    <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
+                                                </div>
+                                            </div>
+                                        <?php endif ?>
+                                    <?php endforeach; ?>
+
+
+                                <?php endforeach; ?>
+
+
+                                <?php if ($emptyL == 0) : ?>
+                                    <h5 class="col-12 text-center text-danger">Chưa có lịch hẹn</h5>
+                                    <h5 class="col-12 text-primary">(*) Quý khách có thể đăng ký tiêm chủng cho cá nhân hoặc cho người thân.</h5>
+                                    <div class="col-12">
+                                        <a href="dangkytiemchung.php" class="btn btn-primary rounded-pill w-100">Đăng ký tiêm</a>
+                                    </div>
+                                <?php endif ?>
+
                             </div>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+
 
 
                         </div>
@@ -277,23 +330,23 @@
             const nextDays = 7 - lastDayIndex - 1;
 
             const months = [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December",
+                "Tháng 1",
+                "Tháng 2",
+                "Tháng 3",
+                "Tháng 4",
+                "Tháng 5",
+                "Tháng 6",
+                "Tháng 7",
+                "Tháng 8",
+                "Tháng 9",
+                "Tháng 10",
+                "Tháng 11",
+                "Tháng 12",
             ];
 
             document.querySelector(".date h1").innerHTML = months[date.getMonth()];
 
-            document.querySelector(".date p").innerHTML = new Date().toDateString();
+            document.querySelector(".date p").innerHTML = "Năm " + new Date().getFullYear();
 
             let days = "";
 
