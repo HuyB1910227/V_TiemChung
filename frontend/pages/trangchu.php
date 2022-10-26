@@ -130,50 +130,7 @@
                         </div>
 
                     </div>
-                    <div class="row div_rounded div_shadow mt-3">
-                        <div class="col my-2">
-                            <div class="card mx-auto" style="width: 14rem; height: 15rem;">
-                                <a class="text-decoration-none text-dark" href="https://covid19.gov.vn/tat-ca-huong-dan-ve-theo-doi-suc-khoe-cua-bo-y-te-ma-f0-dieu-tri-tai-nha-can-biet-171220315154101477.htm">
-                                    <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt1.jpg" class="card-img-top " alt="..." height="150px">
-                                    <div class="card-body">
-                                        <p class="card-text ">Bộ y tế hướng dẫn theo dõi sức khỏe tại nhà.</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col my-2">
-                            <div class="card mx-auto" style="width: 14rem; height: 15rem;">
-                                <a class="text-decoration-none text-dark" href="https://covid19.gov.vn/song-cung-f0-lam-sao-de-giam-nguy-co-lay-nhiem-171220228132225654.htm">
-                                    <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt3.png" class="card-img-top " alt="..." height="150px">
-                                    <div class="card-body">
-                                        <p class="card-text">Sống cùng F0, làm sao để giảm nguy cơ lây nhiễm?</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col my-2">
-                            <div class="card mx-auto" style="width: 14rem; height: 15rem;">
-                                <a class="text-decoration-none text-dark" href="https://moh.gov.vn/hoat-dong-cua-dia-phuong/-/asset_publisher/gHbla8vOQDuS/content/cham-soc-tre-f0-tai-nha-nhung-ieu-on-gian-khong-phai-cha-me-nao-cung-biet">
-                                    <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt2.jpg" class="card-img-top" alt="..." height="150px">
-                                    <div class="card-body">
-                                        <p class="card-text">Chăm sóc trẻ F0 tại nhà.</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col my-2">
-                            <div class="card mx-auto" style="width: 14rem; height: 15rem;">
-                                <a class="text-decoration-none text-dark" href="https://covid19.gov.vn/6-cach-khong-dung-thuoc-giup-giam-nhe-chung-covid-keo-dai-171220218114701263.htm">
-                                    <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt4.jpg" class="card-img-top" alt="..." height="150px">
-                                    <div class="card-body">
-                                        <p class="card-text">Cách giảm nhẹ các triệu chứng COVID-19</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-
-                    </div>
+                    
 
                     <!--  -->
                     <div class="row mt-3 ">
@@ -265,7 +222,7 @@
                                                     <div>Địa điểm: <b><i><?= $phieudk->findVaccinationSchedule()->findLocation()->diachi . ", " .
                                                                                 $phieudk->findVaccinationSchedule()->findLocation()->phuong . ", " .
                                                                                 $phieudk->findVaccinationSchedule()->findLocation()->quan . ", " . $phieudk->findVaccinationSchedule()->findLocation()->tinh ?></i></b> </div>
-                                                    <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
+
                                                 </div>
                                             </div>
                                         <?php endif ?>
@@ -292,6 +249,55 @@
 
 
 
+
+
+                    </div>
+
+                    <!--  -->
+                    <div class="row div_rounded div_shadow mt-3">
+                        <div class="col my-2">
+                            <div class="card mx-auto" style="width: 14rem; height: 15rem;">
+                                <a class="text-decoration-none text-dark" href="https://covid19.gov.vn/tat-ca-huong-dan-ve-theo-doi-suc-khoe-cua-bo-y-te-ma-f0-dieu-tri-tai-nha-can-biet-171220315154101477.htm">
+                                    <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt1.jpg" class="card-img-top " alt="..." height="150px">
+                                    <div class="card-body">
+                                        <p class="card-text ">Bộ y tế hướng dẫn theo dõi sức khỏe tại nhà.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col my-2">
+                            <div class="card mx-auto" style="width: 14rem; height: 15rem;">
+                                <a class="text-decoration-none text-dark" href="https://covid19.gov.vn/song-cung-f0-lam-sao-de-giam-nguy-co-lay-nhiem-171220228132225654.htm">
+                                    <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt3.png" class="card-img-top " alt="..." height="150px">
+                                    <div class="card-body">
+                                        <p class="card-text">Sống cùng F0, làm sao để giảm nguy cơ lây nhiễm?</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col my-2">
+                            <div class="card mx-auto" style="width: 14rem; height: 15rem;">
+                                <a class="text-decoration-none text-dark" href="https://moh.gov.vn/hoat-dong-cua-dia-phuong/-/asset_publisher/gHbla8vOQDuS/content/cham-soc-tre-f0-tai-nha-nhung-ieu-on-gian-khong-phai-cha-me-nao-cung-biet">
+                                    <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt2.jpg" class="card-img-top" alt="..." height="150px">
+                                    <div class="card-body">
+                                        <p class="card-text">Chăm sóc trẻ F0 tại nhà.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col my-2">
+                            <div class="card mx-auto" style="width: 14rem; height: 15rem;">
+                                <a class="text-decoration-none text-dark" href="https://covid19.gov.vn/6-cach-khong-dung-thuoc-giup-giam-nhe-chung-covid-keo-dai-171220218114701263.htm">
+                                    <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt4.jpg" class="card-img-top" alt="..." height="150px">
+                                    <div class="card-body">
+                                        <p class="card-text">Cách giảm nhẹ các triệu chứng COVID-19</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 pt-2">
+                            <a href="https://covid19.gov.vn/ban-tin-covid-19.htm" class="banquyen">&copy;&nbsp; Bản quyền thuộc về covid19.gov.vn</a>
+                        </div>
 
 
                     </div>

@@ -353,7 +353,7 @@ if (isset($_POST['btnThem'])) {
                     // console.log(t);
                     if(DoTuoi == 0){
                         console.log("vo");
-                        $("#txtCCCD").val('000000000000');
+                        $("#txtCCCD").val('Chưa cấp');
                         $("#txtCCCD").attr("readonly");
                     } else {
                         $("#txtCCCD").val("");

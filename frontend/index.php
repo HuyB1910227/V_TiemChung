@@ -190,6 +190,17 @@
 
     <?php include_once __DIR__ . '/layouts/partials/footer.php'; ?>
     <?php include_once __DIR__ . '/layouts/script.php'; ?>
+    <script>
+        // $(document).ready(function(){
+        //     var svg = $('svg');
+        //     svg.prop({
+        //         "width": "500px",
+               
+        //     }
+               
+        //     )
+        // });
+    </script>
 </body>
 
 </html>

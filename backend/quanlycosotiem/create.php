@@ -65,8 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-
-                            <button name="btnThem" id="btnThem" class="btn btn-primary">Thêm</button>
+                            
+                            <a class="btn btn-light rounded-circle border border-primary text-primary " href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
+                            <button name="btnThem" id="btnThem" class="btn btn-primary rounded-pill w-75 float-right">Thêm</button>
                         </form>
                     </div>
 

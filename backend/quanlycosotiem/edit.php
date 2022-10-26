@@ -82,8 +82,9 @@
                            
                            
                             
+                            <a class="btn btn-light rounded-circle border border-primary text-primary " href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
                             
-                            <button name="btnSave" id="btnSave" class="btn btn-primary">Cập nhật</button>
+                            <button name="btnSave" id="btnSave" class="btn btn-primary rounded-pill w-75 float-right">Cập nhật</button>
                         </form>
                     </div>
 

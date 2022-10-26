@@ -45,12 +45,12 @@ $arrcoso = $coso->all();
                     <div class="card-body">
                         <form action="" method="post">
                             <div class="form-group">
-                                <label for="dtNgayHenTiem">Ngày hẹn tiêm: </label>
+                                <label for="dtNgayHenTiem">Lịch dự kiến: </label>
                                 <input type="date" name="dtNgayHenTiem" id="dtNgayHenTiem" class="form-control" required value="">
                             </div>
 
                             <div class="form-group">
-                                <label for="">Trạng thái hoạt động</label>
+                                <label for="">Cơ sở:</label>
                                 <select name="slCoSo" id="slCoSo" class="custom-select">
                                     <?php foreach ($arrcoso as $coso) : ?>
 
@@ -64,8 +64,9 @@ $arrcoso = $coso->all();
 
 
 
+                            <a class="btn btn-light rounded-circle border border-primary text-primary " href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
 
-                            <button name="btnSave" id="btnSave" class="btn btn-primary">Thêm</button>
+                            <button name="btnSave" id="btnSave" class="btn btn-primary rounded-pill w-75 float-right">Thêm</button>
                         </form>
                     </div>
 

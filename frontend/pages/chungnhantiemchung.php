@@ -20,7 +20,7 @@
                     <div class="col rounded-0 jumbotron mb-0" style="background-color: #038032;">
                         <p class="text-center display-4 text-white"><i class="fa-solid fa-shield-virus"></i></p>
                         <hr>
-                        <h3 class="text-center text-uppercase text-white-50">Đã tiêm <span style="color: red; font-size: 50px;"> 0<?= $kh->solantiem ?></span> mũi vacxin</h3>
+                        <h3 class="text-center text-uppercase text-white-50">Đã tiêm <span style="color: <?php  if($kh->solantiem == 0){ echo "red";}  elseif($kh->solantiem == 1) {echo "#fabf34";} else "#14ad00" ;?>; font-size: 50px;"> 0<?= $kh->solantiem ?></span> mũi vacxin</h3>
                         <hr>
                     </div>
                     <div class="col rounded-0 jumbotron mb-0">
@@ -61,10 +61,10 @@
                         <div class="col-12 col-sm-6">
                             <div class="row m-2 border">
                                     <div class="col-12 col-sm-4 bg-info p-1">
-                                        <p class="display-4 text-white my-auto"><i class="fa-solid fa-shield-virus"></i></p>
+                                        <p class="display-4 text-white my-auto text-center"><i class="fa-solid fa-shield-virus"></i></p>
                                     </div>
-                                    <div class="col-12 col-sm-8 bg-info p-1">
-                                    <h5 class="text-right text-uppercase text-white-50">Đã tiêm <span style="color: #fc5656; font-size: 50px;"> 0<?= $nguoithan->solantiem ?></span> mũi vacxin</h5>
+                                    <div class="col-12 col-sm-8 bg-info p-1 ">
+                                        <h5 class="text-right text-uppercase text-white-50 text-center">Đã tiêm <span style="color: <?php  if($nguoithan->solantiem == 0){ echo "red";}  elseif($nguoithan->solantiem == 1) {echo "#fabf34";} else "#14ad00" ;?>; font-size: 50px;"> <?= "0".$nguoithan->solantiem ?></span> mũi vacxin</h5>
 
                                     </div>
                                 <div class="col-12">

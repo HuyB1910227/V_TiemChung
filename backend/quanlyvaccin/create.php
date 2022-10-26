@@ -38,7 +38,7 @@ $mangloai = $loai->all();
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
-                <h3 class="text-info">Thêm Vắc xin</h3>
+                <h3 class="">Thêm Vắc xin</h3>
 
                 
                 <div class="card frmCreate">
@@ -69,8 +69,9 @@ $mangloai = $loai->all();
                             </select>
                             </div>
                             
+                            <a class="btn btn-light rounded-circle border border-primary text-primary " href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
 
-                            <button name="btnSave" id="btnSave" class="btn btn-primary">Thêm</button>
+                            <button name="btnSave" id="btnSave" class="btn btn-primary rounded-pill w-75 float-right">Thêm</button>
                         </form>
                     </div>
 

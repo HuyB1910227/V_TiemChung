@@ -43,7 +43,7 @@
             <div class="col-10 offset-2">
                 <h3 >Sửa Vaccine</h3>
                 
-                <form action="" method="post">
+                <!-- <form action="" method="post">
                    <br>
                     <br>
                     <br>
@@ -52,7 +52,7 @@
                     
                    
                     
-                </form>
+                </form> -->
                 <div class="card frmCreate">
                     <div class="card-body">
                         <form action="" method="post">
@@ -81,8 +81,9 @@
                     </select>
                             </div>
                             
+                            <a class="btn btn-light rounded-circle border border-primary text-primary " href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
 
-                            <button name="btnSave" id="btnSave" class="btn btn-primary">Cập nhật</button>
+                            <button name="btnSave" id="btnSave" class="btn btn-primary rounded-pill w-75 float-right">Cập nhật</button>
                         </form>
                     </div>
 

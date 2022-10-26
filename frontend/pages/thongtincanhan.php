@@ -15,34 +15,40 @@
             <div class="row my-2">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col border">
+                        <div class="col ">
                             <div class="row">
-                                <div class="col-6">
-                                    <div class="border d-inline-block">
-                                        <img src="/V_TiemChung/assets/uploads/<?= $user->avatar ?>" alt="" class="rounded-circle" width="150px" height="150px">
+                                <div class="col-12">
+                                    <div style="display: flex; align-items: center; ">
+                                        <div class="avatar-left">
+                                            <img src="/V_TiemChung/assets/uploads/<?= $user->avatar ?>" alt="" class="rounded-circle mx-auto" width="150px" height="150px">
 
-                                    </div>
-                                    <div  class="d-flex">
-                                        <div>
+                                        </div>
+                                        <div class="text-avatar-right">
+
                                             <h4>Xin chào!</h4>
                                             <h5>Nguyễn Văn A</h5>
+
+
                                         </div>
-                                        
+
+
                                     </div>
-
-                                </div>
-                                <div class="col-6">
-
                                 </div>
 
-                                <!-- <form action="changeAvatar.php" method="post" enctype="multipart/form-data">
-                                    <input type="file" name="fileToUpload" id="fileToUpload" value="<?= $user->avatar ?>">
-                                    <button type="submit" name="submit">Lưu</button>
-                                </form> -->
+                                <div class="col-12">
+                                    <form action="changeAvatar.php" method="post" enctype="multipart/form-data">
+                                        <br>
+                                        <input type="file" name="fileToUpload" id="fileToUpload" value="<?= $user->avatar ?>" placeholder="Chọn ảnh đại diện">
+
+                                        <button type="submit" name="submit" class="btn btn-primary" id="btnChangeAvatar">Thay đổi ảnh đại diện</button>
+                                    </form>
+                                </div>
+
+
                             </div>
 
                         </div>
-                        <div class="col p-2 border">
+                        <div class="col p-2 ">
                             <button class="btn btn-warning float-right text-light" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i> Sửa thông tin cá nhân</button>
                         </div>
                     </div>
@@ -185,12 +191,12 @@
                                                                                                                 }; ?>>
                                     <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
                                 </div>
-                                <div class="form-check form-check-inline">
+                                <!-- <div class="form-check form-check-inline">
                                     <input type="radio" name="rdGioiTinh" value="2" class="form-check-input" <?php if ($kh->gioitinh == 2) {
                                                                                                                     echo "checked";
                                                                                                                 }; ?>>
                                     <label for="rdGioiTinh0" class="form-check-label">Khác</label>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
                                     <input type="text" name="txtCCCD" id="txtCCCD" placeholder="" class="form-control" value="<?= $kh->cmnd; ?>">
@@ -236,10 +242,17 @@
                                     <label for="txtNgheNghiep">Nghề nghiệp</label>
                                     <input type="text" name="txtNgheNghiep" id="txtNgheNghiep" placeholder="" class="form-control" value="<?= $kh->nghenghiep; ?>">
                                 </div>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
-                                <button type="submit" class="btn btn-primary" name="btnLuuThayDoi" id="btnLuuThayDoi">Lưu thay đổi</button>
+                                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button> -->
+                                <button type="" class="btn btn-primary" name="btnLuuThayDoi" id="btnLuuThayDoi" hidden>Lưu thay đổi</button>
+
                             </form>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+                            <button type="button" class="btn btn-primary" id="btnKT">Cập nhật</button>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -312,109 +325,136 @@
             //         alert('Đã gửi thành công!');
             //     }
             // });
-            $('#frmTTCN').validate({
-                rules: {
+            
+                console.log("có")
+                $('#frmTTCN').validate({
+                    rules: {
 
-                    // rdDoTuoi:{
-                    //     required: true
-                    // },
-                    txtHoTen: {
-                        required: true,
-                        minlength: 8
-                    },
+                        // rdDoTuoi:{
+                        //     required: true
+                        // },
+                        txtHoTen: {
+                            required: true,
+                            minlength: 8
+                        },
 
-                    dtNgaySinh: {
-                        required: true,
-                        minAge: 18,
+                        dtNgaySinh: {
+                            required: true,
+                            minAge: 18,
+                        },
+                        // rdGioiTinh: {
+                        //     required: true
+                        // },
+                        txtTP: {
+                            required: true
+                        },
+                        txtQH: {
+                            required: true
+                        },
+                        txtPX: {
+                            required: true
+                        },
+                        txtDiaChi: {
+                            required: true
+                        },
+                        txtCCCD: {
+                            required: true,
+                            number: true,
+                            rangelength: [12, 12],
+
+                        },
+
+                        dtNgayTiemGanNhat: {
+                            reqVC: true,
+                        }
                     },
-                    // rdGioiTinh: {
-                    //     required: true
-                    // },
-                    txtTP: {
-                        required: true
-                    },
-                    txtQH: {
-                        required: true
-                    },
-                    txtPX: {
-                        required: true
-                    },
-                    txtDiaChi: {
-                        required: true
-                    },
-                    txtCCCD: {
-                        required: true,
-                        number: true,
-                        rangelength: [12, 12],
+                    messages: {
+
+                        // rdDoTuoi:{
+                        //     required: "Chưa chọn độ tuổi"
+                        // },
+                        txtHoTen: {
+                            required: "Bạn chưa nhập vào họ và tên",
+                            minlength: "Họ và tên phải có ít nhất 8 ký tự!"
+                        },
+
+                        dtNgaySinh: {
+                            required: "Bạn chưa nhập vào ngày sinh",
+                            minAge: "Ngày sinh không hợp lệ!"
+                        },
+                        // rdGioiTinh: "Bạn chưa chọn giới tính",
+                        txtTP: {
+                            required: "Bạn chưa nhập tỉnh hoặc Thành Phố",
+                        },
+                        txtQH: {
+                            required: "Bạn chưa nhập Quận hoặc Huyện",
+                        },
+                        txtPX: {
+                            required: "Bạn chưa nhập Phường hoặc Xã",
+                        },
+                        txtDiaChi: {
+                            required: "Bạn chưa nhập địa chỉ",
+                        },
+                        txtCCCD: {
+                            required: "Bạn chưa nhập vào căn cước công dân",
+                            rangelength: "Căn cước công dân phải có 12 ký tự số!",
+                            number: "Căn cước công dân sai định dạng"
+                        }
+
 
                     },
+                    errorElement: "div",
+                    errorPlacement: function(error, element) {
+                        error.addClass("invalid-feedback");
+                        if (element.prop("name") === "rdGioiTinh") {
+                            error.insertAfter(element.parent("div").siblings("legend.gioitinh"));
 
-                    dtNgayTiemGanNhat: {
-                        reqVC: true,
+                        } else if (element.prop("name") === "rdDoTuoi") {
+                            error.insertAfter(element.parent("div").siblings("legend.dotuoi"));
+
+                        } else {
+                            error.insertAfter(element);
+                        }
+                    },
+                    highlight: function(element, errorClass, validClass) {
+
+                        $(element).addClass("is-invalid").removeClass("is-valid");
+                    },
+                    unhighlight: function(element, errorClass, validClass) {
+
+                        $(element).addClass("is-valid").removeClass("is-invalid");
+
+
                     }
-                },
-                messages: {
-
-                    // rdDoTuoi:{
-                    //     required: "Chưa chọn độ tuổi"
-                    // },
-                    txtHoTen: {
-                        required: "Bạn chưa nhập vào họ và tên",
-                        minlength: "Họ và tên phải có ít nhất 8 ký tự!"
-                    },
-
-                    dtNgaySinh: {
-                        required: "Bạn chưa nhập vào ngày sinh",
-                        minAge: "Ngày sinh không hợp lệ!"
-                    },
-                    // rdGioiTinh: "Bạn chưa chọn giới tính",
-                    txtTP: {
-                        required: "Bạn chưa nhập tỉnh hoặc Thành Phố",
-                    },
-                    txtQH: {
-                        required: "Bạn chưa nhập Quận hoặc Huyện",
-                    },
-                    txtPX: {
-                        required: "Bạn chưa nhập Phường hoặc Xã",
-                    },
-                    txtDiaChi: {
-                        required: "Bạn chưa nhập địa chỉ",
-                    },
-                    txtCCCD: {
-                        required: "Bạn chưa nhập vào căn cước công dân",
-                        rangelength: "Căn cước công dân phải có 12 ký tự số!",
-                        number: "Căn cước công dân sai định dạng"
+                });
+            
+                $('#btnKT').on("click", function() {
+                    $('#frmTTCN').valid();
+                    if($('#frmTTCN').valid() == true){
+                       $('#btnLuuThayDoi').trigger("click");
                     }
-
-
-                },
-                // errorElement: "div",
-                // errorPlacement: function(error, element) {
-                //     error.addClass("invalid-feedback");
-                //     if (element.prop("name") === "rdGioiTinh") {
-                //         error.insertAfter(element.parent("div").siblings("legend.gioitinh"));
-
-                //     } else if (element.prop("name") === "rdDoTuoi") {
-                //         error.insertAfter(element.parent("div").siblings("legend.dotuoi"));
-
-                //     } else {
-                //         error.insertAfter(element);
-                //     }
-                // },
-                highlight: function(element, errorClass, validClass) {
-
-                    $(element).addClass("is-invalid").removeClass("is-valid");
-                },
-                unhighlight: function(element, errorClass, validClass) {
-
-                    $(element).addClass("is-valid").removeClass("is-invalid");
-
-
+                });
+            $('#btnChangeAvatar').css('display', 'none');
+            $('#fileToUpload').on("change", function() {
+                if ($(this).val() != null) {
+                    $('#btnChangeAvatar').css('display', 'inline-block');
                 }
             });
 
+            // $('#btnLuuThayDoi').on("click", function(event){
+            //     event.preventDefault();
 
-            //
+            // })
+
+            // $('#exampleModal').modal({
+            //     show: false,
+            //     backdrop: 'static'
+            // });
+            // $('#click-me').click(function(){
+            //     $("#popup").modal("show");
+            // })
+
+
 
         });
     </script>

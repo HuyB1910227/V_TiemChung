@@ -1,4 +1,7 @@
+<div style="display: none">
 <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
+</div>
+
 <?php
 $targetDir = __DIR__."/../../assets/uploads/";
 $avatarName = date("YmdHi") . '_' . basename($_FILES["fileToUpload"]["name"]);
@@ -47,6 +50,7 @@ if ($hasErrors) {
         // echo "<img src='/uploads/" . $safeImageName . "'>";
         $user->fillAvatar($avatarName);
         $user->changeAvatarName();
+        header("Location: thongtincanhan.php");
     } else {
         echo "Sorry, there was an error uploading your file.";
     }

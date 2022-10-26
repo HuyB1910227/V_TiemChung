@@ -11,13 +11,22 @@ h3{
   margin-top: 15px;
   color: #616AC6;
   text-align: center;
-  font-weight: bolder;
+  text-transform: uppercase;
+  font-weight: 800;
+  text-shadow: 1px 1px 1px #4a5099;
+  
+
 }
 
 footer {
   background-color: #4a5099;
   margin-top: 3px;
+  color: #debdff;
+  
 }
+
+
+
 
 .frmCreate {
   width: 500px;

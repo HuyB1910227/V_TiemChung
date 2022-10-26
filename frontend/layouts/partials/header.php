@@ -80,11 +80,21 @@ use TC\OBS\TaiKhoan;
                             <a class="dropdown-item" href="/V_TiemChung/frontend/pages/quanlynguoithan.php">Người thân</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tài liệu</a>
+                    <li class="nav-item dropdown ">
+                        <div class="nav-link dropdown-toggle border " href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                          <span class="nav-log"><i class="fa-solid fa-user " ></i>&nbsp; <?= $user->ten ?></span> |
+                        </div>
+                        <div class="dropdown-menu shadow-lg" >
+                            <a href="/V_TiemChung/frontend/dangxuat.php" class="dropdown-item text-primary"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+
+                            <!-- <a class="dropdown-item" href="/V_TiemChung/frontend/pages/dangkytiemchungnt.php">Đăng ký tiêm cho người thân</a> -->
+                        </div>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Tài liệu</a>
+                    </li> -->
                 </ul>
-                <a href="/V_TiemChung/frontend/dangxuat.php" class="btn btn-primary">Đăng xuất</a>
+                <!-- <a href="/V_TiemChung/frontend/dangxuat.php" class="btn btn-primary">Đăng xuất</a> -->
                 <!-- <button class="btn btn-primary">Đăng xuất</button> -->
             </div>
         </nav>
