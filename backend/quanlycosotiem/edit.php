@@ -41,7 +41,7 @@
                 <h3 class="">Sửa cơ sở</h3>
                 <div class="card frmCreate " >
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="" method="post" id="frmQLCS">
                             <div class="form-group">
                             <label for="txtMaCoSo">Mã cơ sở: </label>
                             <input type="text" name="txtMaCoSo" id="txtMaCoSo" value="<?= $coso->layId()?>" class="form-control" readonly>
@@ -115,6 +115,11 @@
             
         })
     </script> -->
+    <script>
+        $(document).ready(function(){
+            console.log("hi");
+        })
+    </script>
 </body>
 
 </html>

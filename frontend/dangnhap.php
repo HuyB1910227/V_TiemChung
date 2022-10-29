@@ -11,7 +11,10 @@
     // }
         $error = "";
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $result = $user->login3($_POST['sdt'], $_POST['pwd']);
+        if(is_numeric($_POST['sdt']))
+            $result = $user->login3($_POST['sdt'], $_POST['pwd']);
+        else
+            $result = $user->loginByName($_POST['sdt'], $_POST['pwd']);
         if($result != null){
             //echo "Thành công.";
             // $user->session();
@@ -83,17 +86,17 @@
     <div class="row p-5">
         <div class="p-3 card-log-in m-auto">
             <div class="col-12">
-                <h3 class="text-center font-weight-bolder text-black-25">Đăng nhập</h3>
+                <h3 class="text-center font-weight-bolder text-black-25">ĐĂNG NHẬP</h3>
             </div>
             <div>
                 <span class="text-danger"><?= $error ?></span>
             </div>
             <form action="" method="post" id="frmDangNhap">
                 <div class="form-group">
-                    <label for="sdt">Số điện thoại</label>
+                    <label for="sdt">Số điện thoại/ Tên đăng nhập</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                         </div>
                         <input type="text" class="form-control" id="sdt" name="sdt" placeholder="Nhập vào số điện thoại...." value="<?php echo (isset($_POST["sdt"])) ?  $_POST["sdt"] : ""; ?>">
                     </div>
@@ -148,8 +151,8 @@
                     
                     sdt: {
                         required: true,
-                        rangelength: [10, 10],
-                        number: true
+                        // rangelength: [10, 10],
+                        // number: true
                     },
                     
                     
@@ -160,9 +163,9 @@
                    
                    
                     sdt: {
-                        required: "Bạn chưa nhập vào số điện thoại",
-                        rangelength: "Tên đăng nhập phải có 10 ký tự số!",
-                        number: "Số điện thoại sai định dạng"
+                        required: "Bạn chưa nhập vào số điện thoại hoặc tên dăng nhập",
+                        // rangelength: "Tên đăng nhập phải có 10 ký tự số!",
+                        // number: "Số điện thoại sai định dạng"
                     },
                     
                     pwd: {

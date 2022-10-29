@@ -47,7 +47,7 @@
               
                 <div class="card frmCreate">
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="" method="post" id="frmQLLT">
                         
                             <div class="form-group">
                             <label for="dtNgayHenTiem">Ngày hẹn tiêm: </label>

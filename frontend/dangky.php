@@ -3,7 +3,7 @@
 // use TC\OBS\KhachHang;
 // use TC\OBS\TaiKhoan;
 
-// require_once '../db_connect.php';
+require_once '../db_connect.php';
 // $newKH = new KhachHang($PDO);
 
 // $errors = [];
@@ -17,8 +17,10 @@
 //     $errors = $newTK->getValidationErrors();
 // }
 
-
-
+use TC\OBS\Vaccine;
+$v = new Vaccine($PDO);
+$arrVac = $v->all();
+// var_dump($arrVac);
 
 ?>
 <!DOCTYPE html>
@@ -35,12 +37,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
-        body{
+        body {
             font-family: roboto;
-            
+
         }
+
         .card-log-in {
-            
+
             width: 1000px;
             border-radius: 10px;
             box-shadow: 2px 2px 10px grey;
@@ -48,7 +51,7 @@
 
         }
 
-        .card-log-in h3{
+        .card-log-in h3 {
             color: #616AC6;
 
 
@@ -69,7 +72,7 @@
     <div class="container mt-2">
         <div class="p-3 m-auto card-log-in">
             <div class="col-12">
-                <h3 class="text-center font-weight-bolder ">Đăng ký</h3>
+                <h3 class="text-center font-weight-bolder ">ĐĂNG KÝ</h3>
             </div>
             <form action="xulydangky.php" method="POST" id="signupForm">
                 <div class="row">
@@ -77,13 +80,13 @@
                         <div class="form-group">
                             <label for="txtTen">Tên đăng nhập: </label>
                             <div class="input-group">
-                                <!-- <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
 
-                        </div> -->
                                 <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Nhập vào họ tên....">
 
 
+                            </div>
+                            <div class="error-block mt-1">
+                                <p id="error_tendangnhap"></p>
                             </div>
 
 
@@ -108,6 +111,9 @@
                                 <input type="text" class="form-control" id="txtSoDienThoai" name="txtSoDienThoai" placeholder="Nhập vào số điện thoại....">
 
                             </div>
+                            <div class="error-block mt-1">
+                                <p id="error_sdt"></p>
+                            </div>
 
                         </div>
 
@@ -116,7 +122,7 @@
                             <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" class="form-control">
 
                         </div>
-                        <label class="col-form-label gioitinh">Giới tính </label> 
+                        <label class="col-form-label gioitinh">Giới tính </label>
                         <br>
                         <!-- <input type="radio" name="rdGioiTinh" id="0"> Nam
                     <input type="radio" name="rdGioiTinh" id="1"> Nữ -->
@@ -200,9 +206,18 @@
                         <!--  -->
                         <div class="form-group ">
                             <label for="dtNgayTiemGanNhat">Ngày tiêm gần nhất: </label>
-                            <input type="date" name="dtNgayTiemGanNhat" id="dtNgayTiemGanNhat" placeholder="" class="form-control">
+                            <input type="date" name="dtNgayTiemGanNhat" id="dtNgayTiemGanNhat" placeholder="" class="form-control" readonly>
 
                         </div>
+                        <label for="">Loại vaccine tiêm gần nhất: </label>
+                        <select class="custom-select" name="slvaccineTiemGanNhat" disabled>
+                            <option value="" selected>-- Chọn vacxin --</option>
+                            <option value="0">Không rõ vaccine</option>
+                           
+                            <?php foreach ($arrVac as $v) : ?>
+                                <option value="<?= $v->layID() ?>"><?= $v->ten ?></option>
+                            <?php endforeach; ?>
+                        </select>
 
                     </div>
                 </div>
@@ -211,15 +226,7 @@
 
 
                 <!--  -->
-                <!-- <label for="">Loại vaccine tiêm gần nhất: </label>
-                <select class="custom-select" name="slTVaccine">
-                    <option selected>-- Chọn vacxin --</option>
-                    <option value="-1">Không rõ vaccine</option>
-                   
-                    <?php foreach ($arrVac as $v) : ?>
-                        <option value="<?= $v->layID() ?>"><?= $v->ten ?></option>
-                    <?php endforeach; ?>
-                </select> -->
+
                 <div class="row">
                     <div class="col-6">
                         <a class="btn btn-light rounded-circle border border-primary text-primary " href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
@@ -255,7 +262,8 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> -->
+    <script src="/V_TiemChung/assets/vendor/jquery/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/V_TiemChung/assets/vendor/plugin_validate/jquery.validate.js"></script>
@@ -294,6 +302,59 @@
         //     }
         // });
         $(document).ready(function() {
+
+            $('#txtTen').on("keyup", function() {
+                var userName = $(this).val();
+
+                // console.log(userName)
+                $.ajax({
+                    url: 'scriptObject.php',
+                    type: 'POST',
+                    // dataType: 'json',
+                    data: {
+                        'userName': userName
+                    },
+                    success: function(response) {
+                        var json = $.parseJSON(response);
+                        if (json.status == 'error')
+                            $('#error_tendangnhap').hide();
+                        else if (json.status == 'success') {
+
+                            $('#error_tendangnhap').show().text("Tên đăng nhập đã được sử dụng!");
+
+                        }
+
+                    }
+                });
+
+            });
+
+            $('#txtSoDienThoai').on("keyup", function() {
+                var userContact = $(this).val();
+
+                console.log(userContact)
+                $.ajax({
+                    url: 'scriptObject.php',
+                    type: 'POST',
+                    // dataType: 'json',
+                    data: {
+                        'userContact': userContact
+                    },
+                    success: function(response) {
+                        var json = $.parseJSON(response);
+                        if (json.status == 'error')
+                            $('#error_sdt').hide();
+                        else if (json.status == 'success') {
+
+                            $('#error_sdt').show().text("Số điện thoại đã được sử dụng!");
+
+                        }
+
+                    }
+                });
+
+            });
+
             $('#signupForm').validate({
                 rules: {
                     txtTen: {
@@ -410,6 +471,24 @@
                     $(element).addClass("is-valid").removeClass("is-invalid");
                 }
             });
+
+            var inputSLT = $('input[name="nbSoLanTiem"]');
+            var inputNTGN = $('input[name="dtNgayTiemGanNhat"]');
+            var inputVTGN = $('select[name="slvaccineTiemGanNhat"]');
+            console.log(inputVTGN);
+            // console.log(inputNTGN);
+            inputSLT.on("keyup", function() {
+                if (inputSLT.val() == 0) {
+                    inputNTGN.attr("readonly", true);
+                    // inputVTGN.val("");
+                    inputVTGN.attr('disabled','disabled');
+                } else {
+                    inputNTGN.removeAttr("readonly");
+                    inputVTGN.removeAttr("disabled");
+                }
+            });
+
+
         });
     </script>
 </body>

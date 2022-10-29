@@ -6,11 +6,8 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/V_TiemChung/assets/vendor/chart/Chart.min.js"></script>
-<!-- <script>
-    $(document).ready(function(){
-        
-    });
-</script> -->
+
+
 
 <script>
     $(document).ready(function(){
@@ -25,8 +22,12 @@
             }
         })
         
-       
+        
     })
    
     
 </script>
+
+<script src="/V_TiemChung/assets/backend/js/Validate-coso.js"></script>
+<script src="/V_TiemChung/assets/backend/js/Validate-vaccine.js"></script>
+<script src="/V_TiemChung/assets/backend/js/Validate-lichtiem.js"></script>

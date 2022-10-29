@@ -110,7 +110,7 @@
                             <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt3.png" class="card-img-top " alt="..." height="150px">
 
                             <div class="card-body">
-                                <p class="card-text">Sống cùng F0, làm sao để giảm nguy cơ lây nhiễm?</p>
+                                <p class="card-text">Giảm lây nhiễm khi sống cùng F0.</p>
                             </div>
                         </a>
                     </div>

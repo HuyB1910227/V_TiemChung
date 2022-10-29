@@ -14,7 +14,7 @@ class KhachHang{
     public $quan;
     public $tinh;
     
-    public $solantiem, $ngaytiemgannhat;
+    public $solantiem, $ngaytiemgannhat, $vaccinedatiem;
     public $baohiem, $baohiembd, $baohiemkt, $dantoc, $tongiao, $nghenghiep;
     // public $tempVaccineID = null;
     // public $sdt, $trangthai;
@@ -48,6 +48,7 @@ class KhachHang{
             'kh_tongiao' => $this->tongiao,
             'kh_nghenghiep' => $this->nghenghiep,
             'kh_ngaytiemgannhat' => $this->ngaytiemgannhat,
+            'kh_vacxintiemgannhat' => $this->vaccinedatiem,
             'nt_id' => $this->nt_id
 		] = $row;
 	    return $this;
@@ -118,6 +119,9 @@ class KhachHang{
         if(isset($data['nguoiThanID'])){
             $this->nt_id = $data['nguoiThanID'];
         }
+        if(isset($data['slvaccineTiemGanNhat'])){
+            $this->vaccinedatiem = $data['slvaccineTiemGanNhat'];
+        }
 		return $this;
 	}
     //create and edit record to table
@@ -126,7 +130,7 @@ class KhachHang{
         if ($this->id >=0){
             $sql = $this->db->prepare('update khach_hang
             set kh_hoten = :ten,kh_cmnd = :cmnd, kh_ngaysinh =:ngaysinh, kh_gioitinh = :gioitinh,
-            kh_tinh = :tinh, kh_quan = :quan, kh_phuong = :phuong, kh_diachi = :diachi, kh_solantiem = :solantiem,
+            kh_tinh = :tinh, kh_quan = :quan, kh_phuong = :phuong, kh_diachi = :diachi, kh_solantiem = :solantiem, kh_vacxintiemgannhat = :vaccinegannhat
             kh_thebaohiem = :tbhid, kh_thebaohiembd = :tbhbd, kh_thebaohiemkt =:tbhkt, kh_dantoc =:dt, kh_tongiao =:tg, kh_nghenghiep =:nn
             where kh_id = :id');
             $result = $sql->execute([
@@ -147,13 +151,15 @@ class KhachHang{
                 'dt' => $this->dantoc,
                 'tg' => $this->tongiao,
                 'nn' => $this->nghenghiep,
+                'vaccinegannhat' => $this->vaccinedatiem,
                 'id' => $this->id
+                
                 //
             ]);
         } else {
             $sql = $this->db->prepare('insert into khach_hang
-            (kh_hoten, kh_cmnd, kh_ngaysinh, kh_gioitinh, kh_tinh,kh_quan, kh_phuong, kh_diachi, kh_solantiem, kh_thebaohiem, kh_thebaohiembd, kh_thebaohiemkt, kh_dantoc, kh_tongiao, kh_nghenghiep, kh_ngaytiemgannhat, nt_id)
-			values (:ten,:cmnd, :ngaysinh,:gioitinh,:tinh,:quan, :phuong,:diachi, :solantiem, :tbhid, :tbhbd, :tbhkt, :dt,:tg,:nn, :ntgn, :ntid)');
+            (kh_hoten, kh_cmnd, kh_ngaysinh, kh_gioitinh, kh_tinh,kh_quan, kh_phuong, kh_diachi, kh_solantiem, kh_thebaohiem, kh_thebaohiembd, kh_thebaohiemkt, kh_dantoc, kh_tongiao, kh_nghenghiep, kh_ngaytiemgannhat, kh_vacxintiemgannhat, nt_id)
+			values (:ten,:cmnd, :ngaysinh,:gioitinh,:tinh,:quan, :phuong,:diachi, :solantiem, :tbhid, :tbhbd, :tbhkt, :dt,:tg,:nn, :ntgn, :vtgn, :ntid)');
             $result = $sql->execute([
                 'ten' => $this->hoten,
                 'cmnd' => $this->cmnd,
@@ -173,6 +179,7 @@ class KhachHang{
                 'tg' => $this->tongiao,
                 'nn' => $this->nghenghiep,
                 'ntgn' => $this->ngaytiemgannhat,
+                'vtgn' => $this->vaccinedatiem,
                 'ntid' => $this->nt_id
             ]);
             if($result){
@@ -201,6 +208,11 @@ class KhachHang{
     public function updateNOV($lantiem){
         $sql = $this->db->prepare('update khach_hang set kh_solantiem = :slt where kh_id = :id');
         return $sql->execute(['id' => $this->id, 'slt' => $lantiem]);
+    }
+
+    public function updateLastNameOfVaccinated($tenvaccine){
+        $sql = $this->db->prepare('update khach_hang set kh_vacxintiemgannhat = :slt where kh_id = :id');
+        return $sql->execute(['id' => $this->id, 'slt' => $tenvaccine]);
     }
     // public function updateLastVaccinated($ngaytiem){
     //     $ngaytiem = strtotime($ngaytiem);
@@ -260,19 +272,30 @@ class KhachHang{
     }
 
     public function findVaccineLastVaccinated() {
-        $lichtiem = $this->db->prepare("select max(tc_ngaytiem), v.v_hieuluc from lich_su_tiem lst
-        join thong_tin_tiem_chung tt on lst.tc_id = tt.tc_id
-        JOIN vaccine v ON v.v_id = tt.v_id
-         where kh_id = :id;");
-        $lichtiem->execute(["id" => $this->id]);
-        $kq = $lichtiem->fetch();
+        // $lichtiem = $this->db->prepare("select max(tc_ngaytiem), v.v_hieuluc from lich_su_tiem lst
+        // join thong_tin_tiem_chung tt on lst.tc_id = tt.tc_id
+        // JOIN vaccine v ON v.v_id = tt.v_id
+        //  where kh_id = :id;");
+        if($this->solantiem == 0 || $this->vaccinedatiem == null) {
+            $hl = 0;
+            return $hl;
+        }
         $hl = 100;
-        if($kq["v_hieuluc"] != null){
+        if($this->vaccinedatiem == 0){
+            return $hl;
+        }
+        $lichtiem = $this->db->prepare("SELECT v_hieuluc FROM vaccine where v_id = :ten");
+        // $lichtiem->execute(["id" => $this->id]);
+        $lichtiem->execute(["ten" => $this->vaccinedatiem]);
+        $kq = $lichtiem->fetch();
+        
+        if($kq["v_hieuluc"] != null && $this->solantiem <= 3){
             $hl = $kq["v_hieuluc"];
             return $hl;
         } 
-        else if($this->solantiem == 0){
-            $hl = 0;
+        
+        else if ($this->solantiem > 3){
+            $hl = 120;
             return $hl;
         }
         return $hl;

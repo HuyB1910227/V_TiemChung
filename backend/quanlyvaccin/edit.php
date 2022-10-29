@@ -55,7 +55,7 @@
                 </form> -->
                 <div class="card frmCreate">
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="" method="post" id="frmQLVC">
                             <div class="form-group">
                             <label for="txtMavaccine">Mã Vắc xin: </label>
                     <input type="text" name="txtMavaccine" id="txtMavaccine" class="form-control" value="<?= $vaccine->layID()?>" readonly>

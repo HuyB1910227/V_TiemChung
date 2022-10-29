@@ -38,12 +38,12 @@ $arrcoso = $coso->all();
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
-                <h3>Thêm Vắc xin</h3>
+                <h3>Thêm lịch tiêm</h3>
 
 
                 <div class="card frmCreate">
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="" method="post" id="frmQLLT">
                             <div class="form-group">
                                 <label for="dtNgayHenTiem">Lịch dự kiến: </label>
                                 <input type="date" name="dtNgayHenTiem" id="dtNgayHenTiem" class="form-control" required value="">
@@ -52,9 +52,10 @@ $arrcoso = $coso->all();
                             <div class="form-group">
                                 <label for="">Cơ sở:</label>
                                 <select name="slCoSo" id="slCoSo" class="custom-select">
-                                    <?php foreach ($arrcoso as $coso) : ?>
+                                    <option value="">--Chọn--</option>
+                                <?php foreach ($arrcoso as $coso) : ?>
 
-                                        <option value="<?= $coso->layID(); ?>"><?= $coso->ten . ", " . $coso->diachi . ", " . $coso->quan . ", " . $coso->tinh; ?></option>
+                                        <option value="<?= $coso->layID(); ?>" class="font-weight-bold"><span ><?=$coso->ten?></span> <span><?=  ", " . $coso->diachi . ", " . $coso->quan . ", " . $coso->tinh; ?></span></option>
 
 
 

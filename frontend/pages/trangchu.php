@@ -270,7 +270,7 @@
                                 <a class="text-decoration-none text-dark" href="https://covid19.gov.vn/song-cung-f0-lam-sao-de-giam-nguy-co-lay-nhiem-171220228132225654.htm">
                                     <img src="/V_TiemChung/assets/frontend/img/TrangChu/tt3.png" class="card-img-top " alt="..." height="150px">
                                     <div class="card-body">
-                                        <p class="card-text">Sống cùng F0, làm sao để giảm nguy cơ lây nhiễm?</p>
+                                        <p class="card-text">Giảm lây nhiễm khi sống cùng F0.</p>
                                     </div>
                                 </a>
                             </div>

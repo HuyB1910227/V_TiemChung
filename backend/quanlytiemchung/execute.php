@@ -5,6 +5,7 @@ use TC\OBS\KhachHang;
 use TC\OBS\LichSuTiem;
 use TC\OBS\PhieuDangKy;
 use TC\OBS\ThongTinTiem;
+use TC\OBS\Vaccine;
 
 if(isset($_POST)){
     echo "có";
@@ -22,7 +23,8 @@ if(isset($_POST)){
     $nt = new KhachHang($PDO);
     $nt->find($_POST['idKH']);
     $pdk = new PhieuDangKy($PDO);
-    
+    // $vaccine = new Vaccine($PDO);
+    // $vaccine->find($_POST["slVaccineID"]);
     $pdk->find($_POST['idPDK']);
     
         // $ngaytiem = $tt->ngaytiem;
@@ -32,12 +34,14 @@ if(isset($_POST)){
         
         $nt->updateLastVaccinated();
 
+        $nt->updateLastNameOfVaccinated($_POST["slVaccineID"]);
+
         var_dump($nt);
         $pdk->regCompleted();
         
 
   
-        header("Location: index.php");
+        //header("Location: index.php");
    
 } else {
     echo "ko";

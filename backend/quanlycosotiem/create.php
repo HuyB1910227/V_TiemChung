@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h3>Thêm cơ sở</h3>
                 <div class="card frmCreate">
                     <div class="card-body">
-                        <form action="create.php" method="post">
+                        <form action="create.php" method="post" id="frmQLCS">
                             <div class="form-group">
                                 <label for="txtTenCoSo" class="form-label">Tên cơ sở: </label>
                                 <input type="text" name="txtTenCoSo" id="txtTenCoSo" class="form-control" required>
@@ -86,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include_once __DIR__ . '/../layouts/partials/footer.php'; ?>
 
     <?php include_once __DIR__ . '/../layouts/scripts.php'; ?>
+    
 </body>
 
 </html>

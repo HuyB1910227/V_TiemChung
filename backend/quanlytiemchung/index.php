@@ -192,6 +192,7 @@ $Vaccines = $vaccine->all();
                                             <td>
                                                 <div class="form-group">
                                                     <select name="slVaccineID" id="" class="custom-select">
+                                                        <option value="">--Chọn--</option>
                                                         <?php foreach ($Vaccines as $vac) : ?>
                                                             <option value="<?= $vac->layID(); ?>"><?= $vac->ten ?></option>
                                                         <?php endforeach; ?>
@@ -207,7 +208,7 @@ $Vaccines = $vaccine->all();
                                                 <input type="hidden" name="idPDK" value="<?= $pdk->getId() ?>">
                                                 <button type="submit" class="btn btn-primary" name="btnExecute" <?php $today = date("Y-m-d");
                                                 
-                                                if($today != strtotime($lht->ngaytiem)){
+                                                if($today < strtotime($lht->ngaytiem)){
                                                     echo "disabled";
                                                 }
                                                 
@@ -232,6 +233,7 @@ $Vaccines = $vaccine->all();
                         </tbody>
 
                     </table>
+                    <?php var_dump($today)?>
                 </div>
 
 

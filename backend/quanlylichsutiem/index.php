@@ -5,12 +5,14 @@
     use TC\OBS\KhachHang;
     use TC\OBS\LichSuTiem;
     use TC\OBS\ThongTinTiem;
+use TC\OBS\Vaccine;
 
     $nt = new KhachHang($PDO);
     $tc = new ThongTinTiem($PDO);
     $lst = new LichSuTiem($PDO);
     $cs = new CoSoTiem($PDO);
     $arrLST = $lst->all();
+    $v = new Vaccine($PDO);
 
 
     
@@ -61,8 +63,10 @@
                             <th>Mã lịch tiêm</th>
                             <th>Ngày tiêm</th>
                             <th>Cơ sở tiêm</th>
+                        
                             
                             <th>Lần tiêm</th>
+                            <th>Vắc xin</th>
                             <th>Trạng thái sau tiêm</th>
                             <th>Thao tác</th>
 
@@ -101,6 +105,7 @@
                                
                                 <td><?= $cs->find($tc->cs_id)->ten ?></td>
                                 <td><?= $tc->lantiem?></td>
+                                <td><?= $v->find($tc->v_id)->ten?></td>
                                 <!-- <?php //$nt->updateNOV($tc->lantiem);
                                    // $nt->updateLastVaccinated($tc->ngaytiem);?> -->
                                 

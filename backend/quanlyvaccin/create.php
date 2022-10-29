@@ -38,12 +38,12 @@ $mangloai = $loai->all();
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
-                <h3 class="">Thêm Vắc xin</h3>
+                <h3 class="">Thêm vắc xin</h3>
 
                 
                 <div class="card frmCreate">
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="" method="post" id="frmQLVC">
                             <!-- <div class="form-group">
                                 <label for="txtMavaccine">Mã Vắc xin: </label>
                                 <input type="text" name="txtMavaccine" id="txtMavaccine" class="form-control" value="" readonly>
@@ -54,11 +54,13 @@ $mangloai = $loai->all();
                             </div>
                             <div class="form-group">
                                 <label for="txtHieuLuc">Hiệu lực: </label>
-                                <input type="text" name="txtHieuLuc" id="txtHieuLuc" class="form-control" required value="">
+                                <input type="number" name="txtHieuLuc" id="txtHieuLuc" class="form-control" required value="">
+                                
                             </div>
                             <label for="slLoaiVaccine">Loại vắc xin:</label>
                             <div class="form-group">
                             <select name="slLoaiVaccine" id="slLoaiVaccine" class="custom-select">
+                                <option value="">--Chọn--</option>
                                 <?php foreach ($mangloai as $loai) : ?>
 
                                     <option value="<?= $loai->layID(); ?>"><?= $loai->ten; ?></option>

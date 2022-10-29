@@ -1,7 +1,7 @@
 <?php
 
     use TC\OBS\KhachHang;
-use TC\OBS\TaiKhoan;
+    use TC\OBS\TaiKhoan;
 
     require_once '../db_connect.php';
     $newKH = new KhachHang($PDO);

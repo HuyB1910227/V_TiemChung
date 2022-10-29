@@ -26,7 +26,7 @@
                                         <div class="text-avatar-right">
 
                                             <h4>Xin chào!</h4>
-                                            <h5>Nguyễn Văn A</h5>
+                                            <h3 style="color: #616AC6; text-shadow: 1px 1px 2px #616AC6"><?= $user->ten ?></h3>
 
 
                                         </div>
@@ -101,6 +101,16 @@
                                     <td class="font-weight-bold">Địa chỉ:</td>
                                     <td><?= $kh->diachi ?></td>
                                 </tr>
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-2 ">
+                    <div class="row border bg-white justify-content-center pt-2">
+                        <h4>Thông tin khác</h4>
+                        <div class="col-12 p-0">
+                            <table class="table table-striped mb-0">
                                 <tr>
                                     <td class="font-weight-bold">Số lần tiêm:</td>
                                     <td><?= $kh->solantiem ?></td>
@@ -119,15 +129,10 @@
                                     <td class="font-weight-bold">Hiệu lực2:</td>
                                     <td><?= $kh->findVaccineLastVaccinated(); ?></td>
                                 </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="col m-2 ">
-                    <div class="row border bg-white justify-content-center pt-2">
-                        <h4>Thông tin khác</h4>
-                        <div class="col-12 p-0">
-                            <table class="table table-striped mb-0">
+                                <tr>
+                                    <td class="font-weight-bold">Vacxin tiêm gần nhất:</td>
+                                    <td><?= $kh->vaccinedatiem; ?></td>
+                                </tr>
                                 <tr>
                                     <td class="w-50 font-weight-bold">Số thẻ BHYT: </td>
                                     <td class="w-50"><?= $kh->baohiem ?></td>

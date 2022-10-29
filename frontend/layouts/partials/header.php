@@ -85,7 +85,8 @@ use TC\OBS\TaiKhoan;
                           <span class="nav-log"><i class="fa-solid fa-user " ></i>&nbsp; <?= $user->ten ?></span> |
                         </div>
                         <div class="dropdown-menu shadow-lg" >
-                            <a href="/V_TiemChung/frontend/dangxuat.php" class="dropdown-item text-primary"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+                            <a href="/V_TiemChung/frontend/dangxuat.php" class="dropdown-item "><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+                            <a href="/V_TiemChung/frontend/pages/suataikhoan.php" class="dropdown-item "><i class="fa-solid fa-gear"></i> Sửa tài khoản</a>
 
                             <!-- <a class="dropdown-item" href="/V_TiemChung/frontend/pages/dangkytiemchungnt.php">Đăng ký tiêm cho người thân</a> -->
                         </div>
