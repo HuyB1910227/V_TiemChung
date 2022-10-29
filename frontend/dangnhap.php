@@ -74,6 +74,10 @@
         .card-log-in label{
             font-weight: bolder;
         }
+        span.required-fill-in{
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -93,7 +97,7 @@
             </div>
             <form action="" method="post" id="frmDangNhap">
                 <div class="form-group">
-                    <label for="sdt">Số điện thoại/ Tên đăng nhập</label>
+                    <label for="sdt">Số điện thoại/ Tên đăng nhập <span class="required-fill-in">*</span></label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
@@ -105,7 +109,7 @@
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Mật khẩu</label>
+                    <label for="pwd">Mật khẩu <span class="required-fill-in">*</span></label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>

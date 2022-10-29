@@ -31,22 +31,24 @@ if (isset($_POST['btnSua']) && $nt->find($_POST['ntID'])) {
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
 
     <main class="row">
-        <div class="container p-4">
-            <h5>Sửa thông tin người thân</h5>
+        <div class="container pt-0">
+        <div class="text-center">
+                <h3 class="titile mb-1">Sửa thông tin thành viên</h3>
+            </div>
             <form action="" method="post" id="frmTSThanhVien">
                 <div class="row">
                     <input type="text" name="ntID" hidden value="<?= $nt->layId()?>">
                     <div class="col">
                         <div class="form-group">
-                            <label for="txtHoTen">Họ và tên </label>
+                            <label for="txtHoTen">Họ và tên <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtHoTen" id="txtHoTen" placeholder="" class="form-control" value="<?= $nt->hoten?>">
                         </div>
 
                         <div class="form-group">
-                            <label for="dtNgaySinh">Ngày sinh </label>
+                            <label for="dtNgaySinh">Ngày sinh <span class="required-fill-in">*</span></label>
                             <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" class="form-control" value="<?= $nt->ngaysinh?>">
                         </div>
-                        <legend class="col-form-label">Giới tính </legend>
+                        <legend class="col-form-label">Giới tính <span class="required-fill-in">*</span></legend>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" name="rdGioiTinh" value="0" class="form-check-input" <?php if($nt->gioitinh == 0){echo "checked";};?>>
                                     <label for="rdGioiTinh1" class="form-check-label">Nam</label>
@@ -60,23 +62,23 @@ if (isset($_POST['btnSua']) && $nt->find($_POST['ntID'])) {
                                     <label for="rdGioiTinh0" class="form-check-label">Khác</label>
                                 </div> -->
                         <div class="form-group">
-                            <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
+                            <label for="txtCCCD">Số hộ chiếu/CMND/CCCD <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtCCCD" id="txtCCCD" placeholder="" class="form-control" value="<?= $nt->cmnd?>">
                         </div>
                         <div class="form-group">
-                            <label for="txtTP">Thành phố</label>
+                            <label for="txtTP">Thành phố <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtTP" id="txtTP" placeholder="" class="form-control" value="<?= $nt->tinh?>">
                         </div>
                         <div class="form-group">
-                            <label for="txtQH">Quận/huyện</label>
+                            <label for="txtQH">Quận/huyện <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtQH" id="txtQH" placeholder="" class="form-control" value="<?= $nt->quan?>">
                         </div>
                         <div class="form-group">
-                            <label for="txtPX">Phường/xã: </label>
+                            <label for="txtPX">Phường/xã <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtPX" id="txtPX" placeholder="" class="form-control" value="<?= $nt->phuong?>">
                         </div>
                         <div class="form-group">
-                            <label for="txtDiaChi">Địa chỉ </label>
+                            <label for="txtDiaChi">Địa chỉ <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="" class="form-control" value="<?= $nt->diachi?>">
                         </div>
                     </div>

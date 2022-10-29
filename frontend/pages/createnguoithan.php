@@ -10,6 +10,8 @@ if (isset($_POST['btnThem'])) {
 
     // var_dump($kh);
     $newnt->save();
+    echo "<script>alert('Đã thêm thành viên!')</script>";
+    echo "<script>window.location.href = 'quanlynguoithan.php';</script>";
 }
 ?>
 <style>
@@ -31,13 +33,15 @@ if (isset($_POST['btnThem'])) {
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
 
     <main class="row">
-        <div class="container p-4">
-            <h5>Thêm người thân</h5>
+        <div class="container pt-0">
+            <div class="text-center">
+                <h3 class="titile mb-1">Thêm thành viên</h3>
+            </div>
             <form action="" method="post" id="frmTSThanhVien">
                 <div class="row">
 
                     <div class="col">
-                        <legend class="col-form-label dotuoi">Độ tuổi </legend>
+                        <legend class="col-form-label dotuoi">Độ tuổi <span class="required-fill-in">*</span></legend>
                         <div class="form-check form-check-inline">
                             <input type="radio" name="rdDoTuoi" value="0" class="form-check-input">
                             <label for="rdDoTuoi" class="form-check-label">
@@ -48,16 +52,16 @@ if (isset($_POST['btnThem'])) {
                             <label for="rdDoTuoi" class="form-check-label">>= 18 tuổi</label>
                         </div>
                         <div class="form-group">
-                            <label for="txtHoTen">Họ và tên </label>
+                            <label for="txtHoTen">Họ và tên <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtHoTen" id="txtHoTen" placeholder="" class="form-control" value="">
                         </div>
 
                         <div class="form-group">
-                            <label for="dtNgaySinh">Ngày sinh </label>
+                            <label for="dtNgaySinh">Ngày sinh <span class="required-fill-in">*</span></label>
                             <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" class="form-control" value="">
                         </div>
 
-                        <legend class="col-form-label gioitinh">Giới tính </legend>
+                        <legend class="col-form-label gioitinh">Giới tính <span class="required-fill-in">*</span></legend>
                         <div class="form-check form-check-inline">
                             <input type="radio" name="rdGioiTinh" value="0" class="form-check-input">
                             <label for="rdGioiTinh1" class="form-check-label">Nam</label>
@@ -72,31 +76,32 @@ if (isset($_POST['btnThem'])) {
                         </div> -->
 
                         <div class="form-group">
-                            <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
+                            <label for="txtCCCD">Số hộ chiếu/CMND/CCCD <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtCCCD" id="txtCCCD" placeholder="" class="form-control" value="" >
                         </div>
                         <div class="form-group">
-                            <label for="txtTP">Thành phố</label>
+                            <label for="txtTP">Thành phố <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtTP" id="txtTP" placeholder="" class="form-control" value="">
                         </div>
                         <div class="form-group">
-                            <label for="txtQH">Quận/huyện</label>
+                            <label for="txtQH">Quận/huyện <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtQH" id="txtQH" placeholder="" class="form-control" value="">
                         </div>
                         <div class="form-group">
-                            <label for="txtPX">Phường/xã: </label>
+                            <label for="txtPX">Phường/xã <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtPX" id="txtPX" placeholder="" class="form-control" value="">
                         </div>
                         <div class="form-group">
-                            <label for="txtDiaChi">Địa chỉ </label>
+                            <label for="txtDiaChi">Địa chỉ <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtBHYT">Số thẻ BHYT <span class="required-fill-in">*</span></label>
+                            <input type="text" name="txtBHYT" id="txtBHYT" placeholder="" class="form-control" value="">
                         </div>
                     </div>
                     <div class="col">
-                        <div class="form-group">
-                            <label for="txtBHYT">Số thẻ BHYT </label>
-                            <input type="text" name="txtBHYT" id="txtBHYT" placeholder="" class="form-control" value="">
-                        </div>
+                        
                         <div class="form-group">
                             <label for="dtSDBD">Thời gian sử dụng thẻ - từ ngày</label>
                             <input type="date" name="dtSDBD" id="dtSDBD" placeholder="" class="form-control" value="">
@@ -121,8 +126,9 @@ if (isset($_POST['btnThem'])) {
 
                             <input type="text" name="nguoiThanID" id="nguoiThanID" placeholder="" class="form-control" value="<?= $kh->layId(); ?>" hidden readonly>
                         </div>
+                        <hr>
                         <div class="form-group ">
-                            <label for="nbSoLanTiem">Số lần tiêm: </label>
+                            <label for="nbSoLanTiem">Số lần tiêm <span class="required-fill-in">*</span></label>
                             <div class="input-group">
 
 
@@ -134,24 +140,28 @@ if (isset($_POST['btnThem'])) {
                         <!--  -->
                         <div class="form-group ">
                             <label for="dtNgayTiemGanNhat">Ngày tiêm gần nhất: </label>
-                            <input type="date" name="dtNgayTiemGanNhat" id="dtNgayTiemGanNhat" placeholder="" class="form-control">
+                            <input type="date" name="dtNgayTiemGanNhat" id="dtNgayTiemGanNhat" placeholder="" class="form-control" readonly>
 
                         </div>
+
+                        <label for="">Loại vaccine tiêm gần nhất: </label>
+                        <select class="custom-select" name="slvaccineTiemGanNhat" disabled>
+                            <option value="" selected>-- Chọn vacxin --</option>
+                            <!-- <option value="0">Không rõ vaccine</option> -->
+                            <?php $arrVac = $vaccine->all() ?>
+                            <?php foreach ($arrVac as $v) : ?>
+                                <option value="<?= $v->layID() ?>"><?= $v->ten ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
 
 
-                    <!-- <div class="col-12">
-
-
-
-
-                    </div> -->
 
                 </div>
-                <div class="row">
+                <div class="row ">
 
                     <div class="col-6">
-                        <a class="btn btn-light rounded-circle border border-primary text-primary " href="quanlynguoithan.php"><i class="fa-solid fa-arrow-left"></i></a>
+                        <a class="btn btn-light rounded-circle border border-primary text-primary " href="trangchu.php"><i class="fa-solid fa-arrow-left"></i></a>
                     </div>
                     <div class="col-6">
                         <button type="submit" class="btn btn-primary rounded-pill w-100 mt-2" name="btnThem" id="btnThem">Thêm</button>
@@ -353,13 +363,30 @@ if (isset($_POST['btnThem'])) {
                     // console.log(t);
                     if(DoTuoi == 0){
                         console.log("vo");
-                        $("#txtCCCD").val('Chưa cấp');
-                        $("#txtCCCD").attr("readonly");
+                        $("#txtCCCD").val('000000000000');
+                        $("#txtCCCD").attr("readonly", true);
                     } else {
                         $("#txtCCCD").val("");
                         $("#txtCCCD").removeAttr("readonly");
                     }
                     
+            });
+
+            var inputSLT = $('input[name="nbSoLanTiem"]');
+            var inputNTGN = $('input[name="dtNgayTiemGanNhat"]');
+            var inputVTGN = $('select[name="slvaccineTiemGanNhat"]');
+            console.log(inputVTGN);
+            // console.log(inputNTGN);
+            inputSLT.on("keyup", function() {
+                if (inputSLT.val() == 0) {
+                    inputNTGN.attr("readonly", true);
+                    // inputVTGN.val("");
+                    inputVTGN.attr('disabled','disabled');
+                    // inputVTGN.attr('readonly',true);
+                } else {
+                    inputNTGN.removeAttr("readonly");
+                    inputVTGN.removeAttr("disabled");
+                }
             });
         });
     </script>

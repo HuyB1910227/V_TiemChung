@@ -41,7 +41,7 @@ if(isset($_POST)){
         
 
   
-        //header("Location: index.php");
+        header("Location: index.php");
    
 } else {
     echo "ko";

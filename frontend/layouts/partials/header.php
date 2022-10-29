@@ -82,7 +82,7 @@ use TC\OBS\TaiKhoan;
                     </li>
                     <li class="nav-item dropdown ">
                         <div class="nav-link dropdown-toggle border " href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                          <span class="nav-log"><i class="fa-solid fa-user " ></i>&nbsp; <?= $user->ten ?></span> |
+                          <span class="nav-log "><img src="/V_TiemChung/assets/uploads/<?=$user->avatar?>" alt="" class="rounded-circle" style="width:30px; height:30px"> &nbsp; <?= $user->ten ?></span> |
                         </div>
                         <div class="dropdown-menu shadow-lg" >
                             <a href="/V_TiemChung/frontend/dangxuat.php" class="dropdown-item "><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>

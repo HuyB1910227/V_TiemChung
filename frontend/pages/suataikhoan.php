@@ -18,7 +18,7 @@
                 <div class="row ">
                     <div class="col-12 col-sm-12">
                         <div class="form-group">
-                            <label for="txtTen">Tên đăng nhập </label>
+                            <label for="txtTen">Tên đăng nhập <span class="required-fill-in">*</span></label>
                             <div class="input-group">
 
                                 <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Nhập vào tên đăng nhập...." value="<?= $user->ten ?>">
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="txtSoDienThoai">Số điện thoại</label>
+                            <label for="txtSoDienThoai">Số điện thoại <span class="required-fill-in">*</span></label>
                             <div class="input-group">
                                 <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
@@ -70,7 +70,7 @@
 
 
                         <div class="form-group d-none">
-                            <label for="npwd">Mật khẩu mới</label>
+                            <label for="npwd">Mật khẩu mới <span class="required-fill-in">*</span></label>
                             <div class="input-group">
 
                                 <input type="password" class="form-control" id="npwd" name="npwd" placeholder="Nhập vào mật khẩu....">
@@ -78,7 +78,7 @@
 
                         </div>
                         <div class="form-group d-none">
-                            <label for="npwd">Nhập lại mật khẩu</label>
+                            <label for="npwd">Nhập lại mật khẩu <span class="required-fill-in">*</span></label>
                             <div class="input-group">
 
                                 <input type="password" class="form-control" id="re_npwd" name="re_npwd" placeholder="Nhập vào mật khẩu....">

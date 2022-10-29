@@ -130,7 +130,7 @@ class KhachHang{
         if ($this->id >=0){
             $sql = $this->db->prepare('update khach_hang
             set kh_hoten = :ten,kh_cmnd = :cmnd, kh_ngaysinh =:ngaysinh, kh_gioitinh = :gioitinh,
-            kh_tinh = :tinh, kh_quan = :quan, kh_phuong = :phuong, kh_diachi = :diachi, kh_solantiem = :solantiem, kh_vacxintiemgannhat = :vaccinegannhat
+            kh_tinh = :tinh, kh_quan = :quan, kh_phuong = :phuong, kh_diachi = :diachi, kh_solantiem = :solantiem,
             kh_thebaohiem = :tbhid, kh_thebaohiembd = :tbhbd, kh_thebaohiemkt =:tbhkt, kh_dantoc =:dt, kh_tongiao =:tg, kh_nghenghiep =:nn
             where kh_id = :id');
             $result = $sql->execute([
@@ -151,7 +151,7 @@ class KhachHang{
                 'dt' => $this->dantoc,
                 'tg' => $this->tongiao,
                 'nn' => $this->nghenghiep,
-                'vaccinegannhat' => $this->vaccinedatiem,
+                //'vaccinegannhat' => $this->vaccinedatiem,
                 'id' => $this->id
                 
                 //

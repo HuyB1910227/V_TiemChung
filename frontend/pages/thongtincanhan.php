@@ -175,15 +175,15 @@
                         <div class="modal-body">
                             <form action="" method="post" id="frmTTCN">
                                 <div class="form-group">
-                                    <label for="txtHoTen">Họ và tên </label>
+                                    <label for="txtHoTen">Họ và tên <span class="required-fill-in">*</span></label>
                                     <input type="text" name="txtHoTen" id="txtHoTen" placeholder="" class="form-control" value="<?= $kh->hoten; ?>">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="dtNgaySinh">Ngày sinh </label>
+                                    <label for="dtNgaySinh">Ngày sinh <span class="required-fill-in">*</span></label>
                                     <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" class="form-control" value="<?= $kh->ngaysinh; ?>">
                                 </div>
-                                <legend class="col-form-label">Giới tính </legend>
+                                <legend class="col-form-label">Giới tính <span class="required-fill-in">*</span></legend>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" name="rdGioiTinh" value="0" class="form-check-input" <?php if ($kh->gioitinh == 0) {
                                                                                                                     echo "checked";
@@ -203,23 +203,23 @@
                                     <label for="rdGioiTinh0" class="form-check-label">Khác</label>
                                 </div> -->
                                 <div class="form-group">
-                                    <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
+                                    <label for="txtCCCD">Số hộ chiếu/CMND/CCCD <span class="required-fill-in">*</span></label>
                                     <input type="text" name="txtCCCD" id="txtCCCD" placeholder="" class="form-control" value="<?= $kh->cmnd; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtTP">Thành phố</label>
+                                    <label for="txtTP">Thành phố <span class="required-fill-in">*</span></label>
                                     <input type="text" name="txtTP" id="txtTP" placeholder="" class="form-control" value="<?= $kh->tinh; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtQH">Quận/huyện</label>
+                                    <label for="txtQH">Quận/huyện <span class="required-fill-in">*</span></label>
                                     <input type="text" name="txtQH" id="txtQH" placeholder="" class="form-control" value="<?= $kh->quan; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtPX">Phường/xã: </label>
+                                    <label for="txtPX">Phường/xã <span class="required-fill-in">*</span> </label>
                                     <input type="text" name="txtPX" id="txtPX" placeholder="" class="form-control" value="<?= $kh->phuong; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtDiaChi">Địa chỉ </label>
+                                    <label for="txtDiaChi">Địa chỉ <span class="required-fill-in">*</span></label>
                                     <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="" class="form-control" value="<?= $kh->diachi; ?>">
                                 </div>
                                 <hr>

@@ -41,6 +41,9 @@ $arrVac = $v->all();
             font-family: roboto;
 
         }
+        label{
+            font-weight: bold;
+        }
 
         .card-log-in {
 
@@ -61,6 +64,10 @@ $arrVac = $v->all();
             color: red;
             font-weight: lighter;
         }
+        span.required-fill-in{
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -76,9 +83,11 @@ $arrVac = $v->all();
             </div>
             <form action="xulydangky.php" method="POST" id="signupForm">
                 <div class="row">
+                
                     <div class="col-12 col-sm-6">
+                    
                         <div class="form-group">
-                            <label for="txtTen">Tên đăng nhập: </label>
+                            <label for="txtTen">Tên đăng nhập <span class="required-fill-in">*</span></label>
                             <div class="input-group">
 
                                 <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Nhập vào họ tên....">
@@ -92,7 +101,7 @@ $arrVac = $v->all();
 
                         </div>
                         <div class="form-group">
-                            <label for="txtHoTen">Họ và tên</label>
+                            <label for="txtHoTen">Họ và tên <span class="required-fill-in">*</span></label>
                             <div class="input-group">
                                 <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
@@ -103,7 +112,7 @@ $arrVac = $v->all();
 
                         </div>
                         <div class="form-group">
-                            <label for="txtSoDienThoai">Số điện thoại</label>
+                            <label for="txtSoDienThoai">Số điện thoại <span class="required-fill-in">*</span></label>
                             <div class="input-group">
                                 <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
@@ -118,11 +127,11 @@ $arrVac = $v->all();
                         </div>
 
                         <div class="form-group">
-                            <label for="dtNgaySinh">Ngày sinh </label>
+                            <label for="dtNgaySinh">Ngày sinh <span class="required-fill-in">*</span></label>
                             <input type="date" name="dtNgaySinh" id="dtNgaySinh" placeholder="" class="form-control">
 
                         </div>
-                        <label class="col-form-label gioitinh">Giới tính </label>
+                        <label class="col-form-label gioitinh">Giới tính <span class="required-fill-in">*</span></label>
                         <br>
                         <!-- <input type="radio" name="rdGioiTinh" id="0"> Nam
                     <input type="radio" name="rdGioiTinh" id="1"> Nữ -->
@@ -140,18 +149,18 @@ $arrVac = $v->all();
                         </div> -->
 
                         <div class="form-group ">
-                            <label for="txtCCCD">Số hộ chiếu/CMND/CCCD </label>
+                            <label for="txtCCCD">Số hộ chiếu/CMND/CCCD <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtCCCD" id="txtCCCD" placeholder="Nhập vào Căn cước công dân..." class="form-control">
 
                         </div>
 
                         <div class="form-group ">
-                            <label for="txtTP">Tỉnh/ Thành phố</label>
+                            <label for="txtTP">Tỉnh/ Thành phố <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtTP" id="txtTP" placeholder="Nhập vào tỉnh / thành phố..." class="form-control">
 
                         </div>
                         <div class="form-group">
-                            <label for="txtQH">Quận/ Huyện</label>
+                            <label for="txtQH">Quận/ Huyện <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtQH" id="txtQH" placeholder="Nhập vào quận / huyện..." class="form-control">
 
                         </div>
@@ -159,12 +168,12 @@ $arrVac = $v->all();
                     </div>
                     <div class="col-12 col-sm-6">
                         <div class="form-group ">
-                            <label for="txtPX">Phường/ Xã: </label>
+                            <label for="txtPX">Phường/ Xã <span class="required-fill-in">*</span> </label>
                             <input type="text" name="txtPX" id="txtPX" placeholder="Nhập vào phường / xã..." class="form-control">
 
                         </div>
                         <div class="form-group ">
-                            <label for="txtDiaChi">Địa chỉ </label>
+                            <label for="txtDiaChi">Địa chỉ <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtDiaChi" id="txtDiaChi" placeholder="Nhập vào địa chỉ..." class="form-control">
 
                         </div>
@@ -172,7 +181,7 @@ $arrVac = $v->all();
 
 
                         <div class="form-group ">
-                            <label for="pwd">Mật khẩu</label>
+                            <label for="pwd">Mật khẩu <span class="required-fill-in">*</span></label>
                             <div class="input-group">
                                 <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
@@ -182,7 +191,7 @@ $arrVac = $v->all();
 
                         </div>
                         <div class="form-group ">
-                            <label for="pwd">Nhập lại mật khẩu</label>
+                            <label for="pwd">Nhập lại mật khẩu <span class="required-fill-in">*</span></label>
                             <div class="input-group">
                                 <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
@@ -194,7 +203,7 @@ $arrVac = $v->all();
                         <hr>
                         <!--  -->
                         <div class="form-group ">
-                            <label for="nbSoLanTiem">Số lần tiêm: </label>
+                            <label for="nbSoLanTiem">Số lần tiêm </label>
                             <div class="input-group">
                                 <!-- <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
@@ -205,11 +214,11 @@ $arrVac = $v->all();
                         </div>
                         <!--  -->
                         <div class="form-group ">
-                            <label for="dtNgayTiemGanNhat">Ngày tiêm gần nhất: </label>
+                            <label for="dtNgayTiemGanNhat">Ngày tiêm gần nhất </label>
                             <input type="date" name="dtNgayTiemGanNhat" id="dtNgayTiemGanNhat" placeholder="" class="form-control" readonly>
 
                         </div>
-                        <label for="">Loại vaccine tiêm gần nhất: </label>
+                        <label for="">Loại vaccine tiêm gần nhất </label>
                         <select class="custom-select" name="slvaccineTiemGanNhat" disabled>
                             <option value="" selected>-- Chọn vacxin --</option>
                             <option value="0">Không rõ vaccine</option>
