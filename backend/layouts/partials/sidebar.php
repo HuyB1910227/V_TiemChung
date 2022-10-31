@@ -1,4 +1,4 @@
-<div class="col-2 position-fixed" id="sb">
+<div class="col-2 position-fixed bg-white" id="sb" >
     <nav id="sidebar">
     <div>
         <ul class="nav flex-column">
@@ -14,13 +14,13 @@
                 <span>Quản lý tiêm chủng</span>
                 <ul class="list-unstyled">
                     <li class="nav-item ">
-                        <a href="/V_TiemChung/backend/quanlydangkytiem/index.php" class="nav-link"><i class="fa-solid fa-file-pen"></i> Danh sách đăng ký tiêm</a>
+                        <a href="/V_TiemChung/backend/quanlydangkytiem/index.php" class="nav-link"><i class="fa-solid fa-file-pen"></i> Danh sách đăng ký </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/V_TiemChung/backend/quanlytiemchung/index.php" class="nav-link"><i class="fa-solid fa-syringe"></i> Danh sách tiêm</a>
+                        <a href="/V_TiemChung/backend/quanlytiemchung/index.php" class="nav-link"><i class="fa-solid fa-syringe"></i> Danh sách tiêm chủng</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/V_TiemChung/backend/quanlylichhentiem/index.php" class="nav-link"><i class="fa-solid fa-calendar"></i> Danh sách lịch tiêm dự kiến</a>
+                        <a href="/V_TiemChung/backend/quanlylichhentiem/index.php" class="nav-link"><i class="fa-solid fa-calendar"></i> Lịch tiêm dự kiến</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlycosotiem/index.php" class="nav-link"><i class="fa-solid fa-hospital"></i> Danh sách điểm tiêm</a>

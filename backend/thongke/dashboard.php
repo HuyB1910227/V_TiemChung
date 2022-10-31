@@ -29,8 +29,9 @@ require_once '../../db_connect.php';
 <body>
   <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
   <div class="container-fluid">
+    
     <div class="row">
-      <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
+    <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
       <div class="col-10 offset-2">
         <div class="container-fluid">
           <div class="row">
@@ -102,7 +103,7 @@ require_once '../../db_connect.php';
                     </div> -->
           <div class="row">
             <!-- Biểu đồ đường thống kê số người tiêm -->
-            <div class="col-sm-6 col-lg-6 p-2">
+            <div class="offset-2 col-sm-8 col-lg-8 p-2">
               <canvas id="chartOfobjChartThongKeTiemChung" class="shadow"></canvas>
               <!-- <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeTiemChung">Refresh dữ liệu</button> -->
             </div><!-- col -->

@@ -34,15 +34,37 @@
 
                                     </div>
                                 </div>
+                                <!-- <div class="input-group mb-3">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+                                            </div>
+                                        </div> -->
 
                                 <div class="col-12">
                                     <form action="changeAvatar.php" method="post" enctype="multipart/form-data">
                                         <br>
-                                        <input type="file" name="fileToUpload" id="fileToUpload" value="<?= $user->avatar ?>" placeholder="Chọn ảnh đại diện">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="custom-file">
+                                                    <input type="file" name="fileToUpload" id="fileToUpload" placeholder="Chọn ảnh đại diện" class="custom-file-input">
+                                                    <label class="custom-file-label" for="fileToUpload" aria-describedby="inputGroupFileAddon02">Chọn ảnh đại diện...</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <button type="submit" name="submit" class="btn btn-primary" id="btnChangeAvatar">Thay đổi ảnh đại diện</button>
+                                            </div>
+                                        </div>
 
-                                        <button type="submit" name="submit" class="btn btn-primary" id="btnChangeAvatar">Thay đổi ảnh đại diện</button>
+
+
                                     </form>
+
                                 </div>
+
 
 
                             </div>
@@ -101,7 +123,7 @@
                                     <td class="font-weight-bold">Địa chỉ:</td>
                                     <td><?= $kh->diachi ?></td>
                                 </tr>
-                                
+
                             </table>
                         </div>
                     </div>
@@ -330,115 +352,115 @@
             //         alert('Đã gửi thành công!');
             //     }
             // });
-            
-                console.log("có")
-                $('#frmTTCN').validate({
-                    rules: {
 
-                        // rdDoTuoi:{
-                        //     required: true
-                        // },
-                        txtHoTen: {
-                            required: true,
-                            minlength: 8
-                        },
+            console.log("có")
+            $('#frmTTCN').validate({
+                rules: {
 
-                        dtNgaySinh: {
-                            required: true,
-                            minAge: 18,
-                        },
-                        // rdGioiTinh: {
-                        //     required: true
-                        // },
-                        txtTP: {
-                            required: true
-                        },
-                        txtQH: {
-                            required: true
-                        },
-                        txtPX: {
-                            required: true
-                        },
-                        txtDiaChi: {
-                            required: true
-                        },
-                        txtCCCD: {
-                            required: true,
-                            number: true,
-                            rangelength: [12, 12],
-
-                        },
-
-                        dtNgayTiemGanNhat: {
-                            reqVC: true,
-                        }
+                    // rdDoTuoi:{
+                    //     required: true
+                    // },
+                    txtHoTen: {
+                        required: true,
+                        minlength: 8
                     },
-                    messages: {
 
-                        // rdDoTuoi:{
-                        //     required: "Chưa chọn độ tuổi"
-                        // },
-                        txtHoTen: {
-                            required: "Bạn chưa nhập vào họ và tên",
-                            minlength: "Họ và tên phải có ít nhất 8 ký tự!"
-                        },
-
-                        dtNgaySinh: {
-                            required: "Bạn chưa nhập vào ngày sinh",
-                            minAge: "Ngày sinh không hợp lệ!"
-                        },
-                        // rdGioiTinh: "Bạn chưa chọn giới tính",
-                        txtTP: {
-                            required: "Bạn chưa nhập tỉnh hoặc Thành Phố",
-                        },
-                        txtQH: {
-                            required: "Bạn chưa nhập Quận hoặc Huyện",
-                        },
-                        txtPX: {
-                            required: "Bạn chưa nhập Phường hoặc Xã",
-                        },
-                        txtDiaChi: {
-                            required: "Bạn chưa nhập địa chỉ",
-                        },
-                        txtCCCD: {
-                            required: "Bạn chưa nhập vào căn cước công dân",
-                            rangelength: "Căn cước công dân phải có 12 ký tự số!",
-                            number: "Căn cước công dân sai định dạng"
-                        }
-
+                    dtNgaySinh: {
+                        required: true,
+                        minAge: 18,
+                    },
+                    // rdGioiTinh: {
+                    //     required: true
+                    // },
+                    txtTP: {
+                        required: true
+                    },
+                    txtQH: {
+                        required: true
+                    },
+                    txtPX: {
+                        required: true
+                    },
+                    txtDiaChi: {
+                        required: true
+                    },
+                    txtCCCD: {
+                        required: true,
+                        number: true,
+                        rangelength: [12, 12],
 
                     },
-                    errorElement: "div",
-                    errorPlacement: function(error, element) {
-                        error.addClass("invalid-feedback");
-                        if (element.prop("name") === "rdGioiTinh") {
-                            error.insertAfter(element.parent("div").siblings("legend.gioitinh"));
 
-                        } else if (element.prop("name") === "rdDoTuoi") {
-                            error.insertAfter(element.parent("div").siblings("legend.dotuoi"));
-
-                        } else {
-                            error.insertAfter(element);
-                        }
-                    },
-                    highlight: function(element, errorClass, validClass) {
-
-                        $(element).addClass("is-invalid").removeClass("is-valid");
-                    },
-                    unhighlight: function(element, errorClass, validClass) {
-
-                        $(element).addClass("is-valid").removeClass("is-invalid");
-
-
+                    dtNgayTiemGanNhat: {
+                        reqVC: true,
                     }
-                });
-            
-                $('#btnKT').on("click", function() {
-                    $('#frmTTCN').valid();
-                    if($('#frmTTCN').valid() == true){
-                       $('#btnLuuThayDoi').trigger("click");
+                },
+                messages: {
+
+                    // rdDoTuoi:{
+                    //     required: "Chưa chọn độ tuổi"
+                    // },
+                    txtHoTen: {
+                        required: "Bạn chưa nhập vào họ và tên",
+                        minlength: "Họ và tên phải có ít nhất 8 ký tự!"
+                    },
+
+                    dtNgaySinh: {
+                        required: "Bạn chưa nhập vào ngày sinh",
+                        minAge: "Ngày sinh không hợp lệ!"
+                    },
+                    // rdGioiTinh: "Bạn chưa chọn giới tính",
+                    txtTP: {
+                        required: "Bạn chưa nhập tỉnh hoặc Thành Phố",
+                    },
+                    txtQH: {
+                        required: "Bạn chưa nhập Quận hoặc Huyện",
+                    },
+                    txtPX: {
+                        required: "Bạn chưa nhập Phường hoặc Xã",
+                    },
+                    txtDiaChi: {
+                        required: "Bạn chưa nhập địa chỉ",
+                    },
+                    txtCCCD: {
+                        required: "Bạn chưa nhập vào căn cước công dân",
+                        rangelength: "Căn cước công dân phải có 12 ký tự số!",
+                        number: "Căn cước công dân sai định dạng"
                     }
-                });
+
+
+                },
+                errorElement: "div",
+                errorPlacement: function(error, element) {
+                    error.addClass("invalid-feedback");
+                    if (element.prop("name") === "rdGioiTinh") {
+                        error.insertAfter(element.parent("div").siblings("legend.gioitinh"));
+
+                    } else if (element.prop("name") === "rdDoTuoi") {
+                        error.insertAfter(element.parent("div").siblings("legend.dotuoi"));
+
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+                highlight: function(element, errorClass, validClass) {
+
+                    $(element).addClass("is-invalid").removeClass("is-valid");
+                },
+                unhighlight: function(element, errorClass, validClass) {
+
+                    $(element).addClass("is-valid").removeClass("is-invalid");
+
+
+                }
+            });
+
+            $('#btnKT').on("click", function() {
+                $('#frmTTCN').valid();
+                if ($('#frmTTCN').valid() == true) {
+                    $('#btnLuuThayDoi').trigger("click");
+                }
+            });
             $('#btnChangeAvatar').css('display', 'none');
             $('#fileToUpload').on("change", function() {
                 if ($(this).val() != null) {
@@ -458,6 +480,11 @@
             // $('#click-me').click(function(){
             //     $("#popup").modal("show");
             // })
+
+            $('input[type="file"]').change(function(e) {
+                var fileName = e.target.files[0].name;
+                $('.custom-file-label').html(fileName);
+            });
 
 
 

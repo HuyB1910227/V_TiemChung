@@ -50,7 +50,9 @@ if ($hasErrors) {
         // echo "<img src='/uploads/" . $safeImageName . "'>";
         $user->fillAvatar($avatarName);
         $user->changeAvatarName();
-        header("Location: thongtincanhan.php");
+        echo "<script>alert('Thay đổi ảnh đại diện thành công!')</script>";
+        echo "<script>window.location = 'thongtincanhan.php'</script>";
+        // header("Location: thongtincanhan.php");
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
