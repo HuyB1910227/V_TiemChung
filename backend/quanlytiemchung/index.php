@@ -144,7 +144,7 @@ $Vaccines = $vaccine->all();
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $today = date("Y-m-d"); ?>
+                            
                             <?php foreach ($arrpdk as $i => $pdk) : ?>
                                 <?php if ($pdk->trangthai == 1 && $pdk->findVaccinationSchedule()->ngaytiem >= $today) : ?>
                                     <?php
@@ -196,7 +196,10 @@ $Vaccines = $vaccine->all();
                                                         <?php foreach ($Vaccines as $vac) : ?>
                                                             <option value="<?= $vac->layID(); ?>"><?= $vac->ten ?></option>
                                                         <?php endforeach; ?>
-                                                    </select>
+                                                    </select><br>
+                                                    <span class="text-primary">
+                                                           (*) Chọn loại vắc xin tại đây
+                                                    </span>
                                                 </div>
 
                                             </td>
@@ -206,9 +209,9 @@ $Vaccines = $vaccine->all();
                                                 <input type="hidden" name="nbLanTiem" value="<?= (int)$nt->solantiem + 1 ?>">
                                                 <input type="hidden" name="slCoSoID" value="<?= $lht->findLocation()->layID() ?>">
                                                 <input type="hidden" name="idPDK" value="<?= $pdk->getId() ?>">
-                                                <button type="submit" class="btn btn-primary" name="btnExecute" <?php $today = date("Y-m-d");
+                                                <button type="submit" class="btn btn-primary" name="btnExecute" <?php 
                                                 
-                                                if($today < strtotime($lht->ngaytiem)){
+                                                if(strtotime($lht->ngaytiem) > $today || strtotime($lht->ngaytiem) < $today  ){
                                                     echo "disabled";
                                                 }
                                                 
@@ -233,7 +236,7 @@ $Vaccines = $vaccine->all();
                         </tbody>
 
                     </table>
-                    <?php var_dump($today)?>
+                    
                 </div>
 
 
@@ -258,6 +261,9 @@ $Vaccines = $vaccine->all();
            console.log("hi");
             $('#tbQuanLyTiem').DataTable({
                 // scrollX: true,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
+                },
             });
             var table = $('#tbQuanLyTiem').DataTable();
             $(".searchField").on("keyup change", function() {
@@ -266,6 +272,7 @@ $Vaccines = $vaccine->all();
                 table.column(colIndex).search(input.val()).draw();
 
             });
+            // var selectVaccine = $('select[name="slVaccineID"]');
 
         });
     </script>

@@ -9,6 +9,10 @@ use TC\OBS\Vaccine;
 
 if(isset($_POST)){
     echo "có";
+    if($_POST["slVaccineID"] == ""){
+        echo "<script>alert(\"Bạn chưa chọn Vacxin!\")</script>";
+        echo "<script>window.location= 'index.php';</script>";
+    }
     var_dump($_POST);
     $tt = new ThongTinTiem($PDO);
     $tt->fill($_POST);

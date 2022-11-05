@@ -46,7 +46,7 @@ use TC\OBS\TaiKhoan;
 <header class="fixed-top">
     <div class="container-lg ">
         <nav class="navbar navbar-expand-md navbar-light row">
-            <a class="navbar-brand" href="#">V-Tiêm chủng</a>
+            <a class="navbar-brand" href="">V-Tiêm chủng</a>
             <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

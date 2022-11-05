@@ -195,7 +195,10 @@ use TC\OBS\Vaccine;
 
              $('#tbLichSuTiem').DataTable({
                 pageLength : 5,
-                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Todos']]
+                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Todos']],
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
+                },
             });
         });
     </script>

@@ -234,9 +234,9 @@ require_once '../../db_connect.php';
                 datasets: [{
                   data: myData,
                   borderColor: "#616AC6",
-                  fill: false,
+                  fill: true,
                   backgroundColor: "#9ad0f5",
-                  borderWidth: 1,
+                  borderWidth: 3,
                   tension: 0.1
                 }]
               },

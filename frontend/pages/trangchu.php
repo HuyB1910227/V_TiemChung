@@ -29,7 +29,7 @@
 
                         <div class="col">
 
-                            <table class="table ">
+                            <table class="table " style="font-size: 20px;">
                                 <tr>
                                     <td class="w-50 font-weight-bold">Họ và tên: </td>
                                     <td class="w-50"><?= $kh->hoten ?></td>
@@ -125,7 +125,7 @@
                         <div class="col-6 col-md-4 col-lg-3 my-2">
                             <a href="tel: 0932988029" class="card text-decoration-none" style="width: 8rem; height: 10rem; background-color:#F8A964;">
                                 <img src="/V_TiemChung/assets/frontend/img/email-mail.webp" class="rounded-circle mx-auto mt-4" alt="..." width="70px" height="70px" style="border: 5px solid #fcc89b;;">
-                                <p class="text-center p-2 text-white font-weight-bold">Tư vấn</p>
+                                <p class="text-center p-2 text-white font-weight-bold">Gọi tư vấn</p>
                             </a>
                         </div>
 

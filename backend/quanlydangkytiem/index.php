@@ -389,7 +389,10 @@ $arrcoso = $cosotiem->all();
 
             $('#tbDangKyTiem').DataTable({
                 // scrollX: true,
-                scrollY: 500
+                scrollY: 500,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
+                },
             });
             var table = $('#tbDangKyTiem').DataTable();
             $(".searchField").on("keyup change", function() {

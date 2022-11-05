@@ -13,12 +13,14 @@ header{
 
 .navbar-light .navbar-nav .nav-link{
     color: rgb(44, 44, 44);
-    font-size: 18px;
+    font-size: 20px;
     /* text-shadow: 1px 1px 1px grey; */
     
     
 }
-
+.dropdown-item {
+    font-size: 20px;
+}
 
 
 .navbar-light .navbar-brand{

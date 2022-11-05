@@ -11,7 +11,6 @@
 use TC\OBS\TaiKhoan;
 
 require_once '../../db_connect.php';
-//require_once '../../../db_connect.php';
 session_start();
 if (!isset($_SESSION['DangNhap'])) {
     if ($_SESSION != "admin") {
@@ -20,7 +19,9 @@ if (!isset($_SESSION['DangNhap'])) {
 }
 $id = $_SESSION['DangNhap'];
 $admin = new TaiKhoan($PDO);
-$admin->find($id)
+$admin->find($id);
+$today = date('Y-m-d');
+$today = strtotime($today);
 
 ?>
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">

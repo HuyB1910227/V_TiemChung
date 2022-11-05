@@ -35,7 +35,7 @@ if (isset($_POST['id'])) {
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
-                <h3 class="text-info">Chi tiết đăng ký tiêm vaccin</h3>
+                <h3 class="">Chi tiết đăng ký tiêm vaccin</h3>
 
                 <div class="bg-white p-2">
                     <div class="float-right">
@@ -101,7 +101,7 @@ if (isset($_POST['id'])) {
                                 <?php if ($ttDK->diembatthuong == 0) : ?>
                                     <span class="text-primary col-12">Không có điểm bất thường</span>
                                 <?php else : ?>
-                                    <div class="col border mr-1">
+                                    <div class="col  mr-1">
                                         <h6>Có</h6>
                                         <?php if($ttDK->listUnusualYes() != null):?>
                                         <?php foreach($ttDK->listUnusualYes() as $i => $e):?>
@@ -111,7 +111,7 @@ if (isset($_POST['id'])) {
                                             <p>Không</p>
                                         <?php endif;?>
                                     </div>
-                                    <div class="col border">
+                                    <div class="col ">
                                     <h6>Không rõ</h6>
                                     <?php if($ttDK->listUnusualUnclear() != null):?>
                                         <?php foreach($ttDK->listUnusualUnclear() as $i => $e):?>
