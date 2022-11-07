@@ -57,10 +57,7 @@ if (isset($_POST['btnSua']) && $nt->find($_POST['ntID'])) {
                                     <input type="radio" name="rdGioiTinh" value="1" class="form-check-input" <?php if($nt->gioitinh == 1){echo "checked";};?>>
                                     <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
                                 </div>
-                                <!-- <div class="form-check form-check-inline">
-                                    <input type="radio" name="rdGioiTinh" value="2" class="form-check-input" <?php if($nt->gioitinh == 2){echo "checked";};?>>
-                                    <label for="rdGioiTinh0" class="form-check-label">Khác</label>
-                                </div> -->
+                               
                         <div class="form-group">
                             <label for="txtCCCD">Số hộ chiếu/CMND/CCCD <span class="required-fill-in">*</span></label>
                             <input type="text" name="txtCCCD" id="txtCCCD" placeholder="" class="form-control" value="<?= $nt->cmnd?>">
@@ -111,22 +108,7 @@ if (isset($_POST['btnSua']) && $nt->find($_POST['ntID'])) {
 
                             <input type="text" name="nguoiThanID" id="nguoiThanID" placeholder="" class="form-control" value="<?= $kh->layId(); ?>" hidden readonly>
                         </div>
-                        <!-- <div class="form-group ">
-                            <label for="nbSoLanTiem">Số lần tiêm: </label>
-                            <div class="input-group">
-                                
-                                    
-                                
-                                <input type="number" class="form-control" id="nbSoLanTiem" name="nbSoLanTiem" value="0">
-                            </div>
-
-                        </div>
-                     
-                        <div class="form-group ">
-                            <label for="dtNgayTiemGanNhat">Ngày tiêm gần nhất: </label>
-                            <input type="date" name="dtNgayTiemGanNhat" id="dtNgayTiemGanNhat" placeholder="" class="form-control">
-
-                        </div> -->
+                       
                     </div>
 
 
@@ -143,7 +125,6 @@ if (isset($_POST['btnSua']) && $nt->find($_POST['ntID'])) {
                     </div>
                     <div class="col-6">
                         <button type="submit" class="btn btn-primary rounded-pill w-100 mt-2" name="btnSua" id="btnSua">Sửa</button>
-                        <!-- <button type="submit" class="btn btn-primary rounded-pill w-100 mt-2" name="btnThem" id="btnThem">Thêm</button> -->
                     </div>
                 </div>
             </form>

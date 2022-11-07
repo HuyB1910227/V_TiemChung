@@ -43,16 +43,7 @@
             <div class="col-10 offset-2">
                 <h3 >Sửa Vaccine</h3>
                 
-                <!-- <form action="" method="post">
-                   <br>
-                    <br>
-                    <br>
-                    
-                    
-                    
-                   
-                    
-                </form> -->
+               
                 <div class="card frmCreate">
                     <div class="card-body">
                         <form action="" method="post" id="frmQLVC">

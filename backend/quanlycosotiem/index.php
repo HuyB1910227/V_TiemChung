@@ -6,7 +6,6 @@ use TC\OBS\CoSoTiem;
 
 $coso = new CoSoTiem($PDO);
 $mangcoso = $coso->all();
-//var_dump($mangcoso);
 
 ?>
 
@@ -28,9 +27,9 @@ $mangcoso = $coso->all();
             <div class="col-10 offset-2 mt-1">
                 <h3>Danh sách cơ sở tiêm chủng</h3>
                 <div class="bg-white mx-2 row">
-                    <!-- <p class="float-left">Tổng số lượng: <?= count($mangcoso); ?></p> -->
+                    
                     <div class="float-right">
-                        <!-- <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button> -->
+                        
                         <a class="btn btn-primary btn-link text-light" href="<?= url('backend/quanlycosotiem/create.php') ?>"><i class="fa-regular fa-hospital"></i> Thêm cơ sở</a>
                     </div>
                 </div>
@@ -53,9 +52,7 @@ $mangcoso = $coso->all();
                         <tbody>
                             <?php foreach ($mangcoso as $i => $coso) : ?>
                                 <tr>
-                                    <!-- <td>
-                                <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $coso->layID() ?>" >
-                            </td> -->
+                                    
                                     <td><?= ++$i ?></td>
                                     <td><?= $coso->ten ?></td>
                                     <td><?= $coso->diachi ?></td>
@@ -71,9 +68,7 @@ $mangcoso = $coso->all();
                                     <?php endif; ?>
                                     <td>
                                         <a class="btn btn-warning text-white" href="edit.php?id=<?= $coso->layID() ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <!-- <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button> -->
-                                        <!-- <a href="delete.php?cs_id=">Xóa</a> -->
-                                        <!-- <button class="btn btn-danger btnDelete" type="button" data-cs_id="">Xóa</button> -->
+                                      
                                         <form action="<?= url('backend/quanlycosotiem/delete.php') ?>" method="POST" style="display: inline;">
                                             <input type="hidden" name="id" value="<?= $coso->layId() ?>">
                                             <button type="submit" class="btn btn-xs btn-danger btnDelete" name="delete" id="">
@@ -104,27 +99,7 @@ $mangcoso = $coso->all();
     <script>
         $(document).ready(function() {
 
-            // $('.btnDelete').click(function(){
-            //     console.log('co click')
-            //     var cs_id = $(this).data('cs_id');
-            //     console.log(cs_id);
-            //     var url = "delete.php?id="+ cs_id;
-
-            //     location.href = url;
-            // });
-            // $('#btnXoaN').click(function(){
-            //     console.log('hi');
-            //     var a = [1,2,3,4];
-
-            //     var arr= $('.chkChonCoSo').data('cs_id');
-            //     // arr.array.forEach(element => {
-            //     //     console.log(element);
-            //     // });
-            //     if($('.chkChonCoSo').checked){
-            //         console.log('yes');
-            //     }
-            //     console.log(arr);
-            // });
+            
             console.log("hi");
             console.log($('.btnDelete'))
             $('.btnDelete').on("click", function(e) {
@@ -151,23 +126,10 @@ $mangcoso = $coso->all();
                     reverseButtons: true
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // swalWithBootstrapButtons.fire(
-                        //     'Deleted!',
-                        //     'Your file has been deleted.',
-                        //     'success'
-                        // )
+                       
                         form.trigger('submit');
                     } 
-                    // else if (
-                        
-                    //     result.dismiss === Swal.DismissReason.cancel
-                    // ) {
-                    //     swalWithBootstrapButtons.fire(
-                    //         'Cancelled',
-                    //         'Your imaginary file is safe :)',
-                    //         'error'
-                    //     )
-                    // }
+                   
                 })
             });
 

@@ -50,7 +50,7 @@
                     <table class="table table-bordered bg-white" id="tbLoaiVaccine">
                         <thead>
                             <tr class="">
-                            <!-- <th>Chọn</th> -->
+                           
                             <th>STT</th>
                             <th>Mã loại</th>
                             <th>Tên loại</th>
@@ -64,9 +64,7 @@
                         <tbody>
                             <?php foreach($mangloai as $k => $loai):?>
                         <tr>
-                            <!-- <td>
-                                <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $e['cs_id']?>" >
-                            </td> -->
+                            
                             <td><?= ++$k?></td>
                             <td><?= $loai->layID()?></td>
                             <td><?= $loai->ten?></td>
@@ -107,12 +105,7 @@
     <script>
         $(document).ready(function(){
             
-            // $('.btnDelete').click(function(){
-            //     var cs_id = $(this).data('cs_id');
-            //     console.log(cs_id);
-            //     var url = "delete.php?cs_id=" + cs_id;
-            //     location.href = url;
-            // });
+          
            
             $('.btnDelete').on("click", function(e) {
                 e.preventDefault();

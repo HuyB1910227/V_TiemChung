@@ -1,7 +1,7 @@
 <?php
     require_once '../../db_connect.php';
 
-    // use TC\OBS\LoaiVaccine;
+
 
     
 
@@ -10,13 +10,7 @@
 
     $vaccine = new Vaccine($PDO);
     $mangvaccine = $vaccine->all();
-    // var_dump($mangvaccine);
 
-
-
-    // $loai = new LoaiVaccine($PDO);
-    // $mangloai = $loai->all();
-    // var_dump($mangloai);
 ?>
 
 
@@ -50,7 +44,7 @@
                     <table class="table table-bordered bg-white" id="tbVaccine">
                         <thead>
                             <tr class="">
-                            <!-- <th>Chọn</th> -->
+                           
                             <th>STT</th>
                             <th>Mã vaccine</th>
                             <th>Tên</th>
@@ -64,9 +58,7 @@
                         <tbody>
                             <?php foreach($mangvaccine as $k => $vaccine):?>
                         <tr>
-                            <!-- <td>
-                                <input type="checkbox" class="chkChonCoSo" name="chkChon" data-cs_id="<?= $e['cs_id']?>" >
-                            </td> -->
+                           
                             <td><?= ++$k?></td>
                             <td><?= $vaccine->layID()?></td>
                             <td><?= $vaccine->ten?></td>
@@ -83,8 +75,7 @@
                             <td>
                             <a class="btn btn-warning text-white" href="edit.php?id=<?= $vaccine->layID()?>"><i class="fa-solid fa-pen-to-square"></i></a>
 
-                                <!-- <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button> -->
-                                <!-- <a href="delete.php?cs_id=">Xóa</a> -->
+                              
                                 <form action="<?=url('backend/quanlyvaccin/delete.php')?>" method="POST" style="display: inline;">
 									<input type="hidden" name="id" value="<?=$vaccine->layId()?>">
 										<button type="submit" class="btn btn-xs btn-danger btnDelete" >

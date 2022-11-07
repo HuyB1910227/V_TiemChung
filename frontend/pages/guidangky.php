@@ -18,4 +18,4 @@
     else {
         echo "Có lỗi xảy ra!!!";
     }
-    // ($coso->find($_POST['id'])) == null
+    

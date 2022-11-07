@@ -39,8 +39,7 @@ if (isset($_POST['id'])) {
 
                 <div class="bg-white p-2">
                     <div class="float-right">
-                        <!-- <button class="btn btn-warning text-white"><i class="fa-solid fa-ban"></i> Từ chối</button>
-                        <button class="btn btn-primary"><i class="fa-solid fa-check"></i> Xác nhận</button> -->
+                        
                     </div>
                 </div>
                 <div class="mt-2">
@@ -172,37 +171,6 @@ if (isset($_POST['id'])) {
                         </div>
                     </div>
                 </div>
-
-
-
-                <!-- Modal view -->
-                <!-- Button trigger modal -->
-
-                <!-- Modal -->
-                <!-- <div class="modal fade" id="viewDangKy" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                    
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Thông tin đăng ký</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col" id="dd"></div>
-                                <div class="col"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
-                    </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

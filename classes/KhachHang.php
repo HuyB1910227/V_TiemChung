@@ -16,8 +16,7 @@ class KhachHang{
     
     public $solantiem, $ngaytiemgannhat, $vaccinedatiem;
     public $baohiem, $baohiembd, $baohiemkt, $dantoc, $tongiao, $nghenghiep;
-    // public $tempVaccineID = null;
-    // public $sdt, $trangthai;
+  
     public $nt_id;
     public function layId(){
         return $this->id;
@@ -32,7 +31,7 @@ class KhachHang{
 			'kh_id' => $this->id,
 			'kh_hoten' => $this->hoten,
             'kh_cmnd' => $this->cmnd,
-            //'kh_sodienthoai' => $this->sdt,
+           
             'kh_ngaysinh' => $this->ngaysinh,
             'kh_gioitinh' => $this->gioitinh,
 			'kh_diachi' => $this->diachi,

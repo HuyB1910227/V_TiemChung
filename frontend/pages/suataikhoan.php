@@ -86,9 +86,7 @@
 
                         </div>
                         <hr>
-                        <!--  -->
-
-                        <!--  -->
+                       
 
 
                     </div>
@@ -124,27 +122,17 @@
 
 
     if (isset($_POST["txtTen"])) {
-        // if(isset($_POST["npwd"])){
-        //     echo "có";
-        // }
-        // else {
-        //     echo "ko";
-        // }
-        // 
+        
 
         if (isset($_POST["doimatkhau"])) {
-            // if(isset($_POST['pwd2'])){
-            // if($user->getPassword() == md5($_POST['pwd2'])){
+          
             if (isset($_POST['npwd']) && $_POST['npwd'] != '') {
                 $user->fill($_POST, $kh->layId());
                 $user->save();
                 echo "<script>alert('Thay đổi thành công!');</script>";
                 echo "<script>window.location.href = 'trangchu.php';</script>";
             }
-            // } else {
-            //     $error = "Mật khẩu hiện tại không đúng!";
-            // }
-            // }
+           
         } else {
             $user->fill($_POST, $kh->layId());
             $user->save();

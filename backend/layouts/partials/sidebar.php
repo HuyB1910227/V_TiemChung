@@ -2,9 +2,6 @@
     <nav id="sidebar">
     <div>
         <ul class="nav flex-column">
-            <!-- <li class="nav-item">
-                <span>Quản lý</span>
-            </li> -->
             <li class="nav-item">
                 <a href="/V_TiemChung/backend/thongke/dashboard.php" class="nav-link"><i class="fa-solid fa-gauge"></i>&nbsp; Tổng quan</a>
             </li>
@@ -22,12 +19,6 @@
                     <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlylichhentiem/index.php" class="nav-link"><i class="fa-solid fa-calendar"></i> Lịch tiêm dự kiến</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="/V_TiemChung/backend/quanlycosotiem/index.php" class="nav-link"><i class="fa-solid fa-hospital"></i> Danh sách điểm tiêm</a>
-                    </li class="nav-item"> -->
-                    <!-- <li class="nav-item">
-                        <a href="/V_TiemChung/backend/quanlyvaccin/index.php" class="nav-link"><i class="fa-solid fa-vial-virus"></i> Danh sách vaccin</a>
-                    </li> -->
                     <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlylichsutiem/index.php" class="nav-link"><i class="fa-solid fa-clock-rotate-left"></i> Danh sách lịch sử tiêm</a>
                     </li>
@@ -38,26 +29,14 @@
 
             <li >
                 <span>Quản lý vắc xin</span>
-                <ul class="list-unstyled">
-                    <!-- <li class="nav-item ">
-                        <a href="/V_TiemChung/backend/quanlydangkytiem/index.php" class="nav-link"><i class="fa-solid fa-file-pen"></i> Danh sách đăng ký tiêm</a>
-                    </li> -->
-                    
+                <!-- <h5 href="#quanlyvacxin" data-toggle="collapse" aria-expanded="true">Quản lý vắc xin</h5> -->
+                <ul class="list-unstyled " id="quanlyvacxin" >
                     <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlyvaccin/index.php" class="nav-link"><i class="fa-solid fa-vial-virus"></i> Danh sách vaccin</a>
                     </li>
                     <li class="nav-item">
                         <a href="/V_TiemChung/backend/quanlyloaivaccin/index.php" class="nav-link"><i class="fa-solid fa-prescription-bottle-medical"></i> Danh sách loại vaccin</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="/V_TiemChung/backend/quanlylichsutiem/index.php" class="nav-link"><i class="fa-solid fa-clock-rotate-left"></i> Danh sách lịch sử tiêm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/V_TiemChung/backend/quanlylichhentiem/index.php" class="nav-link"><i class="fa-solid fa-calendar"></i> Danh sách lịch tiêm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/V_TiemChung/backend/quanlytiemchung/index.php" class="nav-link"><i class="fa-solid fa-syringe"></i> Danh sách Tiêm chủng</a>
-                    </li> -->
                 </ul>
             </li>
            

@@ -13,7 +13,7 @@ if (!function_exists('url')) {
 }
 
 if (!function_exists('redirect')) {
-	// Chuyển hướng đến một trang khác
+
 	function redirect($location)
 	{
 		header('Location: ' . url($location));

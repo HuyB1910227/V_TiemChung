@@ -8,7 +8,7 @@ if (isset($_POST['btnThem'])) {
 
     $newnt->fill($_POST);
 
-    // var_dump($kh);
+    
     $newnt->save();
     echo "<script>alert('Đã thêm thành viên!')</script>";
     echo "<script>window.location.href = 'quanlynguoithan.php';</script>";
@@ -70,10 +70,7 @@ if (isset($_POST['btnThem'])) {
                             <input type="radio" name="rdGioiTinh" value="1" class="form-check-input">
                             <label for="rdGioiTinh2" class="form-check-label">Nữ </label>
                         </div>
-                        <!-- <div class="form-check form-check-inline">
-                            <input type="radio" name="rdGioiTinh" value="2" class="form-check-input">
-                            <label for="rdGioiTinh0" class="form-check-label">Khác</label>
-                        </div> -->
+                        
 
                         <div class="form-group">
                             <label for="txtCCCD">Số hộ chiếu/CMND/CCCD <span class="required-fill-in">*</span></label>
@@ -222,10 +219,7 @@ if (isset($_POST['btnThem'])) {
 
             $('#frmTSThanhVien').validate({
                 rules: {
-                    // txtTen: {
-                    //     required: true,
-                    //     minlength: 8
-                    // },
+                    
                     rdDoTuoi:{
                         required: true
                     },
@@ -233,11 +227,7 @@ if (isset($_POST['btnThem'])) {
                         required: true,
                         minlength: 8
                     },
-                    // txtSoDienThoai: {
-                    //     required: true,
-                    //     rangelength: [10, 10],
-                    //     number: true
-                    // },
+                    
                     dtNgaySinh: {
                         required: true,
                         minAge: 6,
@@ -263,24 +253,13 @@ if (isset($_POST['btnThem'])) {
                         rangelength: [12, 12],
 
                     },
-                    // pwd: {
-                    //     required: true,
-                    //     minlength: 8
-                    // },
-                    // re_pwd: {
-                    //     required: true,
-                    //     minlength: 8,
-                    //     equalTo: "#pwd"
-                    // },
+                   
                     dtNgayTiemGanNhat: {
                         reqVC: true,
                     }
                 },
                 messages: {
-                    // txtTen: {
-                    //     required: "Bạn chưa nhập vào tên đăng nhập",
-                    //     minlength: "Tên đăng nhập phải có ít nhất 8 ký tự!"
-                    // },
+                    
                     rdDoTuoi:{
                         required: "Chưa chọn độ tuổi"
                     },
@@ -288,11 +267,7 @@ if (isset($_POST['btnThem'])) {
                         required: "Bạn chưa nhập vào họ và tên",
                         minlength: "Họ và tên phải có ít nhất 8 ký tự!"
                     },
-                    // txtSoDienThoai: {
-                    //     required: "Bạn chưa nhập vào số điện thoại",
-                    //     rangelength: "Tên đăng nhập phải có 10 ký tự số!",
-                    //     number: "Số điện thoại sai định dạng"
-                    // },
+                    
                     dtNgaySinh: {
                         required: "Bạn chưa nhập vào ngày sinh",
                         minAge: "Ngày sinh không hợp lệ!"
@@ -315,15 +290,7 @@ if (isset($_POST['btnThem'])) {
                         rangelength: "Căn cước công dân phải có 12 ký tự số!",
                         number: "Căn cước công dân sai định dạng"
                     }
-                    // pwd: {
-                    //     required: "Bạn chưa nhập mật khẩu",
-                    //     minlength: "Mật khẩu phải có ít nhất 8 ký tự!",
-                    // },
-                    // re_pwd: {
-                    //     required: "Bạn chưa nhập mật khẩu",
-                    //     minlength: "Mật khẩu phải có ít nhất 8 ký tự!",
-                    //     equalTo: "Mật khẩu không trùng khớp với mật khẩu vừa nhập!"
-                    // },
+                    
 
                 },
                 errorElement: "div",
@@ -360,7 +327,7 @@ if (isset($_POST['btnThem'])) {
             rdDoTuoi.on('change', function() {
                 
                     var DoTuoi =  $("input[type='radio'][name='rdDoTuoi']:checked").val();
-                    // console.log(t);
+                   
                     if(DoTuoi == 0){
                         console.log("vo");
                         $("#txtCCCD").val('000000000000');
@@ -376,13 +343,13 @@ if (isset($_POST['btnThem'])) {
             var inputNTGN = $('input[name="dtNgayTiemGanNhat"]');
             var inputVTGN = $('select[name="slvaccineTiemGanNhat"]');
             console.log(inputVTGN);
-            // console.log(inputNTGN);
+           
             inputSLT.on("keyup", function() {
                 if (inputSLT.val() == 0) {
                     inputNTGN.attr("readonly", true);
-                    // inputVTGN.val("");
+              
                     inputVTGN.attr('disabled','disabled');
-                    // inputVTGN.attr('readonly',true);
+                  
                 } else {
                     inputNTGN.removeAttr("readonly");
                     inputVTGN.removeAttr("disabled");

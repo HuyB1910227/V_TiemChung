@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $e->fill($_POST);
 
     $e->save();
-    //var_dump($coso);
+
     header('Location: index.php');
 }
 
@@ -44,10 +44,7 @@ $mangloai = $loai->all();
                 <div class="card frmCreate">
                     <div class="card-body">
                         <form action="" method="post" id="frmQLVC">
-                            <!-- <div class="form-group">
-                                <label for="txtMavaccine">Mã Vắc xin: </label>
-                                <input type="text" name="txtMavaccine" id="txtMavaccine" class="form-control" value="" readonly>
-                            </div> -->
+                            
                             <div class="form-group">
                                 <label for="txtTenVaccine">Tên Vắc xin: </label>
                                 <input type="text" name="txtTenVaccine" id="txtTenVaccine" class="form-control" required value="">

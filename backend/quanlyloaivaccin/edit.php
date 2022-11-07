@@ -13,9 +13,7 @@
         header('Location: index.php');
     }
 
-    // use TC\OBS\LoaiVaccine;
-    // $loai = new LoaiVaccine($PDO);
-    // $mangloai = $loai->all();
+    
 
 
 ?>
@@ -44,16 +42,7 @@
             <div class="col-10 offset-2">
                 <h3 >Sửa loại vắc xin</h3>
                 
-                <!-- <form action="" method="post">
-                   <br>
-                    <br>
-                    <br>
-                    
-                    
-                    
-                   
-                    
-                </form> -->
+                
                 <div class="card frmCreate">
                     <div class="card-body">
                         <form action="" method="post" id="frmQLVC">

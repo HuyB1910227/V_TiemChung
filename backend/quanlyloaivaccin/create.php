@@ -41,10 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="card frmCreate">
                     <div class="card-body">
                         <form action="" method="post" id="frmQLVC">
-                            <!-- <div class="form-group">
-                                <label for="txtMavaccine">Mã Vắc xin: </label>
-                                <input type="text" name="txtMavaccine" id="txtMavaccine" class="form-control" value="" readonly>
-                            </div> -->
+                        
                             <div class="form-group">
                                 <label for="txtTenLoaiVaccine">Tên loại vắc xin </label>
                                 <input type="text" name="txtTenLoaiVaccine" id="txtTenLoaiVaccine" class="form-control" required value="">

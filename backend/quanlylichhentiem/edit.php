@@ -88,15 +88,7 @@
 
     <?php include_once __DIR__ . '/../layouts/scripts.php'; ?>
 
-    <!-- <script>
-        $(function(){
-            $SelectData = <?= $data['cs_trangthai']?>;
-            console.log($SelectData)
-            $SelectOp = $('#slTrangThai');
-            console.log($SelectOp[0]);
-            
-        })
-    </script> -->
+    
 </body>
 
 </html>

@@ -3,14 +3,10 @@ require_once '../../db_connect.php';
 
 use TC\OBS\CoSoTiem;
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     $coso = new CoSoTiem($PDO);
     $coso->fill($_POST);
-
     $coso->save();
-    //var_dump($coso);
     header('Location: index.php');
 }
 ?>

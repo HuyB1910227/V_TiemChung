@@ -10,8 +10,7 @@ $error = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $admin->loginAdmin($_POST['txtTenDangNhap'], $_POST['pwd']);
     if ($result != null) {
-        // echo "Thành công.";
-        // $user->session();
+       
         $_SESSION['DangNhap'] = $admin->getID();
         $_SESSION['TaiKhoan'] = "admin";
         header("Location: ./quanlydangkytiem/index.php");
@@ -46,20 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body class="container-fluid">
-    <!-- <div class="container justify-content-center border p-5 " style="width: 600px;">
-        <h1 class="text-center">Đăng nhập</h1>
-        <form action="dangnhap.php" method="post" class="" id="frmDangNhap">
-            <div class="form-group">
-                <label for="txtTenDangNhap">Tên đăng nhập:</label><br>
-                <input type="text" name="txtTenDangNhap" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="pwd">Mật khẩu:</label>
-                <input type="password" name="pwd" class="form-control">
-            </div>
-            <button type="submit" name="DangNhap" class="btn btn-primary rounded-pill w-100">Đăng nhập</button>
-        </form>
-    </div> -->
+    
 
     <div class="row p-5">
         <div class="p-3 card-log-in m-auto">
@@ -84,9 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <button type="submit" class="btn btn-primary rounded-pill w-100" name="btnDangNhap">Đăng nhập</button>
             </form>
-            <!-- <br>
-            <p class="text-center">Bạn chưa có tài khoản? Hãy đăng ký ngay</p>
-            <a class="btn btn-light text-dark-10 w-100 rounded-pill" href="./dangky.php">Đăng ký</a> -->
+           
         </div>
     </div>
 

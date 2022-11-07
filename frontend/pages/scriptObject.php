@@ -1,5 +1,5 @@
 <?php 
-    // your database connection goes here
+
     require_once '../../db_connect.php';
     if(isset($_POST["userName"])){
         $userName = $_POST["userName"];
@@ -32,26 +32,5 @@
         echo json_encode($res);
     }
     
-    // else
-    //     $userName = "Hjkl12334";
-    //$query = "SELECT tk_id FROM tai_khoan WHERE tk_user = ' $objectId '";
     
-
-
-    // if($result)
-    // {
-    //     if(mysql_num_rows($result) > 0)
-    //     {
-    //         $objJSON = mysql_fetch_array($result);
-    //         $res = array("status"=>"success", "objectJson" => $objJSON['objectJson']);
-    //     }
-    //     else
-    //     {
-    //         $res = array("status"=>"error", "message" => "No records found.");
-    //     }
-    // }
-    // else
-    //     $res = array("status"=>"error", "message" => "Problem in fetching data.".mysql_error());
-
-    // echo json_encode($res);
 ?> 

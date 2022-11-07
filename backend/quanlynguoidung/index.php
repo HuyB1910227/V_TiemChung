@@ -27,8 +27,7 @@ use TC\OBS\KhachHang;
                 <div class="bg-white p-2">
                     
                     <div class="float-right">
-                        <!-- <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button> -->
-                        <!-- <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlylichhentiem/create.php">Thêm</a> -->
+                       
                     </div>
                 </div>
                 <div class="mt-2">

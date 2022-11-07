@@ -31,7 +31,7 @@ $coso = new CoSoTiem($PDO);
                 <div class="bg-white mx-2 row">
 
                     <div class="float-right">
-                        <!-- <button type="button" id="btnXoaN" class="btn btn-danger">Xóa</button> -->
+                        
                         <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/backend/quanlylichhentiem/create.php"><i class="fa-solid fa-calendar-plus"></i> Thêm lịch hẹn</a>
                     </div>
                 </div>

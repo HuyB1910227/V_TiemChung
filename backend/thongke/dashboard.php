@@ -47,8 +47,8 @@ require_once '../../db_connect.php';
 
                 </div>
               </div>
-              <!-- <button class="btn btn-primary btn-sm form-control" id="refreshBaoCaoKhachHang">Refresh dữ liệu</button> -->
-            </div> <!-- Tổng số mặt hàng -->
+             
+            </div> 
             <div class="col-sm-6 col-lg-3">
               <div class="card mb-2">
                 <div class="bc-scroll" style="background-color: orange;"></div>
@@ -61,8 +61,8 @@ require_once '../../db_connect.php';
 
                 </div>
               </div>
-              <!-- <button class="btn btn-success btn-sm form-control" id="">Refresh dữ liệu</button> -->
-            </div> <!-- Tổng số khách hàng -->
+             
+            </div> 
             <div class="col-sm-6 col-lg-3">
               <div class="card mb-2">
                 <div class="bc-scroll" style="background-color: green;"></div>
@@ -75,8 +75,7 @@ require_once '../../db_connect.php';
 
                 </div>
               </div>
-              <!-- <button class="btn btn-warning btn-sm form-control" id="refreshBaoCaoDonHang">Refresh dữ liệu</button> -->
-            </div> <!-- Tổng số đơn hàng -->
+            </div> 
             <div class="col-sm-6 col-lg-3">
               <div class="card mb-2">
                 <div class="bc-scroll" style="background-color: grey;"></div>
@@ -89,24 +88,15 @@ require_once '../../db_connect.php';
 
                 </div>
               </div>
-              <!-- <button class="btn btn-danger btn-sm form-control" id="refreshBaoCaoGopY">Refresh dữ liệu</button> -->
-            </div> <!-- Tổng số góp ý -->
+            </div> 
             <div id="ketqua"></div>
-          </div><!-- row -->
-          <!-- <div class="row">
-                       
-                        <div class="col-sm-6 col-lg-6">
-                            <canvas id="chartOfobjChartThongKeLoaiSanPham"></canvas>
-                            <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeLoaiSanPham">Refresh dữ liệu</button>
-                        </div>
-
-                    </div> -->
+          </div>
+         
           <div class="row">
-            <!-- Biểu đồ đường thống kê số người tiêm -->
+           
             <div class="offset-2 col-sm-8 col-lg-8 p-2">
               <canvas id="chartOfobjChartThongKeTiemChung" class="shadow"></canvas>
-              <!-- <button class="btn btn-outline-primary btn-sm form-control" id="refreshThongKeTiemChung">Refresh dữ liệu</button> -->
-            </div><!-- col -->
+            </div>
 
           </div>
         </div>
@@ -162,7 +152,7 @@ require_once '../../db_connect.php';
         getDuLieuBaoCaoTongSoKhachHang();
       });
 
-      // ----------------- Tổng số đơn hàng --------------------------
+      // ----------------- Tổng số tiem nhieu mui --------------------------
       function getDuLieuBaoCaoTongSoKhachHangTN() {
         $.ajax('/V_TiemChung/backend/api/baocao_thongkenguoidung.php', {
           success: function(data) {
@@ -195,17 +185,12 @@ require_once '../../db_connect.php';
 
 
       // ------------------ Vẽ biểu đồ thống kê Loại sản phẩm -----------------
-      // Vẽ biểu đổ Thống kê Loại sản phẩm sử dụng ChartJS
-
-
-      // Mới mở web (khi trang web load xong)
-      // thì sẽ gọi lập tức một số hàm AJAX gọi API lấy dữ liệu
       getDuLieuBaoCaoTongSoKhachHangT1()
       getDuLieuBaoCaoTongSoKhachHang();
       getDuLieuBaoCaoTongSoKhachHangTN()
       getDuLieuBaoCaoTongCoSo();
 
-      //-------------Ve bieu do
+   
       var $objChartThongKeTiemChung;
       var $chartOfobjChartThongKeTiemChung = document.getElementById("chartOfobjChartThongKeTiemChung").getContext(
         "2d");
@@ -222,12 +207,12 @@ require_once '../../db_connect.php';
               myLabels.push((this.Thang));
               myData.push(this.SoLuong);
             });
-            myData.push(0); // tạo dòng số liệu 0
+            myData.push(0); 
             if (typeof $objChartThongKeTiemChung !== "undefined") {
               $objChartThongKeTiemChung.destroy();
             }
             $objChartThongKeTiemChung = new Chart($chartOfobjChartThongKeTiemChung, {
-              // Kiểu biểu đồ muốn vẽ. Các bạn xem thêm trên trang ChartJS
+              
               type: "line",
               data: {
                 labels: myLabels,
@@ -240,7 +225,7 @@ require_once '../../db_connect.php';
                   tension: 0.1
                 }]
               },
-              // Cấu hình dành cho biểu đồ của ChartJS
+              
               options: {
                 legend: {
                   display: false

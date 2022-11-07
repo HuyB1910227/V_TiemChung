@@ -83,10 +83,7 @@
 
 <body class="container-fluid">
 
-    <!-- <div class="row bg-info align-content-center justify-content-center">
-        <h2 class="text-white">Xin chào</h2>
-        
-    </div> -->
+    
     <div class="row p-5">
         <div class="p-3 card-log-in m-auto">
             <div class="col-12">
@@ -106,7 +103,6 @@
                     </div>
                     
 
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
                 <div class="form-group">
                     <label for="pwd">Mật khẩu <span class="required-fill-in">*</span></label>
@@ -128,17 +124,7 @@
 
 
 
-    <!-- <footer class="row bg-primary text-white">
-        <div class="col">
-            <p>&copy; Bản quyền thuộc về Đỗ Huy</p>
-            <p>Phát triển bởi Đỗ huy</p>
-        </div>
-        <div class="col">
-            <p>Số điện thoại: 0932988029</p>
-            <p>Gmail: huydo@gmail.com</p>
-        </div>
-
-    </footer> -->
+  
 
 
 
@@ -155,8 +141,7 @@
                     
                     sdt: {
                         required: true,
-                        // rangelength: [10, 10],
-                        // number: true
+                        
                     },
                     
                     
@@ -168,8 +153,7 @@
                    
                     sdt: {
                         required: "Bạn chưa nhập vào số điện thoại hoặc tên dăng nhập",
-                        // rangelength: "Tên đăng nhập phải có 10 ký tự số!",
-                        // number: "Số điện thoại sai định dạng"
+                      
                     },
                     
                     pwd: {

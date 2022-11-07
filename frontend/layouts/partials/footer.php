@@ -8,13 +8,12 @@
                 <h4>Liên hệ với chúng tôi</h4>
                 <div class="row">
                     <div class="col-12 col-sm-6">
-                        <!-- <span><i class="fa-solid fa-phone"></i></span> -->
+                        
                         <h6 class="text-white my-3"><i class="fa-solid fa-phone fa"></i> &nbsp; + 0932-988-029</h6>
                         <h6 class="text-white my-3"><i class="fa-solid fa-envelope fa"></i> &nbsp; huyb1910227@student.ctu.edu.vn</h6>
                     </div>
                     <div class="col-12 col-sm-6">
                         <h6 class="text-white my-3"><i class="fa-solid fa-globe fa"></i> &nbsp; www.V-TiemChung.com</h6>
-                        <!-- <p class=" d-inline-flex"><i class="fa-solid fa-location-dot fa" ></i></p> <h6 class="text-white d-inline"> &nbsp; 221/12, p.Long Hòa, q.Bình Thủy, tp.Cần Thơ</h6> -->
                         <h6 class="text-white my-3"><i class="fa-solid fa-location-dot fa" ></i>&nbsp; 221/12, p.Long Hòa, q.Bình Thủy, tp.Cần Thơ</h6>
                     </div>
                     <div class="col-12">

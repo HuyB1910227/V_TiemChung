@@ -35,20 +35,7 @@
                 <?php foreach ($dsnguoithan as $i => $nguoithan) : ?>
 
 
-                    <!-- <div class="col-12">
-                        <div class="row">
-                            
-                            <div class="col p-2 ">
-                                <form action="editnguoithan.php" method="post">
-                                    <input type="text" name="id" id="id" value="<?= $nguoithan->layId() ?>" hidden>
-                                    <button class="btn btn-warning  text-light mr-2" name="btnSuaNT"><i class="fa-solid fa-pen-to-square"></i> Sửa thông tin</button>
-
-                                </form>
-                                
-
-                            </div>
-                        </div>
-                    </div> -->
+                    
                     <div class="col-6 p-2 bg-white my-2">
                         <div class="row justify-content-sm-center pt-2">
                             <!-- <h4>Thông tin chính</h4> -->
@@ -162,58 +149,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col m-2 ">
-                        <div class="row bg-white justify-content-center pt-2">
-                            <h4>Thông tin khác</h4>
-                            <div class="col-12 p-0">
-                                <table class="table table-striped mb-0">
-                                    <tr>
-                                        <td class="w-50 font-weight-bold">Số thẻ BHYT: </td>
-                                        <td class="w-50"><?= $nguoithan->baohiem ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Thời gian sử dụng thẻ - từ ngày:</td>
-                                        <td><?= $nguoithan->baohiembd ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Thời gian sử dụng thẻ - đến ngày:</td>
-                                        <td><?= $nguoithan->baohiemkt ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Dân tộc:</td>
-                                        <td><?= $nguoithan->dantoc ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Tôn giáo:</td>
-                                        <td><?= $nguoithan->tongiao ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">Nghề nghiệp:</td>
-                                        <td><?= $nguoithan->nghenghiep ?></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div> -->
-
-
-
-                    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-                    <!-- <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa thông tin cá nhân</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            
-                        </div>
-                    </div>
-                </div> -->
-                    <!-- </div> -->
+                    
 
 
 

@@ -338,55 +338,6 @@ $arrcoso = $cosotiem->all();
                     }
                 })
             });
-
-
-
-            // $('.btnConfirm').on("click", function(e) {
-            //     e.preventDefault();
-            //     const form = $(this).closest('form');
-            //     const nameTd = $(this).closest('tr').find('td:first');
-            //     const nameTd2 = nameTd.siblings('td:first');
-            //     console.log(nameTd2.text());
-            //     const swalWithBootstrapButtons = Swal.mixin({
-            //         customClass: {
-            //             confirmButton: 'btn btn-success ml-2',
-            //             cancelButton: 'btn btn-danger'
-            //         },
-            //         buttonsStyling: false
-            //     })
-
-            //     swalWithBootstrapButtons.fire({
-            //         title: 'Bạn chắc chắn muốn xóa?',
-            //         text: `Cơ sở: ${nameTd2.text()}.`,
-            //         icon: 'warning',
-            //         showCancelButton: true,
-            //         confirmButtonText: 'Có',
-            //         cancelButtonText: 'Hủy',
-            //         reverseButtons: true
-            //     }).then((result) => {
-            //         if (result.isConfirmed) {
-            //             // swalWithBootstrapButtons.fire(
-            //             //     'Deleted!',
-            //             //     'Your file has been deleted.',
-            //             //     'success'
-            //             // )
-
-            //             form.trigger('submit');
-            //         } 
-            //         // else if (
-
-            //         //     result.dismiss === Swal.DismissReason.cancel
-            //         // ) {
-            //         //     swalWithBootstrapButtons.fire(
-            //         //         'Cancelled',
-            //         //         'Your imaginary file is safe :)',
-            //         //         'error'
-            //         //     )
-            //         // }
-            //     })
-            // });
-
-
             $('#tbDangKyTiem').DataTable({
                 // scrollX: true,
                 scrollY: 500,

@@ -39,8 +39,7 @@ use TC\OBS\Vaccine;
                 <div class="bg-white p-2">
                     
                     <div class="float-right">
-                        <!-- <button class="btn btn-warning text-white"><i class="fa-solid fa-ban"></i> Từ chối</button>
-                        <button class="btn btn-primary"><i class="fa-solid fa-check"></i> Xác nhận</button> -->
+                        
                     </div>
                 </div>
                 <div class="mt-2">
@@ -50,7 +49,7 @@ use TC\OBS\Vaccine;
                             
                             <th>STT</th>
                             
-                            <!-- <th>Số điện thoại</th> -->
+                          
                             <th>Họ và tên</th>
                             <th>Ngày sinh</th>
                             <th>Giới tính</th>
@@ -82,7 +81,7 @@ use TC\OBS\Vaccine;
                                 
                                 <td><?= ++$i?></td>
                                 <td><?= $nt->hoten?></td>
-                                <!-- <td><?= $nt->sdt?></td> -->
+                                
                                 
                                 <td><?= $nt->ngaysinh?></td>
                                 <td><?php 
@@ -106,8 +105,6 @@ use TC\OBS\Vaccine;
                                 <td><?= $cs->find($tc->cs_id)->ten ?></td>
                                 <td><?= $tc->lantiem?></td>
                                 <td><?= $v->find($tc->v_id)->ten?></td>
-                                <!-- <?php //$nt->updateNOV($tc->lantiem);
-                                   // $nt->updateLastVaccinated($tc->ngaytiem);?> -->
                                 
                                 <td><?= $lst->ttsautiem?></td>
                                  <td>
@@ -122,10 +119,7 @@ use TC\OBS\Vaccine;
                         
                     </table>
 
-                    <!-- Button trigger modal -->
-                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                Launch demo modal
-                                </button> -->
+                   
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -11,13 +11,9 @@
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
     <?php
 
-    // use TC\OBS\PhieuDangKy;
-
-    // require_once '../../db_connect.php';
-    // $pdk = new PhieuDangKy($PDO);
-    // $arrpdk = $pdk->selectFromUser($kh->layId());
+ 
     $ngayhethieuluc = $kh->dateEXP();
-    var_dump($ngayhethieuluc);
+    // var_dump($ngayhethieuluc);
     foreach ($arrpdk as $p) {
         $p->checkToCancel($ngayhethieuluc);
     }
@@ -55,7 +51,6 @@
                             <div>Địa điểm: <b><i><?= $phieudk->findVaccinationSchedule()->findLocation()->diachi . ", " .
                                                         $phieudk->findVaccinationSchedule()->findLocation()->phuong . ", " .
                                                         $phieudk->findVaccinationSchedule()->findLocation()->quan . ", " . $phieudk->findVaccinationSchedule()->findLocation()->tinh ?></i></b> </div>
-                            <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
                         </div>
                     </div>
 
@@ -94,7 +89,6 @@
                     <div>Địa điểm: <b><i><?= $phieudk->findVaccinationSchedule()->findLocation()->diachi . ", " .
                                                 $phieudk->findVaccinationSchedule()->findLocation()->phuong . ", " .
                                                 $phieudk->findVaccinationSchedule()->findLocation()->quan . ", " . $phieudk->findVaccinationSchedule()->findLocation()->tinh ?></i></b> </div>
-                            <!-- <button class="w-50 btn rounded-pill btn-primary m-auto">Xem chi tiết</button> -->
                         </div>
                     </div>
                     <?php endforeach; ?>
@@ -109,14 +103,6 @@
 
         </div>
 
-        <!-- <hr>
-        <br> -->
-        <!-- <h5 class="text-center">Đăng ký tiêm hộ người thân</h5> -->
-
-
-        <!-- </div>
-
-        </div> -->
 
 
     </main>
