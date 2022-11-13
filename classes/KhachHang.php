@@ -28,26 +28,26 @@ class KhachHang{
     //fill data
     protected function fillFromDB(array $row){
 		[
-			'kh_id' => $this->id,
-			'kh_hoten' => $this->hoten,
-            'kh_cmnd' => $this->cmnd,
+			'nd_id' => $this->id,
+			'nd_hoten' => $this->hoten,
+            'nd_cmnd' => $this->cmnd,
            
-            'kh_ngaysinh' => $this->ngaysinh,
-            'kh_gioitinh' => $this->gioitinh,
-			'kh_diachi' => $this->diachi,
-			'kh_phuong' => $this->phuong,
-			'kh_quan' => $this->quan,
-            'kh_tinh' => $this->tinh,
-            'kh_solantiem' => $this->solantiem,
+            'nd_ngaysinh' => $this->ngaysinh,
+            'nd_gioitinh' => $this->gioitinh,
+			'nd_diachi' => $this->diachi,
+			'nd_phuong' => $this->phuong,
+			'nd_quan' => $this->quan,
+            'nd_tinh' => $this->tinh,
+            'nd_solantiem' => $this->solantiem,
 			//
-            'kh_thebaohiem' => $this->baohiem,
-            'kh_thebaohiembd' => $this->baohiembd,
-            'kh_thebaohiemkt' => $this->baohiemkt,
-            'kh_dantoc' => $this->dantoc,
-            'kh_tongiao' => $this->tongiao,
-            'kh_nghenghiep' => $this->nghenghiep,
-            'kh_ngaytiemgannhat' => $this->ngaytiemgannhat,
-            'kh_vacxintiemgannhat' => $this->vaccinedatiem,
+            'nd_thebaohiem' => $this->baohiem,
+            'nd_thebaohiembd' => $this->baohiembd,
+            'nd_thebaohiemkt' => $this->baohiemkt,
+            'nd_dantoc' => $this->dantoc,
+            'nd_tongiao' => $this->tongiao,
+            'nd_nghenghiep' => $this->nghenghiep,
+            'nd_ngaytiemgannhat' => $this->ngaytiemgannhat,
+            'nd_vacxintiemgannhat' => $this->vaccinedatiem,
             'nt_id' => $this->nt_id
 		] = $row;
 	    return $this;
@@ -55,7 +55,7 @@ class KhachHang{
     //get data
     public function all(){
 		$ArrayKhachHang = [];
-		$stmt = $this->db->prepare('select * from khach_hang');
+		$stmt = $this->db->prepare('select * from nguoi_dan');
 		$stmt->execute();
 		while ($row = $stmt->fetch()) {
             $khachhang = new KhachHang($this->db);
@@ -127,11 +127,11 @@ class KhachHang{
     public function save(){
         $result = false;
         if ($this->id >=0){
-            $sql = $this->db->prepare('update khach_hang
-            set kh_hoten = :ten,kh_cmnd = :cmnd, kh_ngaysinh =:ngaysinh, kh_gioitinh = :gioitinh,
-            kh_tinh = :tinh, kh_quan = :quan, kh_phuong = :phuong, kh_diachi = :diachi, kh_solantiem = :solantiem,
-            kh_thebaohiem = :tbhid, kh_thebaohiembd = :tbhbd, kh_thebaohiemkt =:tbhkt, kh_dantoc =:dt, kh_tongiao =:tg, kh_nghenghiep =:nn
-            where kh_id = :id');
+            $sql = $this->db->prepare('update nguoi_dan
+            set nd_hoten = :ten,nd_cmnd = :cmnd, nd_ngaysinh =:ngaysinh, nd_gioitinh = :gioitinh,
+            nd_tinh = :tinh, nd_quan = :quan, nd_phuong = :phuong, nd_diachi = :diachi, nd_solantiem = :solantiem,
+            nd_thebaohiem = :tbhid, nd_thebaohiembd = :tbhbd, nd_thebaohiemkt =:tbhkt, nd_dantoc =:dt, nd_tongiao =:tg, nd_nghenghiep =:nn
+            where nd_id = :id');
             $result = $sql->execute([
                 'ten' => $this->hoten,
                 'cmnd' => $this->cmnd,
@@ -156,8 +156,8 @@ class KhachHang{
                 //
             ]);
         } else {
-            $sql = $this->db->prepare('insert into khach_hang
-            (kh_hoten, kh_cmnd, kh_ngaysinh, kh_gioitinh, kh_tinh,kh_quan, kh_phuong, kh_diachi, kh_solantiem, kh_thebaohiem, kh_thebaohiembd, kh_thebaohiemkt, kh_dantoc, kh_tongiao, kh_nghenghiep, kh_ngaytiemgannhat, kh_vacxintiemgannhat, nt_id)
+            $sql = $this->db->prepare('insert into nguoi_dan
+            (nd_hoten, nd_cmnd, nd_ngaysinh, nd_gioitinh, nd_tinh,nd_quan, nd_phuong, nd_diachi, nd_solantiem, nd_thebaohiem, nd_thebaohiembd, nd_thebaohiemkt, nd_dantoc, nd_tongiao, nd_nghenghiep, nd_ngaytiemgannhat, nd_vacxintiemgannhat, nt_id)
 			values (:ten,:cmnd, :ngaysinh,:gioitinh,:tinh,:quan, :phuong,:diachi, :solantiem, :tbhid, :tbhbd, :tbhkt, :dt,:tg,:nn, :ntgn, :vtgn, :ntid)');
             $result = $sql->execute([
                 'ten' => $this->hoten,
@@ -190,7 +190,7 @@ class KhachHang{
     //find object
     public function find($id)
 	{
-		$sql = $this->db->prepare('select * from khach_hang where kh_id = :id');
+		$sql = $this->db->prepare('select * from nguoi_dan where nd_id = :id');
 		$sql->execute(['id' => $id]);
 		if ($row = $sql->fetch()) {
 			$this->fillFromDB($row);
@@ -201,32 +201,32 @@ class KhachHang{
 
     public function delete()
 	{
-		$sql = $this->db->prepare('delete from khach_hang where kh_id = :id');
+		$sql = $this->db->prepare('delete from nguoi_dan where nd_id = :id');
 		return $sql->execute(['id' => $this->id]);
 	}
     public function updateNOV($lantiem){
-        $sql = $this->db->prepare('update khach_hang set kh_solantiem = :slt where kh_id = :id');
+        $sql = $this->db->prepare('update nguoi_dan set ndsolantiem = :slt where nd_id = :id');
         return $sql->execute(['id' => $this->id, 'slt' => $lantiem]);
     }
 
     public function updateLastNameOfVaccinated($tenvaccine){
-        $sql = $this->db->prepare('update khach_hang set kh_vacxintiemgannhat = :slt where kh_id = :id');
+        $sql = $this->db->prepare('update nguoi_dan set ndvacxintiemgannhat = :slt where nd_id = :id');
         return $sql->execute(['id' => $this->id, 'slt' => $tenvaccine]);
     }
     // public function updateLastVaccinated($ngaytiem){
     //     $ngaytiem = strtotime($ngaytiem);
     //     $nt = date('Y-m-d', $ngaytiem);
-    //     $sql = $this->db->prepare('update khach_hang set kh_ngaytiemgannhat = :slt where kh_id = :id');
+    //     $sql = $this->db->prepare('update nguoi_dan set ndngaytiemgannhat = :slt where nd_id = :id');
     //     return $sql->execute(['id' => $this->id, 'slt' => $nt]);
     // }
      public function updateLastVaccinated(){
        
-        $sql = $this->db->prepare('update khach_hang set kh_ngaytiemgannhat = now() where kh_id = :id');
+        $sql = $this->db->prepare('update nguoi_dan set ndngaytiemgannhat = now() where nd_id = :id');
         return $sql->execute(['id' => $this->id]);
     }
 
     public function findDateLastVaccinated() {
-        $lichtiem = $this->db->prepare("select max(tc_ngaytiem) from lich_su_tiem lst join thong_tin_tiem_chung tt on lst.tc_id = tt.tc_id where kh_id = :id");
+        $lichtiem = $this->db->prepare("select max(tc_ngaytiem) from lich_su_tiem lst join thong_tin_tiem_chung tt on lst.tc_id = tt.tc_id where nd_id = :id");
         $lichtiem->execute(["id" => $this->id]);
         $kq = $lichtiem->fetch();
         if($kq[0] != null){
@@ -274,7 +274,7 @@ class KhachHang{
         // $lichtiem = $this->db->prepare("select max(tc_ngaytiem), v.v_hieuluc from lich_su_tiem lst
         // join thong_tin_tiem_chung tt on lst.tc_id = tt.tc_id
         // JOIN vaccine v ON v.v_id = tt.v_id
-        //  where kh_id = :id;");
+        //  where nd_id = :id;");
         if($this->solantiem == 0 || $this->vaccinedatiem == null) {
             $hl = 0;
             return $hl;
@@ -305,7 +305,7 @@ class KhachHang{
     public function findFamily()
 	{
 		$ArrayKhachHang = [];
-		$stmt = $this->db->prepare('select * from khach_hang where nt_id = :id');
+		$stmt = $this->db->prepare('select * from nguoi_dan where nt_id = :id');
 		$stmt->execute(["id" => $this->id]);
 		while ($row = $stmt->fetch()) {
             $khachhang = new KhachHang($this->db);
@@ -317,7 +317,7 @@ class KhachHang{
 
     // public function all(){
 	// 	$ArrayKhachHang = [];
-	// 	$stmt = $this->db->prepare('select * from khach_hang');
+	// 	$stmt = $this->db->prepare('select * from nguoi_dan');
 	// 	$stmt->execute();
 	// 	while ($row = $stmt->fetch()) {
     //         $khachhang = new KhachHang($this->db);

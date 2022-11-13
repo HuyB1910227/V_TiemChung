@@ -10,7 +10,7 @@ class LichSuTiem{
     public $ttsautiem;
     
     public $tc_id;
-    public $kh_id;
+    public $nd_id;
     
     
     
@@ -28,7 +28,7 @@ class LichSuTiem{
 			'lst_trangthaisautiem' => $this->ttsautiem,
 			
 			'tc_id' => $this->tc_id,
-			'kh_id' => $this->kh_id,
+			'nd_id' => $this->nd_id,
             
 			
 		] = $row;
@@ -49,7 +49,7 @@ class LichSuTiem{
     
     public function fill(array $data, $idTC) {
 		if (isset($data['idKH'])) {
-			$this->kh_id = $data['idKH'];
+			$this->nd_id = $data['idKH'];
 		}
         if (isset($data['txtTrangThaiSauTiem'])) {
 			$this->ttsautiem = $data['txtTrangThaiSauTiem'];
@@ -64,12 +64,12 @@ class LichSuTiem{
     public function save() {
         $result = false;
             $sql = $this->db->prepare('insert into lich_su_tiem
-            (lst_trangthaisautiem, tc_id, kh_id)
-			values (:ttst, :tc_id, :kh_id )');
+            (lst_trangthaisautiem, tc_id, nd_id)
+			values (:ttst, :tc_id, :nd_id )');
             $result = $sql->execute([
                 'ttst' => $this->ttsautiem,
                 'tc_id' => $this->tc_id,
-                'kh_id' => $this->kh_id
+                'nd_id' => $this->nd_id
                 
             ]);
             if($result){
@@ -97,7 +97,7 @@ class LichSuTiem{
 
 	public function selectFromUser($khID){
         $arr = [];
-        $sql = $this->db->prepare('select * from lich_su_tiem where kh_id = :id');
+        $sql = $this->db->prepare('select * from lich_su_tiem where nd_id = :id');
         $sql->execute(['id' => $khID]);
         while($row=$sql->fetch()){
             $e = new LichSuTiem($this->db);

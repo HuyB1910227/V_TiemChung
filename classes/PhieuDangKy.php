@@ -12,7 +12,7 @@ class PhieuDangKy{
     
     private $id = -1;
     public $ngaydangky, $trangthai;
-    public $kh_id;
+    public $nd_id;
     public $lht_id;
     public $diembatthuong;
     public $tiensu;
@@ -30,7 +30,7 @@ class PhieuDangKy{
 			'pdk_id' => $this->id,
 			'pdk_ngaydangky' => $this->ngaydangky,
             'pdk_trangthai' => $this->trangthai,
-            'kh_id' => $this->kh_id,
+            'nd_id' => $this->nd_id,
             'lht_id' => $this->lht_id,
             'pdk_dbt' => $this->diembatthuong,
             'pdk_tiensu' => $this->tiensu
@@ -154,7 +154,7 @@ class PhieuDangKy{
     //
     public function fill(array $data){
 		if (isset($data['khachHangID'])) {
-			$this->kh_id = $data['khachHangID'];
+			$this->nd_id = $data['khachHangID'];
 		}
 		if (isset($data['lichHenTiemID'])) {
 			$this->lht_id = $data['lichHenTiemID'];
@@ -172,10 +172,10 @@ class PhieuDangKy{
     public function save(){
         $result = false;
         $sql = $this->db->prepare('insert into phieu_dang_ky_tiem
-            (kh_id, lht_id,pdk_dbt, pdk_tiensu)
-			values (:kh_id, :lht_id, :dbt, :tiensu)');
+            (nd_id, lht_id,pdk_dbt, pdk_tiensu)
+			values (:nd_id, :lht_id, :dbt, :tiensu)');
             $result = $sql->execute([
-                'kh_id' => $this->kh_id,
+                'nd_id' => $this->nd_id,
                 'lht_id' => $this->lht_id,
                 'dbt' => $this->diembatthuong,
                 'tiensu' => $this->tiensu
@@ -203,7 +203,7 @@ class PhieuDangKy{
 
     public function findUser(){
         $khachhang = new KhachHang($this->db);
-        return $khachhang->find($this->kh_id);
+        return $khachhang->find($this->nd_id);
     }
 
     public function delete(){
@@ -222,7 +222,7 @@ class PhieuDangKy{
 
     public function selectFromUser($khID){
         $arr = [];
-        $sql = $this->db->prepare('select * from phieu_dang_ky_tiem where kh_id = :id');
+        $sql = $this->db->prepare('select * from phieu_dang_ky_tiem where nd_id = :id');
         $sql->execute(['id' => $khID]);
         while($row=$sql->fetch()){
             $e = new PhieuDangKy($this->db);
@@ -234,7 +234,7 @@ class PhieuDangKy{
 
     // public function selectall($khID){
 	// 	$are = [];
-	// 	$sql = $this->db->prepare('select * from phieu_dang_ky_tiem where kh_id = 1');
+	// 	$sql = $this->db->prepare('select * from phieu_dang_ky_tiem where nd_id = 1');
 	// 	$sql->execute();
 	// 	while ($row = $sql->fetch()) {
     //         $e = new PhieuDangKy($this->db);

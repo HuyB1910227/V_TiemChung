@@ -12,7 +12,7 @@ class TaiKhoan{
     public $sdt;
     private $matkhau;
     public $vaitro;
-    public $kh_id;
+    public $nd_id;
     private $errors = [];
     public $avatar;
    
@@ -35,7 +35,7 @@ class TaiKhoan{
             'tk_matkhau' => $this->matkhau,
             'tk_vaitro' => $this->vaitro,
             'tk_avatar' => $this->avatar,
-            'kh_id' => $this->kh_id
+            'nd_id' => $this->nd_id
 		] = $row;
 	    return $this;
 	}
@@ -191,7 +191,7 @@ class TaiKhoan{
                 $this->matkhau= md5($data['npwd']);
             }
         }
-        $this->kh_id = $idKhachHang;
+        $this->nd_id = $idKhachHang;
 		return $this;
 	}
 
@@ -250,14 +250,14 @@ class TaiKhoan{
         } else {
 
             $sql = $this->db->prepare('insert into tai_khoan
-            (tk_ten, tk_hoten, tk_sodienthoai, tk_matkhau, kh_id)
+            (tk_ten, tk_hoten, tk_sodienthoai, tk_matkhau, nd_id)
 			values (:ten, :hoten, :sdt, :pwd, :id_kh)');
             $result = $sql->execute([
                 'ten' => $this->ten,
                 'hoten' => $this->hoten,
                 'sdt' => $this->sdt,
                 'pwd' => $this->matkhau,
-                'id_kh' => $this->kh_id,
+                'id_kh' => $this->nd_id,
             ]);
             if($result){
                 $this->id = $this->db->lastInsertId();
@@ -306,14 +306,14 @@ class TaiKhoan{
     //         ]);
     //     } else {
     //         $sql = $this->db->prepare('insert into tai_khoan
-    //                 (tk_ten, tk_hoten, tk_sodienthoai, tk_matkhau, kh_id)
+    //                 (tk_ten, tk_hoten, tk_sodienthoai, tk_matkhau, nd_id)
     //         		values (:ten, :hoten, :sdt, :pwd, :id_kh)');
     //         $result = $sql->execute([
     //                     'ten' => $this->ten,
     //                     'hoten' => $this->hoten,
     //                     'sdt' => $this->sdt,
     //                     'pwd' => $this->matkhau,
-    //                     'id_kh' => $this->kh_id,
+    //                     'id_kh' => $this->nd_id,
     //                 ]);
     //         if($result){
     //             $this->id = $this->db->lastInsertId();
