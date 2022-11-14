@@ -20,7 +20,7 @@
 
 <head>
     <?php include_once __DIR__ . '/../layouts/meta.php'; ?>
-    <title>Quản lý vaccin tiêm chủng</title>
+    <title>Quản lý</title>
     <?php include_once __DIR__ . '/../layouts/styles.php'; ?>
 </head>
 
@@ -30,13 +30,13 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
-                <h3>Danh sách vacxin</h3>
+                <h3>Danh sách vắc xin</h3>
                 
                 <div class="bg-white mx-2 row">
                   
                     <div class="">
                        
-                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/admin/quanlyvaccin/create.php"><i class="fa-solid fa-vial-virus"></i> Thêm vac-xin</a>
+                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/admin/quanlyvaccin/create.php"><i class="fa-solid fa-vial-virus"></i> Thêm vắc xin</a>
                     </div>
                 </div>
                 <hr>

@@ -38,7 +38,7 @@ $Vaccines = $vaccine->all();
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
-                <h3>Danh sách tiêm vaccin</h3>
+                <h3>Tiêm Vắc xin</h3>
                 <!-- hshshshsh -->
                 <div class="row filter">
                     <h5 class="col-12"><i class="fa-solid fa-filter"></i>
@@ -137,7 +137,7 @@ $Vaccines = $vaccine->all();
                                 <th>Cơ sở tiêm</th>
                                 <th>Điểm bất thường</th>
                                 <th>Trạng thái</th>
-                                <th>Vaccine</th>
+                                <th>Vắc xin</th>
                                 <th>Lần tiêm</th>
                                 <th>Thao tác</th>
 

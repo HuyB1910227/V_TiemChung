@@ -24,7 +24,7 @@ use TC\OBS\TinTuc;
 
 <head>
     <?php include_once __DIR__ . '/../layouts/meta.php'; ?>
-    <title>tin tức</title>
+    <title>Cẩm nang y tế</title>
     <?php include_once __DIR__ . '/../layouts/styles.php'; ?>
 
 </head>
@@ -33,7 +33,7 @@ use TC\OBS\TinTuc;
     <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
     <main class="row">
         <div class="container">
-            <img src="../../assets/uploads/<?= $cn->hinhanh?>" alt=""> <br>
+            <img src="../../assets/uploads/<?= $cn->hinhanh?>" alt="" class="w-100" height="500px"> <br>
             <?= $cn->noidung?>
         </div>
     </main>

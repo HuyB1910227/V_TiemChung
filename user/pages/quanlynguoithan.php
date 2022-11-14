@@ -36,7 +36,7 @@
 
 
                     
-                    <div class="col-6 p-2 bg-white my-2">
+                    <div class="col-12 col-lg-6 p-2 bg-white my-2">
                         <div class="row justify-content-sm-center pt-2">
                             <!-- <h4>Thông tin chính</h4> -->
 

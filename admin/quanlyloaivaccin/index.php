@@ -36,13 +36,13 @@
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
-                <h3>Danh sách vacxin</h3>
+                <h3>Danh sách vắc xin</h3>
                 
                 <div class="bg-white mx-2 row">
                   
                     <div class="">
                        
-                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/admin/quanlyloaivaccin/create.php"><i class="fa-solid fa-prescription-bottle-medical"></i> Thêm loại vắc-xin</a>
+                        <a class="btn btn-primary btn-link text-light" href="/V_TiemChung/admin/quanlyloaivaccin/create.php"><i class="fa-solid fa-prescription-bottle-medical"></i> Thêm loại vắc xin</a>
                     </div>
                 </div>
                 <hr>

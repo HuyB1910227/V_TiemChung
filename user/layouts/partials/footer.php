@@ -2,7 +2,7 @@
     <div class="container-lg">
         <div class="row justify-content-center my-3">
             <div class="col-12 col-md-3">
-                <img src="/V_TiemChung/assets/user/img/footer/qrcode.png" alt="" width="200px" id="QRcode">
+                <img src="/V_TiemChung/assets/frontend/img/footer/qrcode.png" alt="" width="200px" id="QRcode">
             </div>
             <div class="col-12 col-md-9">
                 <h4>Liên hệ với chúng tôi</h4>

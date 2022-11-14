@@ -75,8 +75,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col m-2 bg-white">
-                    <div class="row border rounded rounded-3 justify-content-sm-center pt-2">
+                <div class="col-12 col-md-6 bg-white mt-2">
+                    <div class="row rounded rounded-3 justify-content-center p-2 ">
                         <h4>Thông tin chính</h4>
                         <div class="col-12 p-0">
                             <table class="table table-striped mb-0">
@@ -128,8 +128,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col m-2 ">
-                    <div class="row border bg-white justify-content-center pt-2">
+                <div class="col-12 col-md-6 mt-2">
+                    <div class="row bg-white justify-content-center pt-2">
                         <h4>Thông tin khác</h4>
                         <div class="col-12 p-0">
                             <table class="table table-striped mb-0">
@@ -147,14 +147,14 @@
                                     <td class="font-weight-bold">Hiệu lực:</td>
                                     <td><?= $kh->dateEXP(); ?></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td class="font-weight-bold">Hiệu lực2:</td>
                                     <td><?= $kh->findVaccineLastVaccinated(); ?></td>
-                                </tr>
-                                <tr>
+                                </tr> -->
+                                <!-- <tr>
                                     <td class="font-weight-bold">Vacxin tiêm gần nhất:</td>
                                     <td><?= $kh->vaccinedatiem; ?></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td class="w-50 font-weight-bold">Số thẻ BHYT: </td>
                                     <td class="w-50"><?= $kh->baohiem ?></td>

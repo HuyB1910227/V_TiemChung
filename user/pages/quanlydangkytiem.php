@@ -29,7 +29,7 @@
             <h5 class="text-center font-weight-bold">Đăng ký tiêm cho cá nhân</h5>
             <div class="row  ">
                 <?php foreach ($arrpdk as $phieudk) : ?>
-                    <div class="col-6 ">
+                    <div class="col-12 col-lg-6">
                         <div class="card p-4 mx-auto my-2" style="width:400px; position: relative">
 
 
@@ -67,7 +67,7 @@
                 <?php foreach ($dsnguoithan as $nguoithan) : ?>
                     <?php $dspdk = $phieudk->selectFromUser($nguoithan->layId()) ?>
                     <?php foreach ($dspdk  as $phieudk) : ?>
-                    <div class="col-6 ">
+                    <div class="col-12 col-lg-6">
                         <div class="card p-4 mx-auto my-2" style="width:400px; position: relative">
 
 

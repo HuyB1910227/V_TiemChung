@@ -30,7 +30,7 @@ $lich->find($_GET["id"]);
             <p class="text-danger">(*) Vui lòng chọn người thân bạn muốn đăng ký hộ:</p>
             <div class="row">
                 <?php foreach ($dsnguoithan as $nguoithan) : ?>
-                    <div class="card col-5 ml-5 my-2" style="width: 50%;">
+                    <div class="card col-10 col-md-5 ml-5 my-2" style="width: 100%;">
                         <div class="card-body">
                             <h5 class="card-title"><?= $nguoithan->hoten ?></h5>
                             <hr>

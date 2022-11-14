@@ -87,8 +87,8 @@ use TC\OBS\TinTuc;
 
     <main class="row mt-2">
 
-        <div class="container">
-            <img src="../assets/uploads/<?= $cn->hinhanh?>" alt=""> <br>
+        <div class="container"> 
+            <img src="../assets/uploads/<?= $cn->hinhanh?>" alt="" class="w-100" height="500px"> <br>
             <?= $cn->noidung?>
         </div>
     </main>

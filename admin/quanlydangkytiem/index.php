@@ -41,7 +41,7 @@ $arrcoso = $cosotiem->all();
 
             <!-- style="max-height: 800px; overflow-y:scroll" -->
             <div class="col-10 offset-2 mt-1">
-                <h3>Danh sách đăng ký tiêm vaccin</h3>
+                <h3>Danh sách đăng ký tiêm vắc xin</h3>
                 <div class="row filter">
                     <h5 class="col-12"><i class="fa-solid fa-filter"></i>
                         Bộ lọc</h5>

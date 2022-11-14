@@ -13,8 +13,8 @@
     <main class="row">
 
         <div class="container-lg ">
-            <h3 class="titile">Sửa tài khoản</h3>
-            <form action="" method="POST" id="signupForm" style="width: 500px; margin: auto">
+            <h3 class="titile mb-2">Sửa tài khoản</h3>
+            <form action="" method="POST" id="signupForm" style="width: 400px; margin: auto">
                 <div class="row ">
                     <div class="col-12 col-sm-12">
                         <div class="form-group">
