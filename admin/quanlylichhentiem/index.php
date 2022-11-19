@@ -49,7 +49,7 @@ $coso = new CoSoTiem($PDO);
                                 <th>Phường / Xã</th>
                                 <th>Quận / Huyện</th>
                                 <th>Thành phố / Tỉnh</th>
-                                <th>Trạng thái</th>
+                                
                                 <th>Thao tác</th>
                             </tr>
                         </thead>
@@ -65,7 +65,7 @@ $coso = new CoSoTiem($PDO);
                                     <td><?= $coso->phuong ?></td>
                                     <td><?= $coso->quan ?></td>
                                     <td><?= $coso->tinh ?></td>
-                                    <td><?= $coso->trangthai ?></td>
+                                    
                                     <td>
                                         <a class="btn btn-warning text-white" href="edit.php?id=<?= $lich->getID() ?>"><i class="fa-solid fa-pen-to-square"></i></a>
 

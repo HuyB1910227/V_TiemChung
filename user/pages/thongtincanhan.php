@@ -346,6 +346,13 @@
             }
             return false;
         }, "Nhập vào ngày tiêm gần nhất");
+        $.validator.addMethod("lengthCC", function(value,element) {
+            if(element.value.length == 9 || element.value.length == 12){
+                return true;
+            } else {
+                return false;
+        }
+        }, "Căn cước công dân phải có 9 hoặc 12 ký tự số!");
         $(document).ready(function() {
             // $.validator.setDefaults({
             //     submitHandler: function() {
@@ -387,7 +394,8 @@
                     txtCCCD: {
                         required: true,
                         number: true,
-                        rangelength: [12, 12],
+                        lengthCC: true
+                       
 
                     },
 
@@ -424,7 +432,7 @@
                     },
                     txtCCCD: {
                         required: "Bạn chưa nhập vào căn cước công dân",
-                        rangelength: "Căn cước công dân phải có 12 ký tự số!",
+                     
                         number: "Căn cước công dân sai định dạng"
                     }
 

@@ -179,7 +179,7 @@ $arrcoso = $cosotiem->all();
                                     <td><?= $lht->ngaytiem ?></td>
 
                                     <td><?php echo $lht->findLocation()->ten ?></td>
-                                    <td><?= $pdk->diembatthuong ?></td>
+                                    <td><?= $pdk->diembatthuong == "0" ? "Không" : "Có" ?></td>
                                     <td><?php if ($pdk->trangthai == 1) {
                                             echo "<span class=\"text-info\">Đã xác nhận</span>";
                                         } else if ($pdk->trangthai == 2) {

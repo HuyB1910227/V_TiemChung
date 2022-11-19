@@ -45,6 +45,13 @@
           startTag: "<b>",
           endTag: "</b>",
         },
+        paragraph: {
+          type: "encloseLine",
+          title: "Paragraph",
+          class: "paragraph",
+          startTag: "<p>",
+          endTag: "</p>",
+        },
       italic: {
           type: "encloseLine",
           title: "Italic",
@@ -165,7 +172,8 @@
       "pre",
       "spacer",
       "img",
-      "link"
+      "link",
+      "paragraph"
     ],
     placement: 'beforeElement'
     /*

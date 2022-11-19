@@ -4,10 +4,12 @@ require_once '../../db_connect.php';
 use TC\OBS\KhachHang;
 use TC\OBS\LichHenTiem;
 use TC\OBS\PhieuDangKy;
+use TC\OBS\Vaccine;
 
 $ttDK = new PhieuDangKy($PDO);
 $ttKH = new KhachHang($PDO);
 $ttLT = new LichHenTiem($PDO);
+$vaccine = new Vaccine($PDO);
 if (isset($_POST['id'])) {
     // echo $_POST['id'];
     $ttDK->find($_POST['id']);
@@ -35,7 +37,7 @@ if (isset($_POST['id'])) {
         <div class="row">
             <?php include_once __DIR__ . '/../layouts/partials/sidebar.php'; ?>
             <div class="col-10 offset-2">
-                <h3>Chi tiết đăng ký tiêm vaccin</h3>
+                <h3>Chi tiết đăng ký tiêm vắc xin</h3>
 
                 <div class="bg-white p-2">
                     <div class="float-right">
@@ -75,7 +77,7 @@ if (isset($_POST['id'])) {
                                     <table class="table table-borderless">
                                         <tr>
                                             <th>Giới tính:</th>
-                                            <td><?= $ttKH->gioitinh ?></td>
+                                            <td><?= $ttKH->gioitinh == "0" ? "Nam" : "Nữ" ?></td>
                                         </tr>
                                         <tr>
                                             <th>Ngày sinh:</th>
@@ -84,6 +86,10 @@ if (isset($_POST['id'])) {
                                         <tr>
                                             <th>Số lần tiêm:</th>
                                             <td><?= $ttKH->solantiem ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Vắc xin đã tiêm:</th>
+                                            <td><?= $vaccine->find($ttKH->vaccinedatiem)->ten ?></td>
                                         </tr>
                                         
 

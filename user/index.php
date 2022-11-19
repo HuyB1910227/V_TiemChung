@@ -21,7 +21,7 @@ use TC\OBS\TinTuc;
 
 <head>
     <?php include_once __DIR__ . '/layouts/meta.php'; ?>
-    <title>Quản lý cơ sở tiêm</title>
+    <title>V - Tiêm chủng</title>
     <?php include_once __DIR__ . '/layouts/styles.php'; ?>
     <title>V_Tiêm chủng</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,7 +92,7 @@ use TC\OBS\TinTuc;
                     <div class="purple-square-container text-light">
                         <div>
                             <h1 class="font-weight-border">Xin chào!</h1>
-                            <p class="font-weight-border">Chào mừng quý khách đã đến với V-Tiêm chủng, đây là trang quản lý tiêm chủng cá nhân và người thân trong gia đình</p>
+                            <p class="font-weight-border">Chào mừng quý khách đã đến với V-Tiêm chủng, đây là trang quản lý tiêm chủng cá nhân và người thân trong gia đình.</p>
 
                         </div>
                     </div>
@@ -207,6 +207,7 @@ use TC\OBS\TinTuc;
             <div class="row justify-content-center pt-2">
                 <a href="https://ncovtrack.com/vaccine/vietnam" class="banquyen">&copy;&nbsp; Bản quyền thuộc về ncovtrack.com</a>
             </div>
+            <hr>
             <h3 class="title">Tổ chức tiêm chủng</h3>
             <div class="row">
                 <div class="col-12">

@@ -25,7 +25,7 @@
 
 
                             </div>
-                            <div class="error-block mt-1">
+                            <div class="text-danger mt-1">
                                 <p id="error_tendangnhap"></p>
                             </div>
 
@@ -41,7 +41,7 @@
                                 <input type="text" class="form-control" id="txtSoDienThoai" name="txtSoDienThoai" placeholder="Nhập vào số điện thoại...." value="<?= $user->sdt ?>">
 
                             </div>
-                            <div class="error-block mt-1">
+                            <div class="text-danger mt-1">
                                 <p id="error_sdt"></p>
                             </div>
 
@@ -56,16 +56,16 @@
                         </div>
 
 
-                        <!-- <div class="form-group d-none">
-                            <label for="pwd2">Mật khẩu hiện tại</label>
+                        <div class="form-group d-none">
+                            <label for="pwd2">Mật khẩu cũ <span class="required-fill-in">*</span></label>
                             <div class="input-group">
 
-                                <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Nhập vào mật khẩu....">
+                                <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Nhập vào mật khẩu...." required>
                             </div>
-                            <div>
-                                
+                            <div class="text-danger mt-1">
+                                <p id="error_mk"></p>
                             </div>
-                        </div> -->
+                        </div>
 
 
 
@@ -73,7 +73,7 @@
                             <label for="npwd">Mật khẩu mới <span class="required-fill-in">*</span></label>
                             <div class="input-group">
 
-                                <input type="password" class="form-control" id="npwd" name="npwd" placeholder="Nhập vào mật khẩu....">
+                                <input type="password" class="form-control" id="npwd" name="npwd" placeholder="Nhập vào mật khẩu...." required> 
                             </div>
 
                         </div>
@@ -81,7 +81,7 @@
                             <label for="npwd">Nhập lại mật khẩu <span class="required-fill-in">*</span></label>
                             <div class="input-group">
 
-                                <input type="password" class="form-control" id="re_npwd" name="re_npwd" placeholder="Nhập vào mật khẩu....">
+                                <input type="password" class="form-control" id="re_npwd" name="re_npwd" placeholder="Nhập vào mật khẩu...." required>
                             </div>
 
                         </div>
@@ -130,7 +130,7 @@
                 $user->fill($_POST, $kh->layId());
                 $user->save();
                 echo "<script>alert('Thay đổi thành công!');</script>";
-                echo "<script>window.location.href = 'trangchu.php';</script>";
+                echo "<script>window.location.href = '../dangxuat.php';</script>";
             }
            
         } else {
@@ -161,11 +161,12 @@
     <?php include_once __DIR__ . '/../layouts/script.php'; ?>
 
     <script>
+        
         $(document).ready(function() {
 
             $('#doimatkhau').on("change", function() {
                 if ($(this).is(":checked")) {
-                    console.log("có");
+                    
 
                     console.log($('#pwd'));
                     $('#pwd2').parents("div.form-group").removeClass("d-none");
@@ -205,6 +206,36 @@
                             else if (json.status == 'success') {
 
                                 $('#error_tendangnhap').show().text("Tên đăng nhập đã được sử dụng!");
+
+                            }
+
+                        }
+                    });
+                }
+
+
+            });
+            $('#pwd2').blur(function() {
+                var idKH = "<?= $user->getID() ?>";
+                var pass = $(this).val();
+
+              
+                if (pass != '') {
+                    $.ajax({
+                        url: 'scriptObject.php',
+                        type: 'POST',
+                    
+                        data: {
+                            'idKH': idKH,
+                            'pass' : pass
+                        },
+                        success: function(response) {
+                            var json = $.parseJSON(response);
+                            if (json.status == 'error')
+                                $('#error_mk').show().text("Mật khẩu không chính xác!");
+                            else if (json.status == 'success') {
+                                $('#error_mk').text("");
+                                
 
                             }
 
@@ -279,13 +310,16 @@
                         rangelength: "Tên đăng nhập phải có 10 ký tự số!",
                         number: "Số điện thoại sai định dạng"
                     },
+                    pwd2: {
+                        required: "Bạn chưa nhập mật khẩu",
+                    },
 
-                    pwd: {
-                        // required: "Bạn chưa nhập mật khẩu",
+                    npwd: {
+                        required: "Bạn chưa nhập mật khẩu",
                         minlength: "Mật khẩu phải có ít nhất 8 ký tự!",
                     },
-                    re_pwd: {
-                        // required: "Bạn chưa nhập mật khẩu",
+                    re_npwd: {
+                        required: "Bạn chưa nhập mật khẩu",
                         minlength: "Mật khẩu phải có ít nhất 8 ký tự!",
                         equalTo: "Mật khẩu không trùng khớp với mật khẩu vừa nhập!"
                     },

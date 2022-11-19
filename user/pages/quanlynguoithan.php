@@ -84,7 +84,7 @@
 
                                     <tr>
                                         <td class="font-weight-bold">CMND/CCCD:</td>
-                                        <td><?= $nguoithan->cmnd ?></td>
+                                        <td><?= $nguoithan->cmnd != "000000000000" ? $nguoithan->cmnd : "Không"?></td>
                                     </tr>
 
                                     <tr>
@@ -109,7 +109,7 @@
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Ngày tiêm gần nhất:</td>
-                                        <td><?php echo $nguoithan->ngaytiemgannhat;
+                                        <td><?=  $nguoithan->ngaytiemgannhat != "0000-00-00" ? $nguoithan->ngaytiemgannhat : ""
 
                                             ?></td>
                                     </tr>
@@ -127,11 +127,11 @@
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Thời gian sử dụng thẻ - từ ngày:</td>
-                                        <td><?= $nguoithan->baohiembd ?></td>
+                                        <td><?= $nguoithan->baohiembd != "0000-00-00" ? $nguoithan->ngaytiemgannhat : ""?></td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Thời gian sử dụng thẻ - đến ngày:</td>
-                                        <td><?= $nguoithan->baohiemkt ?></td>
+                                        <td><?= $nguoithan->baohiemkt != "0000-00-00" ? $nguoithan->baohiemkt : ""?></td>
                                     </tr>
                                     <tr>
                                         <td class="font-weight-bold">Dân tộc:</td>

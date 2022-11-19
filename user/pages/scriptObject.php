@@ -31,6 +31,24 @@
         }
         echo json_encode($res);
     }
+
+    if(isset($_POST["idKH"]) && isset($_POST["pass"])){
+        $idKH = $_POST["idKH"];
+        $pass = $_POST["pass"];
+        $query = $PDO->prepare('SELECT * FROM tai_khoan WHERE tk_id = :id AND tk_matkhau = :mk');
+        $result = $query->execute([
+            "id" => $idKH,
+            "mk" => md5($pass)
+        ]);
+        $row = $query->rowCount();
+        if ($row > 0) {
+
+            $res = array("status" => "success");
+        } else {
+            $res = array("status" => "error");
+        }
+        echo json_encode($res);
+    }
     
     
 ?> 

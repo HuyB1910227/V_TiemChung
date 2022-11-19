@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                             <div class="form-group">
                                 <label for="txtNoiDung">Nội dung</label>
-                                <textarea type="text" name="txtNoiDung" id="textile-demo" class="form-control" required value="" ></textarea>
+                                <textarea type="text" name="txtNoiDung" id="textile-demo" class="form-control" required value="" rows="8"></textarea>
 
                             </div>
                             <a class="btn btn-light rounded-circle border border-primary text-primary " href="index.php"><i class="fa-solid fa-arrow-left"></i></a>
@@ -131,8 +131,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include_once __DIR__ . '/../layouts/scripts.php'; ?>
     <script>
         $(document).ready(function() {
-            $("#textile-demo").textileToolbar();
+            $("#textile-demo").textileToolbar({
+                toolbar: ["strong","italic","underline", "h1", "h2", "h3", "paragraph", "spacer","ul","ol","url"],
+            });
         });
+
     </script>
 </body>
 

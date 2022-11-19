@@ -94,6 +94,7 @@
                             <button class="btn btn-primary rounded-pill float-right w-50" type="button" id="btnNext1">Tiếp tục</button>
                         </div>
                         <div class="tab-pane" id="tiensutiem" role="tabpanel">
+                        <h6 class="text-danger">Vui lòng chọn đầy đủ vào bảng tiền sử bệnh!</h6>
                             <table class="table table-bordered table-striped">
                                 <tr class="bg-info text-center text-light">
                                     <th>Tiền sử</th>

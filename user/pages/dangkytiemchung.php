@@ -39,9 +39,9 @@ $coso = new CoSoTiem($PDO);
 
             </div>
             <hr>
-            <table class="table table-bordered table-responsive" id="lichhen">
+            <table class="table table-bordered table-responsive " id="lichhen">
                 <thead>
-                    <tr class="">
+                    <tr class="bg-primary text-light">
                         <!-- <th>Chọn</th> -->
 
                         <th>Mã lịch hẹn</th>

@@ -192,7 +192,7 @@ require_once '../../db_connect.php';
 
 
 
-      // ------------------ Vẽ biểu đồ thống kê Loại sản phẩm -----------------
+      // ------------------ Vẽ biểu đồ thống kê  -----------------
       getDuLieuBaoCaoTongSoKhachHangT1()
       getDuLieuBaoCaoTongSoKhachHang();
       getDuLieuBaoCaoTongSoKhachHangTN()
@@ -298,6 +298,7 @@ require_once '../../db_connect.php';
                     '#de2cf2',
                   ],
                   borderWidth: 3,
+                 
                  
                 }],
                 

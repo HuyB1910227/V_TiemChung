@@ -92,3 +92,7 @@
 .textile-toolbar .tt-help {
   background-image: url(../img/bt_help.png);
 }
+
+.textile-toolbar .tt-paragraph {
+  background-image: url(../img/bt_para.png);
+}

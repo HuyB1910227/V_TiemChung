@@ -305,11 +305,13 @@ $arrVac = $v->all();
             }
             return false;
         }, "Nhập vào ngày tiêm gần nhất");
-        // $.validator.setDefaults({
-        //     submitHandler: function() {
-        //         alert('Đã gửi thành công!');
-        //     }
-        // });
+        $.validator.addMethod("lengthCC", function(value,element) {
+            if(element.value.length == 9 || element.value.length == 12){
+                return true;
+            } else {
+                return false;
+        }
+        }, "Căn cước công dân phải có 9 hoặc 12 ký tự số!");
         $(document).ready(function() {
 
             $('#txtTen').on("keyup", function() {
@@ -401,7 +403,7 @@ $arrVac = $v->all();
                     txtCCCD: {
                         required: true,
                         number: true,
-                        rangelength: [12, 12],
+                        lengthCC: true
 
                     },
                     pwd: {
@@ -450,7 +452,7 @@ $arrVac = $v->all();
                     },
                     txtCCCD: {
                         required: "Bạn chưa nhập vào căn cước công dân",
-                        rangelength: "Căn cước công dân phải có 12 ký tự số!",
+                        rangelength: "Căn cước công dân phải có 8 hoặc 12 ký tự số!",
                         number: "Căn cước công dân sai định dạng"
                     },
                     pwd: {
@@ -486,7 +488,7 @@ $arrVac = $v->all();
             var inputVTGN = $('select[name="slvaccineTiemGanNhat"]');
             console.log(inputVTGN);
             // console.log(inputNTGN);
-            inputSLT.on("keyup", function() {
+            inputSLT.on("change", function() {
                 if (inputSLT.val() == 0) {
                     inputNTGN.attr("readonly", true);
                     // inputVTGN.val("");

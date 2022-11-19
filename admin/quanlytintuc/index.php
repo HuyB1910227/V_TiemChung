@@ -62,7 +62,7 @@ use TC\OBS\Vaccine;
                               <img src="../../assets/uploads/<?= $camnang->hinhanh?>" alt="" width="100px" height="100px">
                               </td>
                             <td><?= $camnang->tieude?></td>
-                            <td><?= $camnang->noidung?></td>
+                            <td><?= htmlspecialchars($camnang->noidung)?></td>
                            
                             
                             <td>
