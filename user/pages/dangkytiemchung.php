@@ -1,0 +1,103 @@
+<?php
+require '../../db_connect.php';
+use TC\OBS\LichHenTiem;
+$lich = new LichHenTiem($PDO);
+$arrlichhen = $lich->all();
+use TC\OBS\CoSoTiem;
+$coso = new CoSoTiem($PDO);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php include_once __DIR__ . '/../layouts/meta.php'; ?>
+    <title>Đăng ký tiêm chủng</title>
+    <?php include_once __DIR__ . '/../layouts/styles.php'; ?>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
+
+</head>
+
+<body class="container-fluid">
+    <?php include_once __DIR__ . '/../layouts/partials/header.php'; ?>
+    <main class="row">
+        <div class="container-lg">
+            <div class="text-center">
+                <h3 class="titile mb-1">Đăng ký tiêm cho cá nhân</h3>
+            </div>
+            <div class="row m-1">
+                <a href="dangkytiemchungnt.php" class="btn btn-primary ml-auto">  Đăng ký tiêm cho người thân <i class="fa-solid fa-arrow-right"></i></a>
+
+            </div>
+            <hr>
+            <table class="table table-bordered table-responsive " id="lichhen">
+                <thead>
+                    <tr class="bg-primary text-light">
+                        <th>Mã lịch hẹn</th>
+                        <th>Ngày hẹn tiêm</th>
+                        <th>Cơ sở tiêm</th>
+                        <th>Địa chỉ</th>
+                        <th>Phường / Xã</th>
+                        <th>Quận / Huyện</th>
+                        <th>Thành phố / Tỉnh</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <?php foreach ($arrlichhen as $i => $lich) : ?>
+                        <?php $coso = $lich->findLocation(); ?>
+                        <?php if ($coso->trangthai == 1 && strtotime($lich->ngaytiem) >= $today) : ?>
+                            <tr>
+
+                                <td><?= $lich->getId() ?></td>
+                                <td><?= $lich->ngaytiem ?></td>
+                                <td><?= $coso->ten ?></td>
+                                <td><?= $coso->diachi ?></td>
+                                <td><?= $coso->phuong ?></td>
+                                <td><?= $coso->quan ?></td>
+                                <td><?= $coso->tinh ?></td>
+                                <td>
+                                    <?php
+                                    $t = false;
+                                    foreach ($arrpdk as $phieudk) {
+                                        $result = false;
+                                        if ($phieudk->findVaccinationSchedule()->getID() == $lich->getID()) {
+                                            $result = true;
+                                            $t = true;
+                                            break;
+                                        }
+                                    };
+                                    ?>
+                                    <?php if ($t == 1) : ?>
+                                        <a class="btn btn-light text-primary disabled" href="xulydangkytiem.php?id=<?= $lich->getID(); ?>">Đã đăng ký</a>
+                                    <?php else : ?>
+                                        <?php if ($kh->compareDateEXP($lich->ngaytiem) == false) : ?>
+                                            <a class="btn btn-light text-primary btn-link disabled" href="xulydangkytiem.php?id=<?= $lich->getID(); ?>">Chưa đến hạn tiêm</a>
+                                        <?php else : ?>
+                                            <a class="btn btn-light text-primary btn-link" href="xulydangkytiem.php?id=<?= $lich->getID(); ?>">Đăng ký</a>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <?php include_once __DIR__ . '/../layouts/partials/footer.php'; ?>
+    <?php include_once __DIR__ . '/../layouts/script.php'; ?>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#lichhen').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json",
+                },
+            });
+        });
+    </script>
+</body>
+</html>
